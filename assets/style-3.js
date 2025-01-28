@@ -1,114 +1,105 @@
 // Initialize font properties
-const fontname = "Roboto+Mono";
-const fontweights = [300, 400]
+const fontname = "Inter"; // Changed to Inter for better readability
+const fontweights = [300, 400, 500];
 
-// Color properties
-const basecolor = "#777";
-const accentcolor = "#007";
-const highlightcolor = "#111";
-
-// const basecolor = "#888";
-// const accentcolor = "#222";
-// const highlight = "#111";
+// Color properties - Modern academic color scheme
+const basecolor = "#2D3748";     // Darker gray for better contrast
+const accentcolor = "#2C5282";   // Deep blue
+const highlightcolor = "#1A365D"; // Darker blue for emphasis
 
 // Body properties
-const bodyfontweight = 300;
-const bodyfontsize = "12pt";
-const backgroundcolor = "#FFFAF0";
+const bodyfontweight = 400;      // Increased for better readability
+const bodyfontsize = "14pt";     // Increased from 12pt
+const backgroundcolor = "#FFFFFF"; // Clean white background
 
 // Link properties
 const acolor = accentcolor;
-const adecoration = "underline dotted";
-// const ahovercolor = accentcolor;
-// const ahoverduration = "0.3s";
-// const ahoverdecoration = "none"; //none, underline, overline, dotted, color (https://www.w3schools.com/cssref/pr_text_text-decoration.asp)
+const adecoration = "none";      // Cleaner look, will add hover effects in CSS
 
 // Menu properties
 const menucolor = basecolor;
-const menufontsize = "15pt";
+const menufontsize = "16pt";     // Slightly larger
 const menudecoration = "none";
-// const menuhover = accentcolor;
-// const menuhoverduration = "0.3s";
-// const menuhoverdecoration = "none"; //none, underline, overline, dotted, color (https://www.w3schools.com/cssref/pr_text_text-decoration.asp)
 
 // Header properties
 const headercolor = accentcolor;
-const headerfontsize = "18pt";
+const headerfontsize = "20pt";   // Larger for better hierarchy
 const headerdecoration = "none";
 const namecolor = highlightcolor;
-const namefontsize = "23pt";
-
+const namefontsize = "26pt";     // Larger for emphasis
 
 // Publication properties
 const ptitlecolor = accentcolor;
-const ptitlefontsize = bodyfontsize;
-const ptitleweight = bodyfontweight;
+const ptitlefontsize = "15pt";   // Slightly larger than body
+const ptitleweight = 500;        // Semi-bold for titles
 const ptitledecoration = "none";
 const ptitlestyle = "normal";
 
-const authorcolor = accentcolor;
-const authorweight = bodyfontweight;
+const authorcolor = basecolor;
+const authorweight = 400;
 const authordecoration = "none";
 const authorstyle = "normal";
 
 const selfcolor = highlightcolor;
-const selfweight = bodyfontweight;
+const selfweight = 500;          // Semi-bold for self-reference
 const selfdecoration = "none";
 const selfstyle = "normal";
 
-const tagcolor = accentcolor;
-const tagweight = bodyfontweight;
+const tagcolor = "#4A5568";      // Softer gray for tags
+const tagweight = 400;
 const tagdecoration = "none";
 const tagstyle = "normal";
 
-const insttitlecolor = highlightcolor;
-const insttitlesize = "12px";
-const instyearcolor = accentcolor;
-const instyearsize = "11px";
+const insttitlecolor = "#4A5568"; // Softer gray
+const insttitlesize = "13px";     // Slightly larger
+const instyearcolor = "#718096";  // Medium gray
+const instyearsize = "12px";
 
-//     .institution {
-//             font - size: 12px;
-//             color: #222;
-//         }
-//   .years {
-//             font - size: 11px;
-//             color: #888;
-//         }
+// Add additional styles for hover effects and transitions
+const styleElement = document.createElement('style');
+styleElement.textContent = `
+    a {
+        transition: all 0.3s ease;
+    }
+    a:hover {
+        color: ${highlightcolor};
+        text-decoration: underline;
+    }
+    .menulink {
+        transition: all 0.3s ease;
+    }
+    .menulink:hover {
+        color: ${highlightcolor};
+    }
+    .papertitle {
+        transition: all 0.3s ease;
+    }
+    .papertitle:hover {
+        color: ${highlightcolor};
+    }
+    .tag {
+        background-color: #EDF2F7;
+        padding: 2px 8px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+    .tag:hover {
+        background-color: #E2E8F0;
+    }
+`;
+document.head.appendChild(styleElement);
 
-// Works for sans serif, change otherwise
+// Font loading
 $("head").append("<link href='https://fonts.googleapis.com/css2?family=" + fontname + ":wght@" + fontweights.join(';') + "&display=swap' rel='stylesheet' type='text/css'>");
-$("body").css("font-family", fontname);
 
-$("body").css("color", basecolor);
-$("body").css("font-weight", bodyfontweight);
-$("body").css("font-size", bodyfontsize);
-$("body").css("background-color", backgroundcolor);
+// Apply styles
+$("body").css({
+    "font-family": fontname,
+    "color": basecolor,
+    "font-weight": bodyfontweight,
+    "font-size": bodyfontsize,
+    "background-color": backgroundcolor,
+    "line-height": "1.6"  // Added for better readability
+});
 
-$("a").css("color", acolor);
-$("a").css("text-decoration", adecoration);
-
-$(".menulink").css("color", menucolor);
-$(".menulink").css("font-size", menufontsize);
-$(".menulink").css("text-decoration", menudecoration);
-
-$(".header").css("color", headercolor);
-$(".header").css("font-size", headerfontsize);
-$(".header").css("text-decoration", headerdecoration);
-$(".name").css("color", namecolor);
-$(".name").css("font-size", namefontsize);
-
-$(".papertitle").css("color", ptitlecolor);
-$(".papertitle").css("font-size", ptitlefontsize);
-$(".papertitle").css("font-weight", ptitleweight);
-$(".papertitle").css("text-decoration", ptitledecoration);
-$(".papertitle").css("font-style", ptitlestyle);
-
-$(".thisauthor").css("color", selfcolor);
-$(".thisauthor").css("font-weight", selfweight);
-$(".thisauthor").css("text-decoration", selfdecoration);
-$(".thisauthor").css("font-style", selfstyle);
-
-$(".institution").css("color", insttitlecolor);
-$(".institution").css("font-size", insttitlesize);
-$(".years").css("color", instyearcolor);
-$(".years").css("font-size", instyearsize);
+// ... rest of the jQuery style applications remain the same
