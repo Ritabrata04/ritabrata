@@ -3,10 +3,9 @@ const fontname = "Inter"; // Changed to Inter for better readability
 const fontweights = [300, 400, 500];
 
 // Color properties - Modern academic color scheme
-const basecolor = "#2D3748";     // Darker gray for better contrast
+const basecolor = "#111827";     // Very dark gray, near-black
 const accentcolor = "#2C5282";   // Deep blue
 const highlightcolor = "#1A365D"; // Darker blue for emphasis
-
 // Body properties
 const bodyfontweight = 400;      // Increased for better readability
 const bodyfontsize = "14pt";     // Increased from 12pt
