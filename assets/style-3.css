@@ -1,85 +1,125 @@
+/* Logo styling */
 .instilogo {
-    height: 50px;
+    height: 60px;
     filter: grayscale(20%);
+    transition: filter 0.3s ease;
+}
+
+.instilogo:hover {
+    filter: grayscale(0%);
+}
+
+/* Link styling */
+a {
+    color: #2c5282; /* Deeper blue for better contrast */
+    transition: all 0.3s ease;
 }
 
 a:hover {
-    /* font-weight: 400; */
-    text-decoration: none;
-    transition-duration: 0.3s;
-    transition-timing-function: linear;
-    /* color: #444; */
+    color: #1a365d;
+    text-decoration: underline;
 }
 
-
+/* Text elements */
 .noter {
-    font-size: 9pt;
+    font-size: 11pt; /* Increased from 9pt for better readability */
+    color: #4a5568;
+    line-height: 1.5;
 }
 
+/* Tag styling */
 .tagsep {
-    padding: 4px;
+    padding: 6px;
 }
 
 .tag {
-    padding-right: 2px;
+    padding: 2px 6px;
+    background-color: #f7fafc;
+    border-radius: 4px;
+    color: #4a5568;
+    margin-right: 4px;
 }
 
+/* Conference styling */
 .confshort {
-    font-weight: 300;
+    font-weight: 400; /* Increased from 300 for better readability */
 }
 
 .conf {
     display: inline-block;
-    padding-bottom: 4px;
+    padding-bottom: 6px;
+    color: #2d3748;
 }
 
+/* Paper section styling */
 .paper {
-    border-left: 1px solid #ddd;
+    border-left: 2px solid #e2e8f0; /* Slightly darker and thicker border */
+    padding-left: 1rem;
+    margin: 1rem 0;
+    transition: border-left-color 0.3s ease;
+}
+
+.paper:hover {
+    border-left-color: #2c5282;
+}
+
+/* Menu styling */
+.menulink {
+    color: #4a5568;
+    transition: color 0.3s ease;
 }
 
 .menulink:hover {
-    color: #111;
+    color: #000000;
 }
 
+/* Profile picture styling */
 .profilepic {
     width: 150px;
     border-radius: 40%;
     filter: grayscale(30%);
+    transition: filter 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
+.profilepic:hover {
+    filter: grayscale(0%);
+}
+
+/* Responsive design */
 @media (min-width: 768px) {
     .fixed-posi {
-        /* width: 50%;
-            margin-left: 50%;
-            min-height:100%; */
         position: fixed;
+        max-width: 50%;
     }
 }
 
 @media only screen and (max-width: 900px) {
-    .allstuff {
-        padding-top: 0px !important;
-    }
-
+    .allstuff,
     .allstuffp {
-        padding-top: 0px !important;
+        padding-top: 1rem !important;
     }
 
     .profilepic {
-        width: 90px;
-        border-radius: 40%;
-        padding-top: 0px !important;
-        padding-bottom: 0px !important;
-        filter: grayscale(30%);
+        width: 100px;
+        padding: 0.5rem 0 !important;
     }
 
     .menur {
-        padding-top: 18px !important;
+        padding-top: 1.25rem !important;
     }
-
 }
 
-/* .thisauthor {
-          color: #111;
-          text-decoration: underline;
-    } */
+/* Additional improvements */
+body {
+    line-height: 1.6;
+    color: #2d3748;
+}
+
+.paper a {
+    font-weight: 500;
+}
+
+.conf, .confshort {
+    margin-bottom: 0.5rem;
+}
