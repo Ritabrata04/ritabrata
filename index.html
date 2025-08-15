@@ -148,6 +148,33 @@
         .fixed-posi{ position: static; }
       }
     </style>
+
+    <style>
+  /* Force high-contrast text everywhere */
+  html, body { color: #fff !important; }
+  .glass, .section, .paper, .header, .name, .name span,
+  p, li, h1, h2, h3, h4, h5, h6, .t-item { color: #fff !important; }
+
+  /* Muted/secondary text */
+  .muted { color: #d2d7e5 !important; }
+
+  /* Links: readable on dark bg */
+  a, .menulink, .in-text { color: #cbd5ff !important; text-decoration: underline; }
+  a:hover, .menulink:hover, .in-text:hover { text-decoration: none; }
+
+  /* Pills/badges & timeline lines visible on dark */
+  .badge-venue {
+    background: rgba(255,255,255,0.12) !important;
+    color: #ffffff !important;
+    border-color: rgba(255,255,255,0.22) !important;
+  }
+  .paper { border-left-color: rgba(255,255,255,0.28) !important; }
+  .timeline::before { background: rgba(255,255,255,0.25) !important; }
+
+  /* Hide the non-working toggle button */
+  #themeToggle { display: none !important; }
+</style>
+
   </head>
   <body class="dark"><!-- default to dark; user can toggle -->
     <div class="container pt-5 allstuffp">
