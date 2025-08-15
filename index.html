@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+    <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Undergraduate Researcher · IIIT Hyderabad · University of Salford">
@@ -10,214 +10,311 @@
 
     <link rel="apple-touch-icon" sizes="180x180" href="images/nicons/official.png">
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Your existing stylesheet (kept) -->
     <link rel="stylesheet" href="assets/style-3.css">
-      
-    <title>Ritabrata Chakraborty | ঋতব্রত চক্রবর্তী</title>
-  </head>
-  <body>
-    <div class="container pt-5 allstuffp">
-      <div class="row pt-5 allstuff">
-        <div class="col-md-4 pt-5">
-          <div class="fixed-posi">
-            <p class="name">
-              <span style="font-size:1.1em;color:#000000;">Ritabrata Chakraborty</span> |
-              <span style="font-size:0.85em;color:#2C5282;">ঋতব্রত চক্রবর্তী</span>
-            </p>
-            <img src="images/pfp.jpg" class="profilepic pt-3 pb-2" alt="Profile picture">
 
-            <div class="pt-4 menur"><a class="menulink" target="_blank" href="https://scholar.google.com/citations?user=1VMtl5gAAAAJ&hl=en">google scholar</a></div>
-            <div class=""><a class="menulink" target="_blank" href="Resume_Ritabrata (26).pdf">curriculum vitae</a></div>
-            <div class=""><a class="menulink" target="_blank" href="mailto:ritabrata04@gmail.com">email address</a></div>
-            <div class=""><a class="menulink" target="_blank" href="https://ritabrata04.github.io/ritabrata/">personal website</a></div>
-            <div class=""><a class="menulink" target="_blank" href="https://github.com/Ritabrata04">github profile</a></div>
-            <div class=""><a class="menulink" target="_blank" href="https://www.linkedin.com/in/ritabrata-chakraborty-69b2551b6/">linkedin</a></div>
-            <div class=""><a class="menulink" target="_blank" href="https://x.com/ritabrata04">x (twitter)</a></div>
+    <title>Ritabrata Chakraborty | ঋতব্রত চক্রবর্তী</title>
+
+    <style>
+      /* ---------- Theme tokens & dark mode ---------- */
+      :root{
+        --bg: #0b1020;
+        --card: rgba(255,255,255,0.7);
+        --text: #0b1020;
+        --muted: #4a5568;
+        --accent: #6b8cff;
+        --accent-2: #a855f7;
+        --border: rgba(0,0,0,0.08);
+        --shadow: 0 10px 30px rgba(0,0,0,0.10);
+        --glass-blur: saturate(150%) blur(6px);
+      }
+      body.dark{
+        --bg: #0b1020;
+        --card: rgba(17, 25, 40, 0.75);
+        --text: #e6e6f0;
+        --muted: #a0aec0;
+        --border: rgba(255,255,255,0.08);
+        --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      }
+
+      /* ---------- Page chrome ---------- */
+      body{
+        background: radial-gradient(1200px 800px at 10% -10%, #c1cbff40, transparent 60%),
+                    radial-gradient(1000px 600px at 110% 0%, #f7c7ff33, transparent 60%),
+                    linear-gradient(180deg, #fbfcff, #f6f8ff);
+        color: var(--text);
+      }
+      body.dark{
+        background: radial-gradient(1200px 800px at 10% -10%, #3146ff26, transparent 60%),
+                    radial-gradient(1000px 600px at 110% 0%, #9f3dff22, transparent 60%),
+                    linear-gradient(180deg, #0a0f1f, #0b1020 50%, #0a0f1f);
+      }
+
+      .hero{
+        border-radius: 22px;
+        padding: 28px;
+        background: linear-gradient(120deg, #6b8cff, #a855f7);
+        color: white;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::after{
+        content:"";
+        position:absolute; inset:-20%;
+        background: radial-gradient(400px 220px at 80% 30%, #ffffff22, transparent 60%);
+        transform: rotate(-8deg);
+      }
+      .hero h1{ font-weight: 800; letter-spacing:0.2px; margin-bottom: 6px;}
+      .hero p{ opacity:0.96; margin:0; }
+
+      /* ---------- Sidebar ---------- */
+      .fixed-posi{
+        position: sticky; top: 24px;
+      }
+      .profilepic{
+        width: 100%; border-radius: 16px; box-shadow: var(--shadow);
+      }
+      .menulink{
+        display:inline-block; padding:6px 0; color: var(--accent); text-decoration:none;
+      }
+      .menulink:hover{ text-decoration: underline; }
+
+      /* ---------- Cards / sections ---------- */
+      .glass{
+        background: var(--card);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+      }
+      .section{
+        padding: 20px 22px;
+        margin-top: 22px;
+      }
+      .header{
+        font-weight: 700; letter-spacing:0.3px; margin-bottom:8px;
+      }
+      .paper{
+        background: transparent; border-left: 3px solid #e2e8f0; padding-left: 10px;
+      }
+      body.dark .paper{ border-left-color: #243147; }
+
+      /* ---------- Badges & pills ---------- */
+      .badge-venue{
+        display:inline-block; font-size:12px; font-weight:600; padding:4px 9px; border-radius:999px;
+        background: #eef2ff; color:#3945b7; border:1px solid #c7d2fe;
+      }
+      body.dark .badge-venue{ background:#1a2140; color:#bfc9ff; border-color:#283166; }
+
+      /* ---------- Timeline ---------- */
+      .timeline{
+        position: relative; margin-left: 10px; padding-left: 24px;
+      }
+      .timeline::before{
+        content:""; position:absolute; left:8px; top:0; bottom:0; width:2px; background:#dee3f3;
+      }
+      body.dark .timeline::before{ background:#1e2a4a; }
+      .t-item{
+        position:relative; margin:12px 0; padding-left:6px;
+      }
+      .t-item::before{
+        content:""; position:absolute; left:-4px; top:8px; width:10px; height:10px; border-radius:50%;
+        background: linear-gradient(120deg, #6b8cff, #a855f7); box-shadow: 0 0 0 3px #ffffff80;
+      }
+      body.dark .t-item::before{ box-shadow: 0 0 0 3px #0b1020; }
+
+      /* ---------- Hover lift ---------- */
+      .lift:hover{
+        transform: translateY(-2px);
+        transition: transform .15s ease;
+      }
+
+      /* ---------- Dark mode toggle ---------- */
+      .toggle{
+        position:absolute; right:14px; top:14px;
+        border:1px solid rgba(255,255,255,0.5); color:white; background:transparent;
+        border-radius:999px; padding:4px 10px; font-size:13px; cursor:pointer;
+      }
+      .toggle:focus{ outline:none; }
+      .muted{ color: var(--muted); }
+
+      /* ---------- Responsive tweaks ---------- */
+      @media (max-width: 991px){
+        .hero{ margin-top: 10px; }
+        .fixed-posi{ position: static; }
+      }
+    </style>
+  </head>
+  <body class="dark"><!-- default to dark; user can toggle -->
+    <div class="container pt-5 allstuffp">
+      <div class="row pt-4 allstuff">
+
+        <!-- Sidebar -->
+        <div class="col-md-4 pt-4">
+          <div class="fixed-posi glass section lift">
+            <p class="name mb-2">
+              <span style="font-size:1.15em; color:var(--text); font-weight:700;">Ritabrata Chakraborty</span>
+              <br><span class="muted" style="font-size:0.95em;">ঋতব্রত চক্রবর্তী</span>
+            </p>
+            <img src="images/pfp.jpg" class="profilepic mt-2 mb-3" alt="Profile picture">
+
+            <div class="pt-1"><a class="menulink" target="_blank" href="https://scholar.google.com/citations?user=1VMtl5gAAAAJ&hl=en">Google Scholar</a></div>
+            <div><a class="menulink" target="_blank" href="Resume_Ritabrata (26).pdf">CV (PDF)</a></div>
+            <div><a class="menulink" target="_blank" href="mailto:ritabrata04@gmail.com">Email</a></div>
+            <div><a class="menulink" target="_blank" href="https://github.com/Ritabrata04">GitHub</a></div>
+            <div><a class="menulink" target="_blank" href="https://www.linkedin.com/in/ritabrata-chakraborty-69b2551b6/">LinkedIn</a></div>
+            <div><a class="menulink" target="_blank" href="https://x.com/ritabrata04">X (Twitter)</a></div>
           </div>
         </div>
 
-        <div class="col-md-8 pt-5 about">
-          <p>
-            I am a junior-year B.Tech student in Computer Science at
-            <a class="in-text" href="https://jaipur.manipal.edu/" target="_blank">Manipal University Jaipur</a> (Top 2% of SCSE).
-            My research spans Computer Vision and Natural Language Processing for social good. I currently work with the
-            <a class="in-text" href="https://www.iiit.ac.in/" target="_blank">International Institute of Information Technology, Hyderabad</a>
-            (Katha-AI group) and the <a class="in-text" href="https://www.salford.ac.uk/" target="_blank">University of Salford</a>, and have previously held research roles at
-            <a class="in-text" href="https://cvit.iiit.ac.in" target="_blank">CVIT</a>, <a class="in-text" href="https://www.purdue.edu/" target="_blank">Purdue University</a>, and
-            <a class="in-text" href="https://www.isical.ac.in/" target="_blank">Indian Statistical Institute</a>.
-          </p>
-
-          <p class="header pt-4">News</p>
-          <div class="py-2">
-            <p class="paper my-2 pl-2">
-              • [2025] <em>ICDAR 2025</em> Oral paper accepted: “A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition.”<br>
-              • [2025] <em>ICML-W 2025</em> poster accepted: “TruthLens: Fake Image Detection with Interpretability.”<br>
-              • [2025] <em>ACPR 2025</em> paper accepted: “Joint Utilisation of Online and Offline Features for Handwriting Recognition.”<br>
-              • [2024] Awarded the IAS–NASI–INSA Summer Research Fellowship (200 scholars nationwide).<br>
-              • [2024] Student Excellence Award (x5), Manipal University Jaipur.<br>
-              • [2023] Dean’s List (x5), Manipal University Jaipur.
+        <!-- Main -->
+        <div class="col-md-8 pt-4 about">
+          <div class="hero lift">
+            <button class="toggle" id="themeToggle" aria-label="Toggle dark mode">🌓 Theme</button>
+            <h1 class="mb-1">Hi, I’m Ritabrata.</h1>
+            <p>CS undergrad @ <a style="color:#fff;text-decoration:underline;" href="https://jaipur.manipal.edu/" target="_blank">Manipal University Jaipur</a>.
+              I work at the intersection of <strong>Computer Vision</strong> and <strong>NLP</strong> for social good — lately on
+              <em>scene text</em>, <em>handwriting recognition</em>, and <em>audio description for Hindi films</em>.
             </p>
           </div>
 
-          <p class="header pt-4">Experience</p>
-          <div class="py-2">
-            <p class="paper my-2 pl-2">
-              <span class="papertitle">International Institute of Information Technology, Hyderabad</span><br>
-              Undergraduate Research Assistant · Jun 2025 – Present<br>
-              • Katha-AI group (advisor: Dr. Makarand Tapaswi). Improving audio descriptions for Hindi movies with Reliance AI Speech.
-            </p>
-          </div>
-          <div class="py-2">
-            <p class="paper my-2 pl-2">
-              <span class="papertitle">University of Salford</span><br>
-              Research Intern · Aug 2024 – Present<br>
-              • Advisors: Prof. Shivakumara Palaiahnakote, Prof. Umapada Pal (co-advisor). Contextual cues for Scene Text Recognition; ICDAR 2025 (Oral). 
-            </p>
-          </div>
-          <div class="py-2">
-            <p class="paper my-2 pl-2">
-              <span class="papertitle">International Institute of Information Technology, Hyderabad</span><br>
-              Research Fellow · May 2024 – Jul 2024<br>
-              • CVIT (advisors: Prof. C. V. Jawahar, Dr. Ajoy Mondal). Built a batch data-augmentation pipeline (≈200% faster image pre-processing).
-            </p>
-          </div>
-          <div class="py-2">
-            <p class="paper my-2 pl-2">
-              <span class="papertitle">Purdue University</span><br>
-              Research Intern · Jan 2024 – May 2024<br>
-              • Advisor: Prof. Vaneet Aggarwal. Contributed primary RL experiments; added Grad-CAM explainability for clinical trust.
-            </p>
-          </div>
-          <div class="py-2">
-            <p class="paper my-2 pl-2">
-              <span class="papertitle">Indian Statistical Institute, Kolkata</span><br>
-              Research Intern · Dec 2023 – May 2024<br>
-              • Advisor: Prof. Umapada Pal. SAM inference for remote sensing (+30% processing efficiency); guided segmentation (Dice ≈ 0.70).
-            </p>
-          </div>
-          <div class="py-2">
-            <p class="paper my-2 pl-2">
-              <span class="papertitle">Manipal University Jaipur</span><br>
-              Undergraduate Research Assistant · May 2023 – Oct 2024<br>
-              • Advisor: Dr. Sandeep Chaurasia. Built anonymous “pair-therapist” interface for hazing/cyberbullying cases; prototyped MANN-MITRA.
-            </p>
-          </div>
-          <div class="py-2">
-            <p class="paper my-2 pl-2">
-              <span class="papertitle">Cycle-Gyan</span><br>
-              Founder · Apr 2024 – May 2025<br>
-              • EdTech initiative pre-incubated by AIC-MUJ; later pivoted to a community-led non-profit for STEM exposure.
-            </p>
-          </div>
-          <div class="py-2">
-            <p class="paper my-2 pl-2">
-              <span class="papertitle">Feynn Labs</span><br>
-              Machine Learning Intern · May 2023 – Jul 2023<br>
-              • Led a 5-member team on EV-sector ML; +25% cluster purity; prototyped Parkinson’s recommender with gait analytics.
-            </p>
+          <!-- Current Work -->
+          <div class="glass section lift" id="current">
+            <div class="header">🔭 Current Work</div>
+            <div class="paper">
+              <p class="my-2">
+                <span class="badge-venue">Undergraduate Research Assistant · IIIT Hyderabad · Jun 2025 – Present</span><br>
+                <strong>Katha-AI</strong> (advisor: Makarand Tapaswi). Building better <em>audio descriptions for Hindi movies</em> with industry
+                partners; dataset curation, evaluation, and modeling for multilingual AD quality.
+              </p>
+              <p class="my-2">
+                <span class="badge-venue">Research Intern · University of Salford · Aug 2024 – Present</span><br>
+                With <strong>Prof. Shivakumara Palaiahnakote</strong> and <strong>Prof. Umapada Pal</strong>: context cues for <em>Scene Text Recognition</em>;
+                follow-ups to our ICDAR’25 oral on <em>training-free STR</em>.
+              </p>
+              <p class="my-2">
+                <span class="badge-venue">Research Fellow · CVIT, IIIT Hyderabad · May–Jul 2024</span><br>
+                Data pipelines and augmentation for large-scale STR with <strong>Prof. C. V. Jawahar</strong> &amp; <strong>Dr. Ajoy Mondal</strong>.
+              </p>
+            </div>
           </div>
 
-          <p class="header pt-4">Teaching</p>
-          <div class="py-2">
-            <p class="paper my-2 pl-2">
-              <span class="papertitle">Instructional Assistant, Manipal University Jaipur</span><br>
-              Jan 2024 – May 2024 · CS3101 Artificial Intelligence & Soft Computing lab (50+ students).
-            </p>
+          <!-- News -->
+          <div class="glass section lift">
+            <div class="header">🗞️ News</div>
+            <div class="timeline">
+              <div class="t-item"><strong>ICDAR 2025 (Oral)</strong> — Lightweight Context-Driven, Training-Free STR accepted.</div>
+              <div class="t-item"><strong>ICML 2025 Workshop</strong> — “TruthLens: Fake Image Detection with Interpretability” (poster).</div>
+              <div class="t-item"><strong>ACPR 2025</strong> — Online+Offline Features for Handwriting Recognition accepted.</div>
+              <div class="t-item">IAS–NASI–INSA Summer Research Fellowship (2024).</div>
+              <div class="t-item">Student Excellence Award ×5 (2024) · Dean’s List ×5 (2023).</div>
+            </div>
           </div>
 
-          <p class="header pt-4">Publications</p>
-          <div class="py-2">
+          <!-- Publications -->
+          <div class="glass section lift" id="publications">
+            <div class="header">📚 Selected Publications</div>
+
             <p class="paper my-2 pl-2">
-              <span class="papertitle">A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition</span> (Oral) · ICDAR 2025<br>
-              Ritabrata Chakraborty, Shivakumara Palaiahnakote, Umapada Pal, Cheng-Lin Liu<br>
+              <span class="badge-venue">ICDAR 2025 · Oral</span><br>
+              <strong>A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition</strong><br>
+              R. Chakraborty, S. Palaiahnakote, U. Pal, C.-L. Liu<br>
               <a class="in-text" target="_blank" href="https://ritabrata04.github.io/Context-driven-STR/">website</a> ·
               <a class="in-text" target="_blank" href="https://arxiv.org/abs/2503.15639">paper</a> ·
               <a class="in-text" target="_blank" href="https://github.com/Ritabrata04/icdar2025-context-driven-str">code</a>
             </p>
+
             <p class="paper my-2 pl-2">
-              <span class="papertitle">TruthLens: Fake Image Detection with Interpretability</span> (Poster) · ICML-W 2025<br>
-              Ritabrata Chakraborty, Rajatsubhra Chakraborty, Ali Khaleghi Rahimian, Thomas MacDougall<br>
+              <span class="badge-venue">ICML 2025 Workshop</span><br>
+              <strong>TruthLens: Fake Image Detection with Interpretability</strong><br>
+              R. Chakraborty, R. Chakraborty, A. K. Rahimian, T. MacDougall<br>
               <a class="in-text" target="_blank" href="https://drive.google.com/file/d/1fneuo5ohtWxKjj1rns_dzA8GoCKEgsr6/view?usp=drive_link">poster</a>
             </p>
+
             <p class="paper my-2 pl-2">
-              <span class="papertitle">Joint Utilisation of Online and Offline Features for Handwriting Recognition</span> · ACPR 2025<br>
-              Ritabrata Chakraborty*, Ayush Lodh*, Shivakumara Palaiahnakote, Umapada Pal<br>
+              <span class="badge-venue">ACPR 2025</span><br>
+              <strong>Joint Utilisation of Online and Offline Features for Handwriting Recognition</strong><br>
+              R. Chakraborty*, A. Lodh*, S. Palaiahnakote, U. Pal<br>
               <a class="in-text" target="_blank" href="https://arxiv.org/abs/2506.17144">paper</a> ·
               <a class="in-text" target="_blank" href="https://arxiv.org/pdf/2506.20255">preprint</a>
             </p>
           </div>
 
-          <p class="header pt-4">Projects</p>
-          <div class="py-2">
+          <!-- Experience -->
+          <div class="glass section lift" id="experience">
+            <div class="header">🧭 Experience</div>
+            <div class="paper">
+              <p class="my-2"><strong>IIIT Hyderabad</strong> — Undergraduate Research Assistant (Jun 2025 – Present)</p>
+              <p class="my-2"><strong>University of Salford</strong> — Research Intern (Aug 2024 – Present)</p>
+              <p class="my-2"><strong>CVIT, IIIT Hyderabad</strong> — Research Fellow (May–Jul 2024)</p>
+              <p class="my-2"><strong>Purdue University</strong> — Research Intern (Jan–May 2024)</p>
+              <p class="my-2"><strong>Indian Statistical Institute, Kolkata</strong> — Research Intern (Dec 2023 – May 2024)</p>
+              <p class="my-2"><strong>Manipal University Jaipur</strong> — Undergraduate Research Assistant (May 2023 – Oct 2024)</p>
+              <p class="my-2"><strong>Cycle-Gyan</strong> — Founder (Apr 2024 – May 2025)</p>
+              <p class="my-2"><strong>Feynn Labs</strong> — ML Intern (May–Jul 2023)</p>
+            </div>
+          </div>
+
+          <!-- Projects -->
+          <div class="glass section lift" id="projects">
+            <div class="header">🧪 Projects</div>
             <p class="paper my-2 pl-2">
-              <span class="papertitle">TILOTTAMA: A Computer Vision Driven Solution for Menstrual Waste Management</span> · Sep 2024<br>
-              • Fine-tuned YOLO & ViT-CNN; 90%+ detection accuracy. Ranked 15/400 (MUJ HACKX 2024).<br>
+              <strong>TILOTTAMA:</strong> CV for menstrual waste mgmt — Fine-tuned YOLO & ViT-CNN; 90%+ detection.<br>
               <a class="in-text" target="_blank" href="https://github.com/Ritabrata04/Tilottoma">code</a> ·
               <a class="in-text" target="_blank" href="https://drive.google.com/file/d/1ODztWcorrmRolQ1uw2aBvLNDPPpS1OD6/view?usp=sharing">docs</a>
             </p>
             <p class="paper my-2 pl-2">
-              <span class="papertitle">MODELSLEUTH: Automated Model Analysis in Codebases</span> · Sep 2024<br>
-              • CLI tool reducing model search time by ~30%; summaries for PyTorch & TensorFlow.<br>
+              <strong>MODELSLEUTH:</strong> CLI for model discovery — ~30% faster model search across codebases.<br>
               <a class="in-text" target="_blank" href="https://github.com/Rllllitabrata04/ModelSleuth">code</a> ·
               <a class="in-text" target="_blank" href="https://pypi.org/project/ModelSleuth/">PyPI</a>
             </p>
             <p class="paper my-2 pl-2">
-              <span class="papertitle">SIBYL: Strategic Intelligence for Building Your Legacy</span> · Nov 2023 – Jan 2024<br>
-              • RF/SVM/XGBoost; 92% accuracy in skill-gap analysis; 4th place at Dell Hack2Hire.<br>
+              <strong>SIBYL:</strong> Skill-gap analytics — RF/SVM/XGBoost; 92% accuracy; 4th @ Dell Hack2Hire.<br>
               <a class="in-text" target="_blank" href="https://github.com/Ritabrata04/SIBYL">code</a> ·
               <a class="in-text" target="_blank" href="https://sibylai.streamlit.app/">demo</a>
             </p>
           </div>
 
-          <p class="header pt-4">Patents</p>
-          <div class="py-2">
+          <!-- Patents -->
+          <div class="glass section lift" id="patents">
+            <div class="header">🧾 Patents</div>
             <p class="paper my-2 pl-2">
-              <span class="papertitle">MANN-MITRA: A Depression Detection System Using Machine Learning</span> · Jul 2023 – Oct 2023<br>
-              <a class="in-text" target="_blank" href="https://drive.google.com/file/d/18WcmBjt-Gj8BGtit9qJqg68Jkn8A73nh/view">link</a> · Published in the National Journal of Patents on 13 Oct 2023.
+              <strong>MANN-MITRA:</strong> Depression detection with multimodal ML — Published 13 Oct 2023.<br>
+              <a class="in-text" target="_blank" href="https://drive.google.com/file/d/18WcmBjt-Gj8BGtit9qJqg68Jkn8A73nh/view">link</a>
             </p>
             <p class="paper my-2 pl-2">
-              <span class="papertitle">NAVYA: Navigational Audio for Visual Yield Assistance</span> · May 2024 – Jul 2024<br>
-              <a class="in-text" target="_blank" href="https://drive.google.com/file/d/18WcmBjt-Gj8BGtit9qJqg68Jkn8A73nh/view">link</a> · Published in the National Journal of Patents on 30 Aug 2024.
-            </p>
-          </div>
-
-          <p class="header pt-4">Honors & Awards</p>
-          <div class="py-2">
-            <p class="paper my-2 pl-2">
-              • IAS–NASI–INSA Summer Research Fellowship, May 2024 (200 students nationwide).<br>
-              • Student Excellence Award (x5), MUJ, Jun 2024.<br>
-              • Dean’s List (x5), MUJ, Nov 2023.
+              <strong>NAVYA:</strong> Navigational Audio for Visual Yield Assistance — Published 30 Aug 2024.<br>
+              <a class="in-text" target="_blank" href="https://drive.google.com/file/d/18WcmBjt-Gj8BGtit9qJqg68Jkn8A73nh/view">link</a>
             </p>
           </div>
 
-          <p class="header pt-4">Service</p>
-          <div class="py-2">
+          <!-- Skills -->
+          <div class="glass section lift" id="skills">
+            <div class="header">🛠️ Skills</div>
             <p class="paper my-2 pl-2">
-              • Reviewer: ACL 2025 REALM Workshop (SRW), IET Image Processing, SciPy 2025, IEEE ICADCS 2025.<br>
-              • Student Host: Bharat Blockchain Yatra (Feb 2024) · Streamlit Student Ambassador (Nov 2023).<br>
-              • Orgs: Founder @ VLR MUJ — <a class="in-text" target="_blank" href="https://vlr-sage.vercel.app/">site</a>;
-                Projects & Research Head @ ACM SIGAI MUJ — <a class="in-text" target="_blank" href="https://mujsigai.acm.org/">site</a>.
+              <strong>Languages:</strong> Python, C/C++, Java, MySQL<br>
+              <strong>Frameworks:</strong> PyTorch, TensorFlow, TFX<br>
+              <strong>Tools:</strong> Git/GitHub, W&amp;B, TensorBoard
             </p>
           </div>
 
-          <p class="header pt-4">Skills</p>
-          <div class="py-2">
-            <p class="paper my-2 pl-2">
-              Languages: Python, C/C++, Java, MySQL<br>
-              Frameworks: PyTorch, TensorFlow, TFX<br>
-              Tooling: Git/GitHub, Weights & Biases, TensorBoard
-            </p>
-          </div>
         </div>
       </div>
     </div>
 
-    <!-- JS -->
+    <!-- JS (Bootstrap + tiny theme switch) -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+      // simple theme toggle
+      const btn = document.getElementById('themeToggle');
+      btn.addEventListener('click', () => document.body.classList.toggle('dark'));
+    </script>
     <script src="assets/style-3.js"></script>
   </body>
-  <style></style>
 </html>
