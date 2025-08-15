@@ -1,260 +1,250 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Undergraduate Researcher · IIIT Hyderabad · University of Salford">
-    <meta name="author" content="Ritabrata Chakraborty">
-    <meta name="theme-color" content="#0b1020">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/nicons/official.png">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
-    <title>Ritabrata Chakraborty | ঋতব্রত চক্রবর্তী</title>
+<head>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Undergraduate Researcher · IIIT Hyderabad · University of Salford">
+  <meta name="author" content="Ritabrata Chakraborty">
+  <meta name="theme-color" content="#0b1020">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/nicons/official.png">
 
-    <style>
-      /* ===== Base & palette (dark, high-contrast by default) ===== */
-      :root{
-        --bg: #0b1020;           /* page background */
-        --card: rgba(17, 25, 40, 0.78); /* glass cards */
-        --text: #ffffff;         /* main text */
-        --muted: #d2d7e5;        /* secondary text */
-        --accent: #cbd5ff;       /* link color */
-        --border: rgba(255,255,255,0.10);
-        --shadow: 0 10px 30px rgba(0,0,0,0.35);
-      }
-      html, body { height: 100%; }
-      body{
-        background:
-          radial-gradient(1200px 800px at 10% -10%, #3146ff26, transparent 60%),
-          radial-gradient(1000px 600px at 110% 0%, #9f3dff22, transparent 60%),
-          linear-gradient(180deg, #0a0f1f, #0b1020 50%, #0a0f1f);
-        color: var(--text);
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      a{ color: var(--accent); text-decoration: underline; }
-      a:hover{ text-decoration: none; }
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
 
-      /* ===== Layout ===== */
-      .fixed-posi{ position: sticky; top: 24px; }
-      .profilepic{ width:100%; border-radius:16px; box-shadow: var(--shadow); }
+  <title>Ritabrata Chakraborty | ঋতব্রত চক্রবর্তী</title>
 
-      /* ===== Hero ===== */
-      .hero{
-        border-radius: 22px; padding: 28px;
-        background: linear-gradient(120deg, #6b8cff, #a855f7);
-        color: #fff; box-shadow: var(--shadow); position: relative; overflow: hidden;
-      }
-      .hero::after{
-        content:""; position:absolute; inset:-20%;
-        background: radial-gradient(400px 220px at 80% 30%, #ffffff22, transparent 60%);
-        transform: rotate(-8deg);
-      }
-      .hero h1{ font-weight:800; letter-spacing:0.2px; margin-bottom:6px; }
-      .hero p{ margin:0; opacity:0.96; }
-      .hero a{ color:#fff; text-decoration: underline; }
+  <style>
+    /* ===== Dark, high-contrast base ===== */
+    :root{
+      --bg: #0b1020;
+      --card: rgba(17,25,40,0.82);
+      --text: #ffffff;
+      --muted: #cbd5e1;
+      --link: #dbe3ff;
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 14px 40px rgba(0,0,0,0.45);
+      --blur: saturate(160%) blur(7px);
+    }
+    html, body { height:100%; }
+    body{
+      background:
+        radial-gradient(1200px 800px at 10% -10%, #3146ff26, transparent 60%),
+        radial-gradient(1000px 600px at 110% 0%, #9f3dff22, transparent 60%),
+        linear-gradient(180deg, #0a0f1f, #0b1020 50%, #0a0f1f);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: var(--text) !important;
+    }
+    /* Force white text everywhere, links light blue */
+    .glass, .section, .header, .paper, .timeline, .t-item,
+    .about, .name, .name span, p, li, strong, em, h1,h2,h3,h4,h5,h6 {
+      color: var(--text) !important;
+    }
+    a, a * { color: var(--link) !important; text-decoration: underline; }
+    a:hover { text-decoration: none; }
+    .muted, .text-muted { color: var(--muted) !important; }
 
-      /* ===== Cards ===== */
-      .glass{
-        background: var(--card);
-        backdrop-filter: saturate(150%) blur(6px);
-        -webkit-backdrop-filter: saturate(150%) blur(6px);
-        border: 1px solid var(--border);
-        border-radius: 18px;
-        box-shadow: var(--shadow);
-      }
-      .section{ padding: 20px 22px; margin-top: 22px; }
-      .header{ font-weight:700; letter-spacing:0.3px; margin-bottom:8px; }
-      .paper{ border-left: 3px solid rgba(255,255,255,0.28); padding-left:10px; }
+    /* ===== Layout ===== */
+    .container{ max-width: 1120px; }
+    .fixed-posi{ position: sticky; top: 24px; }
 
-      /* ===== Pills & timeline ===== */
-      .badge-venue{
-        display:inline-block; font-size:12px; font-weight:600; padding:4px 9px; border-radius:999px;
-        background: rgba(255,255,255,0.12); color:#fff; border:1px solid rgba(255,255,255,0.22);
-      }
-      .timeline{ position:relative; margin-left:10px; padding-left:24px; }
-      .timeline::before{ content:""; position:absolute; left:8px; top:0; bottom:0; width:2px; background: rgba(255,255,255,0.25); }
-      .t-item{ position:relative; margin:12px 0; padding-left:6px; }
-      .t-item::before{
-        content:""; position:absolute; left:-4px; top:8px; width:10px; height:10px; border-radius:50%;
-        background: linear-gradient(120deg, #6b8cff, #a855f7); box-shadow: 0 0 0 3px #0b1020;
-      }
+    /* ===== Cards ===== */
+    .glass{
+      background: var(--card);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+    .section{ padding: 28px 26px; margin-top: 24px; }
+    .header{ font-weight: 800; letter-spacing: .2px; margin-bottom:10px; }
+    .paper{ border-left: 3px solid rgba(255,255,255,0.28); padding-left:12px; }
 
-      /* ===== Micro-interactions ===== */
-      .lift{ transition: transform .15s ease; }
-      .lift:hover{ transform: translateY(-2px); }
+    /* ===== Sidebar (bigger & nicer) ===== */
+    .sidebar-card{ padding: 28px 26px; }
+    .profilepic{
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      margin: 10px 0 16px;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .linkbtn{
+      display:block;
+      padding: 10px 12px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      margin: 8px 0;
+      text-decoration: none !important;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .linkbtn:hover{
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.25);
+      transform: translateY(-1px);
+    }
 
-      /* ===== Typography tweaks ===== */
-      .name span{ color:#fff; }
-      .muted{ color: var(--muted); }
+    /* ===== Hero ===== */
+    .hero{
+      border-radius: 26px; padding: 30px;
+      background: linear-gradient(120deg, #6b8cff, #a855f7);
+      color: #fff !important;
+      box-shadow: var(--shadow); position: relative; overflow: hidden;
+    }
+    .hero::after{
+      content:""; position:absolute; inset:-20%;
+      background: radial-gradient(420px 240px at 80% 30%, #ffffff22, transparent 60%);
+      transform: rotate(-8deg);
+    }
+    .hero h1{ font-weight:900; margin:0 0 6px; }
+    .hero p{ margin:0; opacity:.98; }
+    .hero a{ color:#fff !important; text-decoration: underline; }
 
-      /* ===== Responsive ===== */
-      @media (max-width: 991px){
-        .fixed-posi{ position: static; }
-        .hero{ margin-top: 10px; }
-      }
-    </style>
-  </head>
+    /* ===== Timeline ===== */
+    .timeline{ position:relative; margin-left:10px; padding-left:24px; }
+    .timeline::before{ content:""; position:absolute; left:8px; top:0; bottom:0; width:2px; background: rgba(255,255,255,0.28); }
+    .t-item{ position:relative; margin:12px 0; padding-left:6px; }
+    .t-item::before{
+      content:""; position:absolute; left:-4px; top:8px; width:10px; height:10px; border-radius:50%;
+      background: linear-gradient(120deg, #6b8cff, #a855f7); box-shadow: 0 0 0 3px #0b1020;
+    }
 
-  <body>
-    <div class="container pt-5">
-      <div class="row pt-4">
+    /* ===== Micro-interactions ===== */
+    .lift{ transition: transform .15s ease; }
+    .lift:hover{ transform: translateY(-2px); }
 
-        <!-- Sidebar -->
-        <div class="col-md-4 pt-4">
-          <div class="fixed-posi glass section lift">
-            <p class="name mb-2">
-              <span style="font-size:1.15em; font-weight:700;">Ritabrata Chakraborty</span>
-              <br><span class="muted" style="font-size:0.95em;">ঋতব্রত চক্রবর্তী</span>
+    /* ===== Responsive ===== */
+    @media (max-width: 991px){
+      .fixed-posi{ position: static; }
+      .hero{ margin-top: 10px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container pt-5">
+    <div class="row pt-4">
+
+      <!-- Sidebar (wider now) -->
+      <div class="col-lg-5 col-md-5 pt-3">
+        <div class="fixed-posi glass section sidebar-card lift">
+          <p class="name mb-2">
+            <span style="font-size:1.25em; font-weight:800;">Ritabrata Chakraborty</span>
+            <br><span class="muted" style="font-size:1.0em;">ঋতব্রত চক্রবর্তী</span>
+          </p>
+
+          <img src="images/pfp.jpg" class="profilepic" alt="Profile picture">
+
+          <a class="linkbtn" target="_blank" rel="noopener" href="https://scholar.google.com/citations?user=1VMtl5gAAAAJ&hl=en">Google Scholar</a>
+          <a class="linkbtn" target="_blank" rel="noopener" href="Resume_Ritabrata (26).pdf">CV (PDF)</a>
+          <a class="linkbtn" href="mailto:ritabrata04@gmail.com">Email</a>
+          <a class="linkbtn" target="_blank" rel="noopener" href="https://github.com/Ritabrata04">GitHub</a>
+          <a class="linkbtn" target="_blank" rel="noopener" href="https://www.linkedin.com/in/ritabrata-chakraborty-69b2551b6/">LinkedIn</a>
+          <a class="linkbtn" target="_blank" rel="noopener" href="https://x.com/ritabrata04">X (Twitter)</a>
+        </div>
+      </div>
+
+      <!-- Main -->
+      <div class="col-lg-7 col-md-7 pt-3 about">
+        <div class="hero lift">
+          <h1>Hi, I’m Ritabrata.</h1>
+          <p>CS undergrad @ <a href="https://jaipur.manipal.edu/" target="_blank" rel="noopener">Manipal University Jaipur</a>.
+            I work at the intersection of <strong>Computer Vision</strong> and <strong>NLP</strong> for social good — lately on
+            <em>scene text</em>, <em>handwriting recognition</em>, and <em>audio description for Hindi films</em>.
+          </p>
+        </div>
+
+        <!-- Current Work -->
+        <div class="glass section lift" id="current">
+          <div class="header">🔭 Current Work</div>
+          <div class="paper">
+            <p class="my-2">
+              <span class="badge-venue">Undergraduate Research Assistant · IIIT Hyderabad · Jun 2025 – Present</span><br>
+              <strong>Katha-AI</strong> (advisor: Makarand Tapaswi). Building better <em>audio descriptions for Hindi movies</em> with industry
+              partners; dataset curation, evaluation, and modeling for multilingual AD quality.
             </p>
-            <img src="images/pfp.jpg" class="profilepic mt-2 mb-3" alt="Profile picture">
-            <div class="pt-1"><a class="menulink" target="_blank" rel="noopener" href="https://scholar.google.com/citations?user=1VMtl5gAAAAJ&hl=en">Google Scholar</a></div>
-            <div><a class="menulink" target="_blank" rel="noopener" href="Resume_Ritabrata (26).pdf">CV (PDF)</a></div>
-            <div><a class="menulink" href="mailto:ritabrata04@gmail.com">Email</a></div>
-            <div><a class="menulink" target="_blank" rel="noopener" href="https://github.com/Ritabrata04">GitHub</a></div>
-            <div><a class="menulink" target="_blank" rel="noopener" href="https://www.linkedin.com/in/ritabrata-chakraborty-69b2551b6/">LinkedIn</a></div>
-            <div><a class="menulink" target="_blank" rel="noopener" href="https://x.com/ritabrata04">X (Twitter)</a></div>
+            <p class="my-2">
+              <span class="badge-venue">Research Intern · University of Salford · Aug 2024 – Present</span><br>
+              With <strong>Prof. Shivakumara Palaiahnakote</strong> and <strong>Prof. Umapada Pal</strong>: context cues for <em>Scene Text Recognition</em>;
+              follow-ups to our ICDAR’25 oral on <em>training-free STR</em>.
+            </p>
+            <p class="my-2">
+              <span class="badge-venue">Research Fellow · CVIT, IIIT Hyderabad · May–Jul 2024</span><br>
+              Data pipelines and augmentation for large-scale STR with <strong>Prof. C. V. Jawahar</strong> &amp; <strong>Dr. Ajoy Mondal</strong>.
+            </p>
           </div>
         </div>
 
-        <!-- Main -->
-        <div class="col-md-8 pt-4 about">
-          <div class="hero lift">
-            <h1 class="mb-1">Hi, I’m Ritabrata.</h1>
-            <p>CS undergrad @ <a href="https://jaipur.manipal.edu/" target="_blank" rel="noopener">Manipal University Jaipur</a>.
-              I work at the intersection of <strong>Computer Vision</strong> and <strong>NLP</strong> for social good — lately on
-              <em>scene text</em>, <em>handwriting recognition</em>, and <em>audio description for Hindi films</em>.
-            </p>
+        <!-- News -->
+        <div class="glass section lift">
+          <div class="header">🗞️ News</div>
+          <div class="timeline">
+            <div class="t-item"><strong>ICDAR 2025 (Oral)</strong> — Lightweight Context-Driven, Training-Free STR accepted.</div>
+            <div class="t-item"><strong>ICML 2025 Workshop</strong> — “TruthLens: Fake Image Detection with Interpretability” (poster).</div>
+            <div class="t-item"><strong>ACPR 2025</strong> — Online+Offline Features for Handwriting Recognition accepted.</div>
+            <div class="t-item">IAS–NASI–INSA Summer Research Fellowship (2024).</div>
+            <div class="t-item">Student Excellence Award ×5 (2024) · Dean’s List ×5 (2023).</div>
           </div>
+        </div>
 
-          <!-- Current Work -->
-          <div class="glass section lift" id="current">
-            <div class="header">🔭 Current Work</div>
-            <div class="paper">
-              <p class="my-2">
-                <span class="badge-venue">Undergraduate Research Assistant · IIIT Hyderabad · Jun 2025 – Present</span><br>
-                <strong>Katha-AI</strong> (advisor: Makarand Tapaswi). Building better <em>audio descriptions for Hindi movies</em> with industry
-                partners; dataset curation, evaluation, and modeling for multilingual AD quality.
-              </p>
-              <p class="my-2">
-                <span class="badge-venue">Research Intern · University of Salford · Aug 2024 – Present</span><br>
-                With <strong>Prof. Shivakumara Palaiahnakote</strong> and <strong>Prof. Umapada Pal</strong>: context cues for <em>Scene Text Recognition</em>;
-                follow-ups to our ICDAR’25 oral on <em>training-free STR</em>.
-              </p>
-              <p class="my-2">
-                <span class="badge-venue">Research Fellow · CVIT, IIIT Hyderabad · May–Jul 2024</span><br>
-                Data pipelines and augmentation for large-scale STR with <strong>Prof. C. V. Jawahar</strong> &amp; <strong>Dr. Ajoy Mondal</strong>.
-              </p>
-            </div>
-          </div>
+        <!-- Publications -->
+        <div class="glass section lift" id="publications">
+          <div class="header">📚 Selected Publications</div>
+          <p class="paper my-2 pl-2">
+            <span class="badge-venue">ICDAR 2025 · Oral</span><br>
+            <strong>A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition</strong><br>
+            R. Chakraborty, S. Palaiahnakote, U. Pal, C.-L. Liu<br>
+            <a class="in-text" target="_blank" rel="noopener" href="https://ritabrata04.github.io/Context-driven-STR/">website</a> ·
+            <a class="in-text" target="_blank" rel="noopener" href="https://arxiv.org/abs/2503.15639">paper</a> ·
+            <a class="in-text" target="_blank" rel="noopener" href="https://github.com/Ritabrata04/icdar2025-context-driven-str">code</a>
+          </p>
+          <p class="paper my-2 pl-2">
+            <span class="badge-venue">ICML 2025 Workshop</span><br>
+            <strong>TruthLens: Fake Image Detection with Interpretability</strong><br>
+            R. Chakraborty, R. Chakraborty, A. K. Rahimian, T. MacDougall<br>
+            <a class="in-text" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1fneuo5ohtWxKjj1rns_dzA8GoCKEgsr6/view?usp=drive_link">poster</a>
+          </p>
+          <p class="paper my-2 pl-2">
+            <span class="badge-venue">ACPR 2025</span><br>
+            <strong>Joint Utilisation of Online and Offline Features for Handwriting Recognition</strong><br>
+            R. Chakraborty*, A. Lodh*, S. Palaiahnakote, U. Pal<br>
+            <a class="in-text" target="_blank" rel="noopener" href="https://arxiv.org/abs/2506.17144">paper</a> ·
+            <a class="in-text" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2506.20255">preprint</a>
+          </p>
+        </div>
 
-          <!-- News -->
-          <div class="glass section lift">
-            <div class="header">🗞️ News</div>
-            <div class="timeline">
-              <div class="t-item"><strong>ICDAR 2025 (Oral)</strong> — Lightweight Context-Driven, Training-Free STR accepted.</div>
-              <div class="t-item"><strong>ICML 2025 Workshop</strong> — “TruthLens: Fake Image Detection with Interpretability” (poster).</div>
-              <div class="t-item"><strong>ACPR 2025</strong> — Online+Offline Features for Handwriting Recognition accepted.</div>
-              <div class="t-item">IAS–NASI–INSA Summer Research Fellowship (2024).</div>
-              <div class="t-item">Student Excellence Award ×5 (2024) · Dean’s List ×5 (2023).</div>
-            </div>
-          </div>
+        <!-- Patents -->
+        <div class="glass section lift" id="patents">
+          <div class="header">🧾 Patents</div>
+          <p class="paper my-2 pl-2">
+            <strong>MANN-MITRA:</strong> Depression detection with multimodal ML — Published 13 Oct 2023.<br>
+            <a class="in-text" target="_blank" rel="noopener" href="https://drive.google.com/file/d/18WcmBjt-Gj8BGtit9qJqg68Jkn8A73nh/view">link</a>
+          </p>
+          <p class="paper my-2 pl-2">
+            <strong>NAVYA:</strong> Navigational Audio for Visual Yield Assistance — Published 30 Aug 2024.<br>
+            <a class="in-text" target="_blank" rel="noopener" href="https://drive.google.com/file/d/18WcmBjt-Gj8BGtit9qJqg68Jkn8A73nh/view">link</a>
+          </p>
+        </div>
 
-          <!-- Publications -->
-          <div class="glass section lift" id="publications">
-            <div class="header">📚 Selected Publications</div>
-
-            <p class="paper my-2 pl-2">
-              <span class="badge-venue">ICDAR 2025 · Oral</span><br>
-              <strong>A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition</strong><br>
-              R. Chakraborty, S. Palaiahnakote, U. Pal, C.-L. Liu<br>
-              <a class="in-text" target="_blank" rel="noopener" href="https://ritabrata04.github.io/Context-driven-STR/">website</a> ·
-              <a class="in-text" target="_blank" rel="noopener" href="https://arxiv.org/abs/2503.15639">paper</a> ·
-              <a class="in-text" target="_blank" rel="noopener" href="https://github.com/Ritabrata04/icdar2025-context-driven-str">code</a>
-            </p>
-
-            <p class="paper my-2 pl-2">
-              <span class="badge-venue">ICML 2025 Workshop</span><br>
-              <strong>TruthLens: Fake Image Detection with Interpretability</strong><br>
-              R. Chakraborty, R. Chakraborty, A. K. Rahimian, T. MacDougall<br>
-              <a class="in-text" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1fneuo5ohtWxKjj1rns_dzA8GoCKEgsr6/view?usp=drive_link">poster</a>
-            </p>
-
-            <p class="paper my-2 pl-2">
-              <span class="badge-venue">ACPR 2025</span><br>
-              <strong>Joint Utilisation of Online and Offline Features for Handwriting Recognition</strong><br>
-              R. Chakraborty*, A. Lodh*, S. Palaiahnakote, U. Pal<br>
-              <a class="in-text" target="_blank" rel="noopener" href="https://arxiv.org/abs/2506.17144">paper</a> ·
-              <a class="in-text" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2506.20255">preprint</a>
-            </p>
-          </div>
-
-          <!-- Experience -->
-          <div class="glass section lift" id="experience">
-            <div class="header">🧭 Experience</div>
-            <div class="paper">
-              <p class="my-2"><strong>IIIT Hyderabad</strong> — Undergraduate Research Assistant (Jun 2025 – Present)</p>
-              <p class="my-2"><strong>University of Salford</strong> — Research Intern (Aug 2024 – Present)</p>
-              <p class="my-2"><strong>CVIT, IIIT Hyderabad</strong> — Research Fellow (May–Jul 2024)</p>
-              <p class="my-2"><strong>Purdue University</strong> — Research Intern (Jan–May 2024)</p>
-              <p class="my-2"><strong>Indian Statistical Institute, Kolkata</strong> — Research Intern (Dec 2023 – May 2024)</p>
-              <p class="my-2"><strong>Manipal University Jaipur</strong> — Undergraduate Research Assistant (May 2023 – Oct 2024)</p>
-              <p class="my-2"><strong>Cycle-Gyan</strong> — Founder (Apr 2024 – May 2025)</p>
-              <p class="my-2"><strong>Feynn Labs</strong> — ML Intern (May–Jul 2023)</p>
-            </div>
-          </div>
-
-          <!-- Projects -->
-          <div class="glass section lift" id="projects">
-            <div class="header">🧪 Projects</div>
-            <p class="paper my-2 pl-2">
-              <strong>TILOTTAMA:</strong> CV for menstrual waste mgmt — Fine-tuned YOLO & ViT-CNN; 90%+ detection.<br>
-              <a class="in-text" target="_blank" rel="noopener" href="https://github.com/Ritabrata04/Tilottoma">code</a> ·
-              <a class="in-text" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1ODztWcorrmRolQ1uw2aBvLNDPPpS1OD6/view?usp=sharing">docs</a>
-            </p>
-            <p class="paper my-2 pl-2">
-              <strong>MODELSLEUTH:</strong> CLI for model discovery — ~30% faster model search across codebases.<br>
-              <a class="in-text" target="_blank" rel="noopener" href="https://github.com/Ritabrata04/ModelSleuth">code</a> ·
-              <a class="in-text" target="_blank" rel="noopener" href="https://pypi.org/project/ModelSleuth/">PyPI</a>
-            </p>
-            <p class="paper my-2 pl-2">
-              <strong>SIBYL:</strong> Skill-gap analytics — RF/SVM/XGBoost; 92% accuracy; 4th @ Dell Hack2Hire.<br>
-              <a class="in-text" target="_blank" rel="noopener" href="https://github.com/Ritabrata04/SIBYL">code</a> ·
-              <a class="in-text" target="_blank" rel="noopener" href="https://sibylai.streamlit.app/">demo</a>
-            </p>
-          </div>
-
-          <!-- Patents -->
-          <div class="glass section lift" id="patents">
-            <div class="header">🧾 Patents</div>
-            <p class="paper my-2 pl-2">
-              <strong>MANN-MITRA:</strong> Depression detection with multimodal ML — Published 13 Oct 2023.<br>
-              <a class="in-text" target="_blank" rel="noopener" href="https://drive.google.com/file/d/18WcmBjt-Gj8BGtit9qJqg68Jkn8A73nh/view">link</a>
-            </p>
-            <p class="paper my-2 pl-2">
-              <strong>NAVYA:</strong> Navigational Audio for Visual Yield Assistance — Published 30 Aug 2024.<br>
-              <a class="in-text" target="_blank" rel="noopener" href="https://drive.google.com/file/d/18WcmBjt-Gj8BGtit9qJqg68Jkn8A73nh/view">link</a>
-            </p>
-          </div>
-
-          <!-- Skills -->
-          <div class="glass section lift" id="skills">
-            <div class="header">🛠️ Skills</div>
-            <p class="paper my-2 pl-2">
-              <strong>Languages:</strong> Python, C/C++, Java, MySQL<br>
-              <strong>Frameworks:</strong> PyTorch, TensorFlow, TFX<br>
-              <strong>Tools:</strong> Git/GitHub, W&amp;B, TensorBoard
-            </p>
-          </div>
-
+        <!-- Skills -->
+        <div class="glass section lift" id="skills">
+          <div class="header">🛠️ Skills</div>
+          <p class="paper my-2 pl-2">
+            <strong>Languages:</strong> Python, C/C++, Java, MySQL<br>
+            <strong>Frameworks:</strong> PyTorch, TensorFlow, TFX<br>
+            <strong>Tools:</strong> Git/GitHub, W&amp;B, TensorBoard
+          </p>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- JS (Bootstrap only; no theme toggle) -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
-  </body>
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</body>
 </html>
