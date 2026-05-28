@@ -62,7 +62,7 @@ header{padding:52px 0 8px;}
   transition:border-color .2s, color .2s, transform .12s;
 }
 .toggle:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-1px);}
-.hero{display:flex; gap:30px; align-items:center; flex-wrap:wrap;}
+.hero{display:flex; gap:38px; align-items:center; flex-wrap:wrap;}
 .avatar{
   width:150px; height:150px; border-radius:18px; object-fit:cover;
   border:1px solid var(--line); box-shadow:var(--shadow); flex:0 0 auto;
@@ -78,19 +78,6 @@ h1{
 .links{display:flex; flex-wrap:wrap; gap:8px 18px; margin-top:16px; font-size:15px;}
 .links a{color:var(--ink-soft); border-bottom:1px solid var(--line); padding-bottom:1px;}
 .links a:hover{color:var(--accent); border-color:var(--accent); text-decoration:none;}
-
-// ---- Lightbox ----
-var lb = document.getElementById('lightbox');
-var lbImg = document.getElementById('lightbox-img');
-document.querySelectorAll('.pub-thumb').forEach(function(img){
-  img.addEventListener('click', function(){
-    lbImg.src = img.src;
-    lb.classList.add('open');
-  });
-});
-function closeLb(){ lb.classList.remove('open'); lbImg.src = ''; }
-lb.addEventListener('click', closeLb);
-document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLb(); });
 
 /* ---------- Tabs ---------- */
 nav.tabs{
@@ -127,18 +114,20 @@ nav.tabs{
 
 /* ---------- Publications ---------- */
 .pub{
-  display:grid; grid-template-columns:250px 1fr; gap:22px;
+  display:grid; grid-template-columns:220px 1fr; gap:22px;
   padding:22px; margin-bottom:16px;
   background:var(--card); border:1px solid var(--line);
   border-radius:16px; box-shadow:var(--shadow);
   transition:transform .15s ease, border-color .2s ease;
 }
 .pub:hover{transform:translateY(-2px); border-color:var(--accent);}
+.pub-figure{align-self:start;}
 .pub-thumb{
-  width:100%; aspect-ratio:4/3; object-fit:contain;
+  width:100%; height:auto; display:block;
   border-radius:10px; border:1px solid var(--line); background:var(--paper-2);
-  cursor:zoom-in;
+  cursor:zoom-in; transition:filter .15s ease;
 }
+.pub-thumb:hover{filter:brightness(.94);}
 .pub-meta .venue{
   display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.4px;
   text-transform:uppercase; color:var(--accent);
@@ -157,6 +146,8 @@ nav.tabs{
   transition:all .15s ease; background:var(--paper);
 }
 .badge:hover{color:var(--accent); border-color:var(--accent); text-decoration:none; transform:translateY(-1px);}
+
+/* ---------- Lightbox ---------- */
 .lightbox{
   position:fixed; inset:0; z-index:1000; display:none;
   align-items:center; justify-content:center;
@@ -193,7 +184,7 @@ nav.tabs{
 @media (max-width:620px){
   h1{font-size:34px;}
   .pub{grid-template-columns:1fr; gap:14px;}
-  .pub-thumb{max-width:220px;}
+  .pub-thumb{max-width:300px;}
   .news-item{grid-template-columns:70px 1fr; gap:12px;}
   .tab{padding:11px 11px; font-size:15px;}
 }
@@ -287,7 +278,7 @@ nav.tabs{
 
  
     <article class="pub">
-      <img class="pub-thumb" src="images/papers/m2bind.png" alt="">
+      <div class="pub-figure"><img class="pub-thumb" src="images/papers/m2bind.png" alt="Vision-Language Models are Fragile Multilingual Associators"></div>
       <div class="pub-meta">
         <span class="venue">Under Review · 2026</span>
         <h3 class="pub-title">Vision-Language Models are Fragile Multilingual Associators</h3>
@@ -299,7 +290,7 @@ nav.tabs{
     </article>
 
         <!-- <article class="pub">
-      <img class="pub-thumb" src="images/papers/cambench-qr.png" alt="">
+      <div class="pub-figure"><img class="pub-thumb" src="images/papers/cambench-qr.png" alt="CAMBench-QR"></div>
       <div class="pub-meta">
         <span class="venue">CVPR Workshop (XAI4CV) 2026</span>
         <h3 class="pub-title">CAMBench-QR: A Structure-Aware Benchmark for Post-Hoc Explanations with QR Understanding</h3>
@@ -312,7 +303,7 @@ nav.tabs{
     </article> -->
  
     <!-- <article class="pub">
-      <img class="pub-thumb" src="images/papers/cdod.png" alt="">
+      <div class="pub-figure"><img class="pub-thumb" src="images/papers/cdod.png" alt="Cross-Dataset Object Detection"></div>
       <div class="pub-meta">
         <span class="venue">Under Review · 2026</span>
         <h3 class="pub-title">Towards Robust Cross-Dataset Object Detection Generalization under Domain Specificity</h3>
@@ -325,7 +316,7 @@ nav.tabs{
     </article>
   -->
     <article class="pub">
-      <img class="pub-thumb" src="images/papers/andha-dhun.png" alt="">
+      <div class="pub-figure"><img class="pub-thumb" src="images/papers/andha-dhun.png" alt="ANDHA-DHUN: A First Look at Audio Descriptions in Hindi"></div>
       <div class="pub-meta">
         <span class="venue">Under Review · 2026</span>
         <h3 class="pub-title">ANDHA-DHUN: A First Look at Audio Descriptions in Hindi</h3>
@@ -337,7 +328,7 @@ nav.tabs{
     </article>
  
     <article class="pub">
-      <img class="pub-thumb" src="images/papers/soccer.png" alt="">
+      <div class="pub-figure"><img class="pub-thumb" src="images/papers/soccer.png" alt="Do We Need Large VLMs for Spotting Soccer Actions?"></div>
       <div class="pub-meta">
         <span class="venue">IJCNLP-AACL 2025 SRW · Oral</span>
         <h3 class="pub-title">Do We Need Large VLMs for Spotting Soccer Actions?</h3>
@@ -349,7 +340,7 @@ nav.tabs{
     </article>
  
     <article class="pub">
-      <img class="pub-thumb" src="images/papers/acpr2025.png" alt="">
+      <div class="pub-figure"><img class="pub-thumb" src="images/papers/acpr2025.png" alt="A Transformer Based Handwriting Recognition System"></div>
       <div class="pub-meta">
         <span class="venue">ACPR 2025 · Oral</span>
         <h3 class="pub-title">A Transformer Based Handwriting Recognition System Jointly Using Online and Offline Features</h3>
@@ -362,7 +353,7 @@ nav.tabs{
     </article>
  
     <article class="pub">
-      <img class="pub-thumb" src="images/papers/icdar2025.png" alt="">
+      <div class="pub-figure"><img class="pub-thumb" src="images/papers/icdar2025.png" alt="A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition"></div>
       <div class="pub-meta">
         <span class="venue">ICDAR 2025 · Oral</span>
         <h3 class="pub-title">A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition</h3>
@@ -376,7 +367,7 @@ nav.tabs{
     </article>
  
     <article class="pub">
-      <img class="pub-thumb" src="images/papers/truthlens.png" alt="">
+      <div class="pub-figure"><img class="pub-thumb" src="images/papers/truthlens.png" alt="TruthLens: Training-Free Data Verification for Deepfake Images via VQA-Style Probing"></div>
       <div class="pub-meta">
         <span class="venue">ICML Workshop 2025</span>
         <h3 class="pub-title">TruthLens: Training-Free Data Verification for Deepfake Images via VQA-Style Probing</h3>
@@ -461,11 +452,14 @@ nav.tabs{
     </p>
 
   </section>
+
+  <div class="foot">© <span id="yr"></span> Ritabrata Chakraborty · Built with care</div>
+</div>
+
+<!-- ===== Lightbox ===== -->
 <div class="lightbox" id="lightbox">
   <button class="lb-close" aria-label="Close">×</button>
   <img id="lightbox-img" src="" alt="">
-</div>
-  <div class="foot">© <span id="yr"></span> Ritabrata Chakraborty · Built with care (and Claude!)</div>
 </div>
 
 <script>
@@ -503,6 +497,20 @@ nav.tabs{
   // open tab from hash
   var h = (location.hash || '').replace('#','');
   if(h){ var b = document.querySelector('.tab[data-tab="'+h+'"]'); if(b) b.click(); }
+
+  // ---- Lightbox ----
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  document.querySelectorAll('.pub-thumb').forEach(function(img){
+    img.addEventListener('click', function(){
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lb.classList.add('open');
+    });
+  });
+  function closeLb(){ lb.classList.remove('open'); lbImg.src = ''; }
+  lb.addEventListener('click', closeLb);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLb(); });
 
   // ---- Year ----
   document.getElementById('yr').textContent = new Date().getFullYear();
