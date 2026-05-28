@@ -1,250 +1,466 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Meta -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Undergraduate Researcher · IIIT Hyderabad · University of Salford">
-  <meta name="author" content="Ritabrata Chakraborty">
-  <meta name="theme-color" content="#0b1020">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/nicons/official.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ritabrata Chakraborty">
+<meta name="author" content="Ritabrata Chakraborty">
+<title>Ritabrata Chakraborty | ঋতব্রত চক্রবর্তী</title>
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <title>Ritabrata Chakraborty | ঋতব্রত চক্রবর্তী</title>
+<style>
+:root{
+  --paper:#f6f2ea;
+  --paper-2:#efe9de;
+  --ink:#1d1a16;
+  --ink-soft:#4a443b;
+  --muted:#857b6c;
+  --line:#ddd4c5;
+  --accent:#b5471f;
+  --accent-soft:#b5471f1a;
+  --card:#fffdf8;
+  --shadow:0 1px 2px rgba(40,30,15,.05), 0 10px 30px rgba(40,30,15,.06);
+  --maxw:840px;
+}
+html[data-theme="dark"]{
+  --paper:#14130f;
+  --paper-2:#1b1915;
+  --ink:#ece7dd;
+  --ink-soft:#bdb6a8;
+  --muted:#8a8273;
+  --line:#2c2922;
+  --accent:#e07a4a;
+  --accent-soft:#e07a4a1f;
+  --card:#1c1a15;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 34px rgba(0,0,0,.34);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Hanken Grotesk", system-ui, sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  transition:background .35s ease, color .35s ease;
+}
+a{color:var(--accent); text-decoration:none;}
+a:hover{text-decoration:underline; text-underline-offset:3px;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px;}
 
-  <style>
-    /* ===== Dark, high-contrast base ===== */
-    :root{
-      --bg: #0b1020;
-      --card: rgba(17,25,40,0.82);
-      --text: #ffffff;
-      --muted: #cbd5e1;
-      --link: #dbe3ff;
-      --border: rgba(255,255,255,0.12);
-      --shadow: 0 14px 40px rgba(0,0,0,0.45);
-      --blur: saturate(160%) blur(7px);
-    }
-    html, body { height:100%; }
-    body{
-      background:
-        radial-gradient(1200px 800px at 10% -10%, #3146ff26, transparent 60%),
-        radial-gradient(1000px 600px at 110% 0%, #9f3dff22, transparent 60%),
-        linear-gradient(180deg, #0a0f1f, #0b1020 50%, #0a0f1f);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      color: var(--text) !important;
-    }
-    /* Force white text everywhere, links light blue */
-    .glass, .section, .header, .paper, .timeline, .t-item,
-    .about, .name, .name span, p, li, strong, em, h1,h2,h3,h4,h5,h6 {
-      color: var(--text) !important;
-    }
-    a, a * { color: var(--link) !important; text-decoration: underline; }
-    a:hover { text-decoration: none; }
-    .muted, .text-muted { color: var(--muted) !important; }
+/* ---------- Header ---------- */
+header{padding:52px 0 8px;}
+.topbar{display:flex; justify-content:flex-end; margin-bottom:30px;}
+.toggle{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--card); border:1px solid var(--line); color:var(--ink-soft);
+  border-radius:999px; padding:7px 14px; cursor:pointer; font:inherit; font-size:14px;
+  transition:border-color .2s, color .2s, transform .12s;
+}
+.toggle:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-1px);}
+.hero{display:flex; gap:30px; align-items:center; flex-wrap:wrap;}
+.avatar{
+  width:108px; height:108px; border-radius:18px; object-fit:cover;
+  border:1px solid var(--line); box-shadow:var(--shadow); flex:0 0 auto;
+}
+.intro{flex:1; min-width:260px;}
+h1{
+  font-family:"Fraunces", serif; font-weight:600; font-size:42px;
+  line-height:1.05; margin:0 0 4px; letter-spacing:-.5px;
+}
+.native{font-family:"Fraunces", serif; font-weight:400; color:var(--muted); font-size:20px;}
+.tag{color:var(--ink-soft); margin:14px 0 0; font-size:16.5px;}
+.tag strong{color:var(--ink); font-weight:600;}
+.links{display:flex; flex-wrap:wrap; gap:8px 18px; margin-top:16px; font-size:15px;}
+.links a{color:var(--ink-soft); border-bottom:1px solid var(--line); padding-bottom:1px;}
+.links a:hover{color:var(--accent); border-color:var(--accent); text-decoration:none;}
 
-    /* ===== Layout ===== */
-    .container{ max-width: 1120px; }
-    .fixed-posi{ position: sticky; top: 24px; }
+/* ---------- Tabs ---------- */
+nav.tabs{
+  display:flex; gap:4px; margin:38px 0 6px;
+  border-bottom:1px solid var(--line);
+}
+.tab{
+  appearance:none; background:none; border:none; cursor:pointer;
+  font:inherit; font-weight:600; font-size:16px; color:var(--muted);
+  padding:12px 16px; position:relative; transition:color .2s;
+}
+.tab:hover{color:var(--ink);}
+.tab[aria-selected="true"]{color:var(--ink);}
+.tab[aria-selected="true"]::after{
+  content:""; position:absolute; left:14px; right:14px; bottom:-1px; height:2.5px;
+  background:var(--accent); border-radius:2px;
+}
+.panel{display:none; padding:30px 0 70px; animation:fade .4s ease;}
+.panel.active{display:block;}
+@keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;}}
 
-    /* ===== Cards ===== */
-    .glass{
-      background: var(--card);
-      backdrop-filter: var(--blur);
-      -webkit-backdrop-filter: var(--blur);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-    }
-    .section{ padding: 28px 26px; margin-top: 24px; }
-    .header{ font-weight: 800; letter-spacing: .2px; margin-bottom:10px; }
-    .paper{ border-left: 3px solid rgba(255,255,255,0.28); padding-left:12px; }
+/* ---------- News ---------- */
+.news-item{
+  display:grid; grid-template-columns:84px 1fr; gap:18px;
+  padding:16px 0; border-bottom:1px solid var(--line);
+}
+.news-item:last-child{border-bottom:none;}
+.news-date{
+  font-family:"Fraunces", serif; color:var(--accent);
+  font-size:15px; font-weight:600; padding-top:1px; white-space:nowrap;
+}
+.news-body{color:var(--ink-soft);}
+.news-body b{color:var(--ink); font-weight:600;}
 
-    /* ===== Sidebar (bigger & nicer) ===== */
-    .sidebar-card{ padding: 28px 26px; }
-    .profilepic{
-      width: 100%;
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      margin: 10px 0 16px;
-      border: 1px solid rgba(255,255,255,0.18);
-    }
-    .linkbtn{
-      display:block;
-      padding: 10px 12px;
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 12px;
-      background: rgba(255,255,255,0.06);
-      margin: 8px 0;
-      text-decoration: none !important;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-    }
-    .linkbtn:hover{
-      background: rgba(255,255,255,0.12);
-      border-color: rgba(255,255,255,0.25);
-      transform: translateY(-1px);
-    }
+/* ---------- Publications ---------- */
+.pub{
+  display:grid; grid-template-columns:160px 1fr; gap:22px;
+  padding:22px; margin-bottom:16px;
+  background:var(--card); border:1px solid var(--line);
+  border-radius:16px; box-shadow:var(--shadow);
+  transition:transform .15s ease, border-color .2s ease;
+}
+.pub:hover{transform:translateY(-2px); border-color:var(--accent);}
+.pub-thumb{
+  width:100%; aspect-ratio:4/3; object-fit:cover;
+  border-radius:10px; border:1px solid var(--line); background:var(--paper-2);
+}
+.pub-meta .venue{
+  display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.4px;
+  text-transform:uppercase; color:var(--accent);
+  background:var(--accent-soft); padding:3px 10px; border-radius:999px; margin-bottom:9px;
+}
+.pub-title{
+  font-family:"Fraunces", serif; font-weight:600; font-size:20px;
+  line-height:1.25; margin:0 0 6px; color:var(--ink);
+}
+.pub-authors{color:var(--ink-soft); font-size:15px; margin:0 0 12px;}
+.pub-authors .me{color:var(--ink); font-weight:700;}
+.badges{display:flex; flex-wrap:wrap; gap:8px;}
+.badge{
+  font-size:13px; font-weight:600; color:var(--ink-soft);
+  border:1px solid var(--line); border-radius:8px; padding:4px 11px;
+  transition:all .15s ease; background:var(--paper);
+}
+.badge:hover{color:var(--accent); border-color:var(--accent); text-decoration:none; transform:translateY(-1px);}
 
-    /* ===== Hero ===== */
-    .hero{
-      border-radius: 26px; padding: 30px;
-      background: linear-gradient(120deg, #6b8cff, #a855f7);
-      color: #fff !important;
-      box-shadow: var(--shadow); position: relative; overflow: hidden;
-    }
-    .hero::after{
-      content:""; position:absolute; inset:-20%;
-      background: radial-gradient(420px 240px at 80% 30%, #ffffff22, transparent 60%);
-      transform: rotate(-8deg);
-    }
-    .hero h1{ font-weight:900; margin:0 0 6px; }
-    .hero p{ margin:0; opacity:.98; }
-    .hero a{ color:#fff !important; text-decoration: underline; }
+/* ---------- Experience ---------- */
+.exp{
+  padding:20px 0; border-bottom:1px solid var(--line);
+}
+.exp:last-child{border-bottom:none;}
+.exp-head{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:baseline;}
+.exp-role{font-family:"Fraunces", serif; font-weight:600; font-size:19px; color:var(--ink); margin:0;}
+.exp-where{color:var(--accent); font-weight:600;}
+.exp-date{color:var(--muted); font-size:14px; white-space:nowrap;}
+.exp-advisor{color:var(--muted); font-size:14.5px; margin:3px 0 8px;}
+.exp-desc{color:var(--ink-soft); font-size:15.5px; margin:0;}
 
-    /* ===== Timeline ===== */
-    .timeline{ position:relative; margin-left:10px; padding-left:24px; }
-    .timeline::before{ content:""; position:absolute; left:8px; top:0; bottom:0; width:2px; background: rgba(255,255,255,0.28); }
-    .t-item{ position:relative; margin:12px 0; padding-left:6px; }
-    .t-item::before{
-      content:""; position:absolute; left:-4px; top:8px; width:10px; height:10px; border-radius:50%;
-      background: linear-gradient(120deg, #6b8cff, #a855f7); box-shadow: 0 0 0 3px #0b1020;
-    }
+.foot{
+  text-align:center; color:var(--muted); font-size:13.5px;
+  padding:26px 0 50px; border-top:1px solid var(--line);
+}
 
-    /* ===== Micro-interactions ===== */
-    .lift{ transition: transform .15s ease; }
-    .lift:hover{ transform: translateY(-2px); }
-
-    /* ===== Responsive ===== */
-    @media (max-width: 991px){
-      .fixed-posi{ position: static; }
-      .hero{ margin-top: 10px; }
-    }
-  </style>
+@media (max-width:620px){
+  h1{font-size:34px;}
+  .pub{grid-template-columns:1fr; gap:14px;}
+  .pub-thumb{max-width:220px;}
+  .news-item{grid-template-columns:70px 1fr; gap:12px;}
+  .tab{padding:11px 11px; font-size:15px;}
+}
+</style>
 </head>
-
 <body>
-  <div class="container pt-5">
-    <div class="row pt-4">
+<div class="wrap">
 
-      <!-- Sidebar (wider now) -->
-      <div class="col-lg-5 col-md-5 pt-3">
-        <div class="fixed-posi glass section sidebar-card lift">
-          <p class="name mb-2">
-            <span style="font-size:1.25em; font-weight:800;">Ritabrata Chakraborty</span>
-            <br><span class="muted" style="font-size:1.0em;">ঋতব্রত চক্রবর্তী</span>
-          </p>
+  <header>
+    <div class="topbar">
+      <button class="toggle" id="themeBtn" aria-label="Toggle theme">
+        <span id="themeIcon">◐</span><span id="themeLabel">Dark</span>
+      </button>
+    </div>
 
-          <img src="bnw_pfp.png" class="profilepic" alt="Profile picture">
-
-          <a class="linkbtn" target="_blank" rel="noopener" href="https://scholar.google.com/citations?user=1VMtl5gAAAAJ&hl=en">Google Scholar</a>
-          <a class="linkbtn" target="_blank" rel="noopener" href="Resume_Ritabrata (26).pdf">CV (PDF)</a>
-          <a class="linkbtn" href="mailto:ritabrata04@gmail.com">Email</a>
-          <a class="linkbtn" target="_blank" rel="noopener" href="https://github.com/Ritabrata04">GitHub</a>
-          <a class="linkbtn" target="_blank" rel="noopener" href="https://www.linkedin.com/in/ritabrata-chakraborty-69b2551b6/">LinkedIn</a>
-          <a class="linkbtn" target="_blank" rel="noopener" href="https://x.com/ritabrata04">X (Twitter)</a>
-        </div>
-      </div>
-
-      <!-- Main -->
-      <div class="col-lg-7 col-md-7 pt-3 about">
-        <div class="hero lift">
-          <h1>Hi, I’m Ritabrata.</h1>
-          <p>CS undergrad @ <a href="https://jaipur.manipal.edu/" target="_blank" rel="noopener">Manipal University Jaipur</a>.
-            I work at the intersection of <strong>Computer Vision</strong> and <strong>NLP</strong> for social good — lately on
-            <em>scene text</em>, <em>handwriting recognition</em>, and <em>audio description for Hindi films</em>.
-          </p>
-        </div>
-
-        <!-- Current Work -->
-        <div class="glass section lift" id="current">
-          <div class="header">🔭 Current Work</div>
-          <div class="paper">
-            <p class="my-2">
-              <span class="badge-venue">Undergraduate Research Assistant · IIIT Hyderabad · Jun 2025 – Present</span><br>
-              <strong>Katha-AI</strong> (advisor: Makarand Tapaswi). Building better <em>audio descriptions for Hindi movies</em> with industry
-              partners; dataset curation, evaluation, and modeling for multilingual AD quality.
-            </p>
-            <p class="my-2">
-              <span class="badge-venue">Research Intern · University of Salford · Aug 2024 – Present</span><br>
-              With <strong>Prof. Shivakumara Palaiahnakote</strong> and <strong>Prof. Umapada Pal</strong>: context cues for <em>Scene Text Recognition</em>;
-              follow-ups to our ICDAR’25 oral on <em>training-free STR</em>.
-            </p>
-            <p class="my-2">
-              <span class="badge-venue">Research Fellow · CVIT, IIIT Hyderabad · May–Jul 2024</span><br>
-              Data pipelines and augmentation for large-scale STR with <strong>Prof. C. V. Jawahar</strong> &amp; <strong>Dr. Ajoy Mondal</strong>.
-            </p>
-          </div>
-        </div>
-
-        <!-- News -->
-        <div class="glass section lift">
-          <div class="header">🗞️ News</div>
-          <div class="timeline">
-            <div class="t-item"><strong>ICDAR 2025 (Oral)</strong> — Lightweight Context-Driven, Training-Free STR accepted.</div>
-            <div class="t-item"><strong>ICML 2025 Workshop</strong> — “TruthLens: Fake Image Detection with Interpretability” (poster).</div>
-            <div class="t-item"><strong>ACPR 2025</strong> — Online+Offline Features for Handwriting Recognition accepted.</div>
-            <div class="t-item">IAS–NASI–INSA Summer Research Fellowship (2024).</div>
-            <div class="t-item">Student Excellence Award ×5 (2024) · Dean’s List ×5 (2023).</div>
-          </div>
-        </div>
-
-        <!-- Publications -->
-        <div class="glass section lift" id="publications">
-          <div class="header">📚 Selected Publications</div>
-          <p class="paper my-2 pl-2">
-            <span class="badge-venue">ICDAR 2025 · Oral</span><br>
-            <strong>A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition</strong><br>
-            R. Chakraborty, S. Palaiahnakote, U. Pal, C.-L. Liu<br>
-            <a class="in-text" target="_blank" rel="noopener" href="https://ritabrata04.github.io/Context-driven-STR/">website</a> ·
-            <a class="in-text" target="_blank" rel="noopener" href="https://arxiv.org/abs/2503.15639">paper</a> ·
-            <a class="in-text" target="_blank" rel="noopener" href="https://github.com/Ritabrata04/icdar2025-context-driven-str">code</a>
-          </p>
-          <p class="paper my-2 pl-2">
-            <span class="badge-venue">ICML 2025 Workshop</span><br>
-            <strong>TruthLens: Fake Image Detection with Interpretability</strong><br>
-            R. Chakraborty, R. Chakraborty, A. K. Rahimian, T. MacDougall<br>
-            <a class="in-text" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1fneuo5ohtWxKjj1rns_dzA8GoCKEgsr6/view?usp=drive_link">poster</a>
-          </p>
-          <p class="paper my-2 pl-2">
-            <span class="badge-venue">ACPR 2025</span><br>
-            <strong>Joint Utilisation of Online and Offline Features for Handwriting Recognition</strong><br>
-            R. Chakraborty*, A. Lodh*, S. Palaiahnakote, U. Pal<br>
-            <a class="in-text" target="_blank" rel="noopener" href="https://arxiv.org/abs/2506.17144">paper</a> ·
-            <a class="in-text" target="_blank" rel="noopener" href="https://arxiv.org/pdf/2506.20255">preprint</a>
-          </p>
-        </div>
-
-        <!-- Patents -->
-        <div class="glass section lift" id="patents">
-          <div class="header">🧾 Patents</div>
-          <p class="paper my-2 pl-2">
-            <strong>MANN-MITRA:</strong> Depression detection with multimodal ML — Published 13 Oct 2023.<br>
-            <a class="in-text" target="_blank" rel="noopener" href="https://drive.google.com/file/d/18WcmBjt-Gj8BGtit9qJqg68Jkn8A73nh/view">link</a>
-          </p>
-          <p class="paper my-2 pl-2">
-            <strong>NAVYA:</strong> Navigational Audio for Visual Yield Assistance — Published 30 Aug 2024.<br>
-            <a class="in-text" target="_blank" rel="noopener" href="https://drive.google.com/file/d/18WcmBjt-Gj8BGtit9qJqg68Jkn8A73nh/view">link</a>
-          </p>
-        </div>
-
-        <!-- Skills -->
-        <div class="glass section lift" id="skills">
-          <div class="header">🛠️ Skills</div>
-          <p class="paper my-2 pl-2">
-            <strong>Languages:</strong> Python, C/C++, Java, MySQL<br>
-            <strong>Frameworks:</strong> PyTorch, TensorFlow, TFX<br>
-            <strong>Tools:</strong> Git/GitHub, W&amp;B, TensorBoard
-          </p>
+    <div class="hero">
+      <img class="avatar" src="bnw_pfp.png" alt="Ritabrata Chakraborty">
+      <div class="intro">
+        <h1>Ritabrata Chakraborty</h1>
+        <span class="native">ঋতব্রত চক্রবর্তী</span>
+        <p class="tag">
+          CS undergrad at <strong>Manipal University Jaipur</strong>, working across
+          <strong>computer vision</strong> and <strong>NLP</strong> for social good —
+          lately on scene text, multilingual vision-language models, and audio description for Hindi film.
+        </p>
+        <div class="links">
+          <a href="https://scholar.google.com/citations?user=1VMtl5gAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+          <a href="https://github.com/Ritabrata04" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/ritabrata-chakraborty-69b2551b6/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://x.com/ritabrata04" target="_blank" rel="noopener">X</a>
+          <a href="mailto:ritabrata04@gmail.com">Email</a>
+          <a href="Resume_Ritabrata (1).pdf" target="_blank" rel="noopener">CV</a>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- JS -->
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <nav class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true"  data-tab="news">News</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="pubs">Publications</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="exp">Experience</button>
+    </nav>
+  </header>
+
+  <!-- ===== NEWS ===== -->
+  <section class="panel active" id="news" role="tabpanel">
+    <div class="news-item">
+      <div class="news-date">2026</div>
+      <div class="news-body"><b>CAMBench-QR</b> accepted to the <b>CVPR Workshop on Explainable AI for Computer Vision (XAI4CV) 2026</b>, Proceedings track.</div>
+    </div>
+    <div class="news-item">
+      <div class="news-date">Oct 2025</div>
+      <div class="news-body">Started as a <b>Research Intern at the University of Manchester</b> with Prof. Angelo Cangelosi, working on mechanistic binding in vision-language models.</div>
+    </div>
+    <div class="news-item">
+      <div class="news-date">2025</div>
+      <div class="news-body"><b>“Do We Need Large VLMs for Spotting Soccer Actions?”</b> accepted to the <b>IJCNLP-AACL 2025</b> Student Research Workshop (Oral).</div>
+    </div>
+    <div class="news-item">
+      <div class="news-date">2025</div>
+      <div class="news-body"><b>TruthLens</b> accepted to the <b>ICML 2025</b> Workshop on Data in Generative Models.</div>
+    </div>
+    <div class="news-item">
+      <div class="news-date">2025</div>
+      <div class="news-body">Training-free scene text recognition paper accepted as an <b>Oral at ICDAR 2025</b>.</div>
+    </div>
+    <div class="news-item">
+      <div class="news-date">2025</div>
+      <div class="news-body">Handwriting recognition paper accepted as an <b>Oral at ACPR 2025</b>.</div>
+    </div>
+    <div class="news-item">
+      <div class="news-date">2024</div>
+      <div class="news-body">Awarded the <b>IAS–NASI–INSA Summer Research Fellowship</b> (≈200 students nationwide).</div>
+    </div>
+  </section>
+
+  <!-- ===== PUBLICATIONS ===== -->
+  <section class="panel" id="pubs" role="tabpanel">
+
+    <article class="pub">
+      <img class="pub-thumb" src="images/papers/icdar2025.png" alt="">
+      <div class="pub-meta">
+        <span class="venue">ICDAR 2025 · Oral</span>
+        <h3 class="pub-title">A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition</h3>
+        <p class="pub-authors"><span class="me">R. Chakraborty</span>, S. Palaiahnakote, U. Pal, C.-L. Liu</p>
+        <div class="badges">
+          <a class="badge" href="https://ritabrata04.github.io/Context-driven-STR/" target="_blank" rel="noopener">Website</a>
+          <a class="badge" href="https://arxiv.org/abs/2503.15639" target="_blank" rel="noopener">Paper</a>
+          <a class="badge" href="https://github.com/Ritabrata04/icdar2025-context-driven-str" target="_blank" rel="noopener">Code</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="pub">
+      <img class="pub-thumb" src="images/papers/acpr2025.png" alt="">
+      <div class="pub-meta">
+        <span class="venue">ACPR 2025 · Oral</span>
+        <h3 class="pub-title">A Transformer Based Handwriting Recognition System Jointly Using Online and Offline Features</h3>
+        <p class="pub-authors">A. Lodh*, <span class="me">R. Chakraborty</span>*, S. Palaiahnakote, U. Pal</p>
+        <div class="badges">
+          <a class="badge" href="https://arxiv.org/abs/2506.20255" target="_blank" rel="noopener">Paper</a>
+          <a class="badge" href="https://github.com/Ritabrata04/icdar2025-context-driven-str" target="_blank" rel="noopener">Code</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="pub">
+      <img class="pub-thumb" src="images/papers/cambench-qr.png" alt="">
+      <div class="pub-meta">
+        <span class="venue">CVPR Workshop (XAI4CV) 2026</span>
+        <h3 class="pub-title">CAMBench-QR: A Structure-Aware Benchmark for Post-Hoc Explanations with QR Understanding</h3>
+        <p class="pub-authors"><span class="me">R. Chakraborty</span>, A. Dasgupta, S. Chaurasia</p>
+        <div class="badges">
+          <a class="badge" href="https://arxiv.org/abs/2509.16745" target="_blank" rel="noopener">Paper</a>
+          <a class="badge" href="https://github.com/Ritabrata04/CAMBENCH-QR.git" target="_blank" rel="noopener">Code</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="pub">
+      <img class="pub-thumb" src="images/papers/soccer.png" alt="">
+      <div class="pub-meta">
+        <span class="venue">IJCNLP-AACL 2025 SRW · Oral</span>
+        <h3 class="pub-title">Do We Need Large VLMs for Spotting Soccer Actions?</h3>
+        <p class="pub-authors"><span class="me">R. Chakraborty</span>, R. Chakraborty, A. Dasgupta, S. Chaurasia</p>
+        <div class="badges">
+          <a class="badge" href="https://arxiv.org/pdf/2506.17144" target="_blank" rel="noopener">Paper</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="pub">
+      <img class="pub-thumb" src="images/papers/truthlens.png" alt="">
+      <div class="pub-meta">
+        <span class="venue">ICML Workshop 2025</span>
+        <h3 class="pub-title">TruthLens: Training-Free Data Verification for Deepfake Images via VQA-Style Probing</h3>
+        <p class="pub-authors"><span class="me">R. Chakraborty</span>, R. Chakraborty, A. K. Rahimian</p>
+        <div class="badges">
+          <a class="badge" href="https://openreview.net/pdf?id=Eduqrz32U7" target="_blank" rel="noopener">Paper</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="pub">
+      <img class="pub-thumb" src="images/papers/m2bind.png" alt="">
+      <div class="pub-meta">
+        <span class="venue">Under Review · 2026</span>
+        <h3 class="pub-title">Vision-Language Models are Fragile Multilingual Associators</h3>
+        <p class="pub-authors"><span class="me">R. Chakraborty</span>, R. Chakraborty, S. Palaiahnakote, U. Pal, A. Cangelosi</p>
+        <div class="badges">
+          <span class="badge">Preprint soon</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="pub">
+      <img class="pub-thumb" src="images/papers/cdod.png" alt="">
+      <div class="pub-meta">
+        <span class="venue">Under Review · 2026</span>
+        <h3 class="pub-title">Towards Robust Cross-Dataset Object Detection Generalization under Domain Specificity</h3>
+        <p class="pub-authors"><span class="me">R. Chakraborty</span>*, H. Mitra*, S. Palaiahnakote, U. Pal</p>
+        <div class="badges">
+          <a class="badge" href="https://arxiv.org/abs/2601.09497" target="_blank" rel="noopener">Paper</a>
+          <a class="badge" href="https://github.com/Ritabrata04/cdod-icpr.git" target="_blank" rel="noopener">Code</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="pub">
+      <img class="pub-thumb" src="images/papers/andha-dhun.png" alt="">
+      <div class="pub-meta">
+        <span class="venue">Under Review · 2026</span>
+        <h3 class="pub-title">ANDHA-DHUN: A First Look at Audio Descriptions in Hindi</h3>
+        <p class="pub-authors"><span class="me">R. Chakraborty</span>, D. Kala, N. Gupta, S. Ganji, P. Balakrishna, M. Tapaswi</p>
+        <div class="badges">
+          <span class="badge">Preprint soon</span>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section class="panel" id="exp" role="tabpanel">
+
+    <div class="exp">
+      <div class="exp-head">
+        <p class="exp-role">Research Intern · <span class="exp-where">University of Manchester</span></p>
+        <span class="exp-date">Oct 2025 – Present</span>
+      </div>
+      <p class="exp-advisor">with Prof. Angelo Cangelosi</p>
+      <p class="exp-desc">In-context mechanistic binding for vision-language models — studying multilingual concept binding and spatial grounding through a causal lens.</p>
+    </div>
+
+    <div class="exp">
+      <div class="exp-head">
+        <p class="exp-role">Research Intern · <span class="exp-where">ISI Kolkata &amp; University of Salford</span></p>
+        <span class="exp-date">Dec 2023 – Present</span>
+      </div>
+      <p class="exp-advisor">with Prof. Umapada Pal &amp; Prof. Shivakumara Palaiahnakote</p>
+      <p class="exp-desc">Scene text and handwriting recognition, efficient guided segmentation, and cross-dataset object detection benchmarks — leading to oral papers at ICDAR and ACPR 2025.</p>
+    </div>
+
+    <div class="exp">
+      <div class="exp-head">
+        <p class="exp-role">Undergraduate Research Assistant · <span class="exp-where">IIIT Hyderabad</span></p>
+        <span class="exp-date">May 2025 – May 2026</span>
+      </div>
+      <p class="exp-advisor">with Dr. Makarand Tapaswi · Katha-AI group</p>
+      <p class="exp-desc">Audio description for Hindi film with the Reliance AI Speech team; introduced ANDHA-DHUN, a first dataset of Hindi audio descriptions, and studied AD translation through Skopos theory.</p>
+    </div>
+
+    <div class="exp">
+      <div class="exp-head">
+        <p class="exp-role">Resident Researcher · <span class="exp-where">Lossfunk, Bangalore</span></p>
+        <span class="exp-date">Jul – Aug 2025</span>
+      </div>
+      <p class="exp-advisor">with Paras Chopra · Project Bitvision</p>
+      <p class="exp-desc">Benchmarked 10+ open-source VLMs on QR-code understanding and built CAMBench-QR, a structure-aware benchmark for post-hoc explanations.</p>
+    </div>
+
+    <div class="exp">
+      <div class="exp-head">
+        <p class="exp-role">Research Fellow · <span class="exp-where">IIIT Hyderabad (CVIT)</span></p>
+        <span class="exp-date">May – Jul 2024</span>
+      </div>
+      <p class="exp-advisor">with Dr. C. V. Jawahar</p>
+      <p class="exp-desc">Scene text recognition for Indic languages; built a batch-wise augmentation pipeline that cut image pre-processing time substantially.</p>
+    </div>
+
+    <div class="exp">
+      <div class="exp-head">
+        <p class="exp-role">Research Intern · <span class="exp-where">Purdue University</span></p>
+        <span class="exp-date">Jan – May 2024</span>
+      </div>
+      <p class="exp-advisor">with Prof. Vaneet Aggarwal</p>
+      <p class="exp-desc">Reproduced and extended POSNEGDM, a trajectory-based RL model for sepsis treatment, adding Grad-CAM explanations to improve clinical trust.</p>
+    </div>
+
+    <div class="exp">
+      <div class="exp-head">
+        <p class="exp-role">Undergraduate Research Assistant · <span class="exp-where">Manipal University Jaipur</span></p>
+        <span class="exp-date">May 2023 – Oct 2024</span>
+      </div>
+      <p class="exp-advisor">with Dr. Sandeep Chaurasia</p>
+      <p class="exp-desc">Built MANN-MITRA, a multimodal depression-detection framework, and a tool for anonymously assessing cyberbullying cases adopted by MUJ counseling.</p>
+    </div>
+
+    <p class="exp-desc" style="margin-top:22px;">
+      <b style="color:var(--ink);">Service.</b> Reviewer for IEEE TIP (2025) and PAKDD 2026.
+      Founder of <a href="https://vlr-muj.github.io/vlr-muj/" target="_blank" rel="noopener">VLR MUJ</a>,
+      Research Head at <a href="https://mujsigai.acm.org/" target="_blank" rel="noopener">ACM SIGAI MUJ</a>.
+    </p>
+
+  </section>
+
+  <div class="foot">© <span id="yr"></span> Ritabrata Chakraborty · Built with care</div>
+</div>
+
+<script>
+  // ---- Theme ----
+  var root = document.documentElement;
+  var icon = document.getElementById('themeIcon');
+  var label = document.getElementById('themeLabel');
+  function getStored(){ try{ return localStorage.getItem('theme'); }catch(e){ return null; } }
+  function store(v){ try{ localStorage.setItem('theme', v); }catch(e){} }
+  function applyTheme(t){
+    root.setAttribute('data-theme', t);
+    icon.textContent = t === 'dark' ? '◑' : '◐';
+    label.textContent = t === 'dark' ? 'Light' : 'Dark';
+  }
+  var saved = getStored();
+  var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(saved || (prefersDark ? 'dark' : 'light'));
+  document.getElementById('themeBtn').addEventListener('click', function(){
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next); store(next);
+  });
+
+  // ---- Tabs ----
+  var tabs = document.querySelectorAll('.tab');
+  var panels = document.querySelectorAll('.panel');
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(x){ x.setAttribute('aria-selected','false'); });
+      panels.forEach(function(p){ p.classList.remove('active'); });
+      t.setAttribute('aria-selected','true');
+      document.getElementById(t.dataset.tab).classList.add('active');
+      if(history.replaceState) history.replaceState(null,'','#'+t.dataset.tab);
+    });
+  });
+  // open tab from hash
+  var h = (location.hash || '').replace('#','');
+  if(h){ var b = document.querySelector('.tab[data-tab="'+h+'"]'); if(b) b.click(); }
+
+  // ---- Year ----
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
