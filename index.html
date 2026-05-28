@@ -64,7 +64,7 @@ header{padding:52px 0 8px;}
 .toggle:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-1px);}
 .hero{display:flex; gap:30px; align-items:center; flex-wrap:wrap;}
 .avatar{
-  width:108px; height:108px; border-radius:18px; object-fit:cover;
+  width:150px; height:150px; border-radius:18px; object-fit:cover;
   border:1px solid var(--line); box-shadow:var(--shadow); flex:0 0 auto;
 }
 .intro{flex:1; min-width:260px;}
@@ -78,6 +78,19 @@ h1{
 .links{display:flex; flex-wrap:wrap; gap:8px 18px; margin-top:16px; font-size:15px;}
 .links a{color:var(--ink-soft); border-bottom:1px solid var(--line); padding-bottom:1px;}
 .links a:hover{color:var(--accent); border-color:var(--accent); text-decoration:none;}
+
+// ---- Lightbox ----
+var lb = document.getElementById('lightbox');
+var lbImg = document.getElementById('lightbox-img');
+document.querySelectorAll('.pub-thumb').forEach(function(img){
+  img.addEventListener('click', function(){
+    lbImg.src = img.src;
+    lb.classList.add('open');
+  });
+});
+function closeLb(){ lb.classList.remove('open'); lbImg.src = ''; }
+lb.addEventListener('click', closeLb);
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLb(); });
 
 /* ---------- Tabs ---------- */
 nav.tabs{
@@ -114,7 +127,7 @@ nav.tabs{
 
 /* ---------- Publications ---------- */
 .pub{
-  display:grid; grid-template-columns:160px 1fr; gap:22px;
+  display:grid; grid-template-columns:250px 1fr; gap:22px;
   padding:22px; margin-bottom:16px;
   background:var(--card); border:1px solid var(--line);
   border-radius:16px; box-shadow:var(--shadow);
@@ -122,8 +135,9 @@ nav.tabs{
 }
 .pub:hover{transform:translateY(-2px); border-color:var(--accent);}
 .pub-thumb{
-  width:100%; aspect-ratio:4/3; object-fit:cover;
+  width:100%; aspect-ratio:4/3; object-fit:contain;
   border-radius:10px; border:1px solid var(--line); background:var(--paper-2);
+  cursor:zoom-in;
 }
 .pub-meta .venue{
   display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.4px;
@@ -143,6 +157,21 @@ nav.tabs{
   transition:all .15s ease; background:var(--paper);
 }
 .badge:hover{color:var(--accent); border-color:var(--accent); text-decoration:none; transform:translateY(-1px);}
+.lightbox{
+  position:fixed; inset:0; z-index:1000; display:none;
+  align-items:center; justify-content:center;
+  background:rgba(10,8,5,.88); backdrop-filter:blur(4px);
+  padding:30px; cursor:zoom-out;
+}
+.lightbox.open{display:flex;}
+.lightbox img{
+  max-width:95%; max-height:92%; border-radius:10px;
+  background:var(--paper); box-shadow:0 24px 70px rgba(0,0,0,.55);
+}
+.lb-close{
+  position:absolute; top:16px; right:24px; font-size:34px; line-height:1;
+  color:#fff; background:none; border:none; cursor:pointer;
+}
 
 /* ---------- Experience ---------- */
 .exp{
@@ -211,7 +240,7 @@ nav.tabs{
   <section class="panel active" id="news" role="tabpanel">
         <div class="news-item">
       <div class="news-date">May 2026</div>
-      <div class="news-body">Our latest work <b>Vision-Language Models are Fragile Multilingual Associators</b> shows that vision-language models struggle to maintain associations between visual
+      <div class="news-body">Our latest work <b>``Vision-Language Models are Fragile Multilingual Associators"</b> shows that vision-language models struggle to maintain associations between visual
       inputs and textual inputs through multiple languages. Excited to share more details soon!</div>
     </div>
     <div class="news-item">
@@ -226,7 +255,7 @@ nav.tabs{
     </div>
         <div class="news-item">
       <div class="news-date">Jul 2025</div>
-      <div class="news-body">Excited to go on a brief research exploration @ <b>Lossfunk</b> with Paras Chopra! For the next months, I will be looking into how visual explanations by models are
+      <div class="news-body">Excited to go on a brief research exploration @ <b>Lossfunk</b> with Paras Chopra! For the next few months, I will be looking into how visual explanations by models are
       faithful to image structures.</div>
     </div>
         <div class="news-item">
@@ -432,8 +461,11 @@ nav.tabs{
     </p>
 
   </section>
-
-  <div class="foot">© <span id="yr"></span> Ritabrata Chakraborty · Built with care</div>
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" aria-label="Close">×</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+  <div class="foot">© <span id="yr"></span> Ritabrata Chakraborty · Built with care (and Claude!)</div>
 </div>
 
 <script>
