@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="News archive — Ritabrata Chakraborty">
+<meta name="author" content="Ritabrata Chakraborty">
+<title>News · Ritabrata Chakraborty</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f6f2ea;
+  --paper-2:#efe9de;
+  --ink:#1d1a16;
+  --ink-soft:#4a443b;
+  --muted:#857b6c;
+  --line:#ddd4c5;
+  --accent:#b5471f;
+  --accent-soft:#b5471f1a;
+  --card:#fffdf8;
+  --shadow:0 1px 2px rgba(40,30,15,.05), 0 10px 30px rgba(40,30,15,.06);
+  --maxw:840px;
+}
+html[data-theme="dark"]{
+  --paper:#14130f;
+  --paper-2:#1b1915;
+  --ink:#ece7dd;
+  --ink-soft:#bdb6a8;
+  --muted:#8a8273;
+  --line:#2c2922;
+  --accent:#e07a4a;
+  --accent-soft:#e07a4a1f;
+  --card:#1c1a15;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 34px rgba(0,0,0,.34);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Hanken Grotesk", system-ui, sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  transition:background .35s ease, color .35s ease;
+}
+a{color:var(--accent); text-decoration:none;}
+a:hover{text-decoration:underline; text-underline-offset:3px;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px;}
+
+header{padding:52px 0 8px;}
+.topbar{display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;}
+.back{
+  color:var(--ink-soft); font-size:15px; border-bottom:1px solid var(--line); padding-bottom:1px;
+}
+.back:hover{color:var(--accent); border-color:var(--accent); text-decoration:none;}
+.toggle{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--card); border:1px solid var(--line); color:var(--ink-soft);
+  border-radius:999px; padding:7px 14px; cursor:pointer; font:inherit; font-size:14px;
+  transition:border-color .2s, color .2s, transform .12s;
+}
+.toggle:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-1px);}
+h1{
+  font-family:"Fraunces", serif; font-weight:600; font-size:38px;
+  line-height:1.05; margin:0 0 6px; letter-spacing:-.5px;
+}
+.sub{color:var(--muted); margin:0 0 6px; font-size:16px;}
+
+.year{
+  font-family:"Fraunces", serif; font-weight:600; font-size:15px;
+  letter-spacing:.6px; text-transform:uppercase; color:var(--muted);
+  margin:34px 0 4px; padding-bottom:8px; border-bottom:1px solid var(--line);
+}
+.news-item{
+  display:grid; grid-template-columns:84px 1fr; gap:18px;
+  padding:16px 0; border-bottom:1px solid var(--line);
+}
+.news-item:last-child{border-bottom:none;}
+.news-date{
+  font-family:"Fraunces", serif; color:var(--accent);
+  font-size:15px; font-weight:600; padding-top:1px; white-space:nowrap;
+}
+.news-body{color:var(--ink-soft);}
+.news-body b{color:var(--ink); font-weight:600;}
+
+.list{padding:6px 0 70px;}
+.foot{
+  text-align:center; color:var(--muted); font-size:13.5px;
+  padding:26px 0 50px; border-top:1px solid var(--line);
+}
+@media (max-width:620px){
+  h1{font-size:31px;}
+  .news-item{grid-template-columns:70px 1fr; gap:12px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="topbar">
+      <a class="back" href="index.html#news">← Back to home</a>
+      <button class="toggle" id="themeBtn" aria-label="Toggle theme">
+        <span id="themeIcon">◐</span><span id="themeLabel">Dark</span>
+      </button>
+    </div>
+    <h1>News</h1>
+    <p class="sub">Everything, newest first.</p>
+  </header>
+
+  <section class="list">
+
+    <div class="year">2026</div>
+
+    <div class="news-item">
+      <div class="news-date">Jun 2026</div>
+      <div class="news-body">One paper on Audio Descriptions is accepted at <a href="https://ncvpripg2026.lnmiit.ac.in/">NCVPRIPG 2026!</a>
+      This comes after a year long work on making movies accessible for Indian Blind and Low Vision audiences, during my thesis research with <a href="https://makarandtapaswi.github.io/">Makarand</a>
+      and <a href="https://www.jio.com/platforms/">Jio Platforms Ltd</a>.</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-date">May 2026</div>
+      <div class="news-body">Our <a href="https://openreview.net/forum?id=AJkmF1yHVO">latest work</a> shows that vision-language models struggle to maintain associations between visual
+      inputs and textual inputs through multiple languages. Details soon...</div>
+    </div>
+
+    <div class="year">2025</div>
+
+    <div class="news-item">
+      <div class="news-date">Nov 2025</div>
+      <div class="news-body">Our paper <b>“Do We Need Large VLMs for Spotting Soccer Actions?”</b> accepted to the <b>IJCNLP-AACL 2025</b> Student Research Workshop as an <b>oral presentation</b>!
+      This work was part of my minor thesis @ Manipal University Jaipur. Thank you for the collaboration Avijit and Prof. Sandeep Chaurasia!</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-date">Oct 2025</div>
+      <div class="news-body">Started as a <b>research intern at the University of Manchester</b> with Prof. Angelo Cangelosi! Hoping to find ways as to how vision models can "see" better.</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-date">Jul 2025</div>
+      <div class="news-body">Excited to go on a brief research exploration @ <b>Lossfunk</b> with Paras Chopra! For the next few months, I will be looking into how visual explanations by models are
+      faithful to image structures.</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-date">May 2025</div>
+      <div class="news-body">Joined <b>CVIT</b> @ <b>IIIT Hyderabad</b> as a research intern! I will be working with Prof. Makarand Tapaswi along with Jio Platforms Ltd. on generating accessible
+      audio descriptions for Indian movies.</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-date">2025</div>
+      <div class="news-body"><b>TruthLens</b> accepted to the <b>ICML 2025</b> Workshop on Data in Generative Models.</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-date">2025</div>
+      <div class="news-body">Training-free scene text recognition paper accepted as an <b>Oral at ICDAR 2025</b>.</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-date">2025</div>
+      <div class="news-body">Handwriting recognition paper accepted as an <b>Oral at ACPR 2025</b>.</div>
+    </div>
+
+    <div class="year">2024</div>
+
+    <div class="news-item">
+      <div class="news-date">2024</div>
+      <div class="news-body">Awarded the <b>IAS–NASI–INSA Summer Research Fellowship</b> (≈200 students nationwide).</div>
+    </div>
+
+  </section>
+
+  <div class="foot">© <span id="yr"></span> Ritabrata Chakraborty · Built with care</div>
+</div>
+
+<script>
+  var root = document.documentElement;
+  var icon = document.getElementById('themeIcon');
+  var label = document.getElementById('themeLabel');
+  function getStored(){ try{ return localStorage.getItem('theme'); }catch(e){ return null; } }
+  function store(v){ try{ localStorage.setItem('theme', v); }catch(e){} }
+  function applyTheme(t){
+    root.setAttribute('data-theme', t);
+    icon.textContent = t === 'dark' ? '◑' : '◐';
+    label.textContent = t === 'dark' ? 'Light' : 'Dark';
+  }
+  var saved = getStored();
+  var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(saved || (prefersDark ? 'dark' : 'light'));
+  document.getElementById('themeBtn').addEventListener('click', function(){
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next); store(next);
+  });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
