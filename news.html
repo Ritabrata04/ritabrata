@@ -71,16 +71,28 @@ h1{
 }
 .sub{color:var(--muted); margin:0 0 6px; font-size:16px;}
 
+/* ---------- Year header ---------- */
 .year{
-  font-family:"Fraunces", serif; font-weight:600; font-size:15px;
-  letter-spacing:.6px; text-transform:uppercase; color:var(--muted);
-  margin:34px 0 4px; padding-bottom:8px; border-bottom:1px solid var(--line);
+  display:flex; align-items:center; gap:18px;
+  margin:46px 0 4px;
 }
+.year::after{
+  content:""; flex:1 1 auto; height:1px; background:var(--line);
+}
+.year span{
+  font-family:"Fraunces", serif; font-weight:600; font-size:30px;
+  line-height:1; letter-spacing:-.5px; color:var(--ink);
+  flex:0 0 auto;
+}
+.year:first-child{margin-top:6px;}
+
+/* ---------- News items ---------- */
 .news-item{
-  display:grid; grid-template-columns:84px 1fr; gap:18px;
+  display:grid; grid-template-columns:96px 1fr; gap:18px;
   padding:16px 0; border-bottom:1px solid var(--line);
 }
 .news-item:last-child{border-bottom:none;}
+.news-item:has(+ .year){border-bottom:none;}
 .news-date{
   font-family:"Fraunces", serif; color:var(--accent);
   font-size:15px; font-weight:600; padding-top:1px; white-space:nowrap;
@@ -95,7 +107,10 @@ h1{
 }
 @media (max-width:620px){
   h1{font-size:31px;}
-  .news-item{grid-template-columns:70px 1fr; gap:12px;}
+  .year{gap:12px; margin-top:36px;}
+  .year span{font-size:26px;}
+  .news-item{grid-template-columns:82px 1fr; gap:12px;}
+  .news-date{font-size:14px;}
 }
 </style>
 </head>
@@ -113,76 +128,79 @@ h1{
     <p class="sub"></p>
   </header>
 
+  <!--
+    To add news: drop a new .news-item at the top of the right year block.
+    Keep data-year on the item — index.html reads it to rebuild these
+    year headers for the 7 latest entries. The .news-date holds the month only.
+  -->
   <section class="list">
 
-    <div class="year">2026</div>
+    <div class="year"><span>2026</span></div>
 
-        <div class="news-item">
-      <div class="news-date">July 2026</div>
+    <div class="news-item" data-year="2026">
+      <div class="news-date">July</div>
       <div class="news-body">After a year-long wait, our paper MOCOMERV2 is accepted <a href="https://link.springer.com/journal/10032">IJDAR!</a>
       This marks my first journal article, with <a href="https://scholar.google.co.in/citations?hl=en&user=vMx63B4AAAAJ&view_op=list_works&sortby=pubdate">Prof Nibaran Das</a>
       and team. Paper coming soon!</div>
     </div>
 
-    <div class="news-item">
-      <div class="news-date">June 2026</div>
+    <div class="news-item" data-year="2026">
+      <div class="news-date">June</div>
       <div class="news-body">Andha-Dhun, the first ever work on Hindi Audio Descriptions, is accepted at <a href="https://ncvpripg2026.lnmiit.ac.in/">NCVPRIPG 2026!</a>
       This comes after a year long work on making movies accessible for Indian Blind and Low Vision audiences, during my thesis research with <a href="https://makarandtapaswi.github.io/">Makarand</a>
       and <a href="https://www.jio.com/platforms/">Jio Platforms Ltd</a>.</div>
     </div>
 
-    <div class="news-item">
-      <div class="news-date">May 2026</div>
+    <div class="news-item" data-year="2026">
+      <div class="news-date">May</div>
       <div class="news-body">Our <a href="https://openreview.net/forum?id=AJkmF1yHVO">latest work</a> shows that vision-language models struggle to maintain associations between visual
       inputs and textual inputs through multiple languages. Details soon...</div>
     </div>
 
-    <div class="year">2025</div>
+    <div class="year"><span>2025</span></div>
 
-    <div class="news-item">
-      <div class="news-date">November 2025</div>
+    <div class="news-item" data-year="2025">
+      <div class="news-date">November</div>
       <div class="news-body">Our paper <b>“Do We Need Large VLMs for Spotting Soccer Actions?”</b> accepted to the <b>IJCNLP-AACL 2025</b> Student Research Workshop as an <b>oral presentation</b>!
       This work was part of my minor thesis @ Manipal University Jaipur. Thank you for the collaboration Avijit and Prof. Sandeep Chaurasia!</div>
     </div>
 
-    <div class="news-item">
-      <div class="news-date">October 2025</div>
+    <div class="news-item" data-year="2025">
+      <div class="news-date">October</div>
       <div class="news-body">Started as a <b>research intern at the University of Manchester</b> with Prof. Angelo Cangelosi! Hoping to find ways as to how vision models can "see" better.</div>
     </div>
-    <div class="news-item">
-      <div class="news-date">August 2025</div>
+
+    <div class="news-item" data-year="2025">
+      <div class="news-date">August</div>
       <div class="news-body"><b>TruthLens</b> accepted to the <b>ICML 2025</b> Workshop on Data in Generative Models.</div>
     </div>
 
-        <div class="news-item">
-      <div class="news-date">August 2025</div>
+    <div class="news-item" data-year="2025">
+      <div class="news-date">August</div>
       <div class="news-body">Handwriting recognition paper accepted as an <b>Oral at ACPR 2025</b>.</div>
     </div>
-    <div class="news-item">
-      <div class="news-date">July 2025</div>
+
+    <div class="news-item" data-year="2025">
+      <div class="news-date">July</div>
       <div class="news-body">Excited to go on a brief research exploration @ <b>Lossfunk</b> with Paras Chopra! For the next few months, I will be looking into how visual explanations by models are
       faithful to image structures.</div>
     </div>
-        <div class="news-item">
-      <div class="news-date">June 2025</div>
+
+    <div class="news-item" data-year="2025">
+      <div class="news-date">June</div>
       <div class="news-body">Training-free scene text recognition paper accepted as an <b>Oral at ICDAR 2025</b>.</div>
     </div>
 
-    <div class="news-item">
-      <div class="news-date">May 2025</div>
+    <div class="news-item" data-year="2025">
+      <div class="news-date">May</div>
       <div class="news-body">Joined <b>CVIT</b> @ <b>IIIT Hyderabad</b> as a research intern! I will be working with Prof. Makarand Tapaswi along with Jio Platforms Ltd. on generating accessible
       audio descriptions for Indian movies.</div>
     </div>
 
+    <div class="year"><span>2024</span></div>
 
-
-
-
-
-    <div class="year">2024</div>
-
-    <div class="news-item">
-      <div class="news-date">May 2024</div>
+    <div class="news-item" data-year="2024">
+      <div class="news-date">May</div>
       <div class="news-body">Awarded the <b>IAS–NASI–INSA Summer Research Fellowship</b> (≈200 students nationwide).</div>
     </div>
 
