@@ -100,6 +100,14 @@ nav.tabs{
 @keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;}}
 
 /* ---------- News ---------- */
+.news-archive-link{
+  display:flex; justify-content:flex-end; margin:0 0 6px;
+  font-size:14.5px; letter-spacing:.2px;
+}
+.news-archive-link a{
+  color:var(--muted); font-family:"Fraunces", serif; font-weight:600;
+}
+.news-archive-link a:hover{color:var(--accent); text-decoration:none;}
 .news-item{
   display:grid; grid-template-columns:84px 1fr; gap:18px;
   padding:16px 0; border-bottom:1px solid var(--line);
@@ -206,7 +214,7 @@ nav.tabs{
         <h1>Ritabrata Chakraborty</h1>
         <span class="native">ঋতব্রত চক্রবর্তী</span>
         <p class="tag">
-          Hi! I am an incoming MS CS at <strong>University of Virginia(UVA)</strong>. I did my undergraduate in CS at <Strong>Manipal University Jaipur.</Strong> I work on understanding how machines
+          Hi! I am an incoming MS CS at <strong>University of Virginia (UVA)</strong>. I did my undergraduate in CS at <strong>Manipal University Jaipur.</strong> I work on understanding how machines
           see, and how to make them see better.
         </p>
         <div class="links">
@@ -227,62 +235,57 @@ nav.tabs{
     </nav>
   </header>
 
-  <!-- ===== NEWS ===== -->
+  <!-- ===== NEWS (7 latest; full list lives in news.html) ===== -->
   <section class="panel active" id="news" role="tabpanel">
-            <div class="news-item">
-      <div class="news-date">June 2026</div>
-      <div class="news-body"> One paper on Audio Descriptions is accepted at <a href="https://ncvpripg2026.lnmiit.ac.in/">NCVPRIPG 2026!</a>
-This comes after a year long work on making movies accessible for Indian Blind and Low Vision audiences, during my thesis research with <a href="https://makarandtapaswi.github.io/">Makarand</a>
+
+    <div class="news-archive-link"><a href="news.html">[archives]</a></div>
+
+    <div class="news-item">
+      <div class="news-date">Jun 2026</div>
+      <div class="news-body">One paper on Audio Descriptions is accepted at <a href="https://ncvpripg2026.lnmiit.ac.in/">NCVPRIPG 2026!</a>
+      This comes after a year long work on making movies accessible for Indian Blind and Low Vision audiences, during my thesis research with <a href="https://makarandtapaswi.github.io/">Makarand</a>
       and <a href="https://www.jio.com/platforms/">Jio Platforms Ltd</a>.</div>
     </div>
-        <div class="news-item">
+
+    <div class="news-item">
       <div class="news-date">May 2026</div>
       <div class="news-body">Our <a href="https://openreview.net/forum?id=AJkmF1yHVO">latest work</a> shows that vision-language models struggle to maintain associations between visual
       inputs and textual inputs through multiple languages. Details soon...</div>
     </div>
-    <div class="news-item">
-      <div class="news-date">Oct 2025</div>
-      <div class="news-body">Started as a <b>research intern at the University of Manchester</b> with Prof. Angelo Cangelosi! Hoping to find ways as to how vision models can "see" better.</div>
-    </div>
-    
+
     <div class="news-item">
       <div class="news-date">Nov 2025</div>
       <div class="news-body">Our paper <b>“Do We Need Large VLMs for Spotting Soccer Actions?”</b> accepted to the <b>IJCNLP-AACL 2025</b> Student Research Workshop as an <b>oral presentation</b>!
       This work was part of my minor thesis @ Manipal University Jaipur. Thank you for the collaboration Avijit and Prof. Sandeep Chaurasia!</div>
     </div>
-        <div class="news-item">
+
+    <div class="news-item">
+      <div class="news-date">Oct 2025</div>
+      <div class="news-body">Started as a <b>research intern at the University of Manchester</b> with Prof. Angelo Cangelosi! Hoping to find ways as to how vision models can "see" better.</div>
+    </div>
+
+    <div class="news-item">
       <div class="news-date">Jul 2025</div>
       <div class="news-body">Excited to go on a brief research exploration @ <b>Lossfunk</b> with Paras Chopra! For the next few months, I will be looking into how visual explanations by models are
       faithful to image structures.</div>
     </div>
-        <div class="news-item">
+
+    <div class="news-item">
       <div class="news-date">May 2025</div>
       <div class="news-body">Joined <b>CVIT</b> @ <b>IIIT Hyderabad</b> as a research intern! I will be working with Prof. Makarand Tapaswi along with Jio Platforms Ltd. on generating accessible
       audio descriptions for Indian movies.</div>
     </div>
-    <!-- <div class="news-item">
+
+    <div class="news-item">
       <div class="news-date">2025</div>
       <div class="news-body"><b>TruthLens</b> accepted to the <b>ICML 2025</b> Workshop on Data in Generative Models.</div>
     </div>
-    <div class="news-item">
-      <div class="news-date">2025</div>
-      <div class="news-body">Training-free scene text recognition paper accepted as an <b>Oral at ICDAR 2025</b>.</div>
-    </div>
-    <div class="news-item">
-      <div class="news-date">2025</div>
-      <div class="news-body">Handwriting recognition paper accepted as an <b>Oral at ACPR 2025</b>.</div>
-    </div>
-    <div class="news-item">
-      <div class="news-date">2024</div>
-      <div class="news-body">Awarded the <b>IAS–NASI–INSA Summer Research Fellowship</b> (≈200 students nationwide).</div>
-    </div> -->
+
   </section>
 
    <!-- ===== PUBLICATIONS ===== -->
   <section class="panel" id="pubs" role="tabpanel">
- 
 
- 
     <article class="pub">
       <div class="pub-figure"><img class="pub-thumb" src="images/papers/m2bind.png" alt="Vision-Language Models are Fragile Multilingual Associators"></div>
       <div class="pub-meta">
@@ -307,7 +310,7 @@ This comes after a year long work on making movies accessible for Indian Blind a
         </div>
       </div>
     </article> -->
- 
+
     <!-- <article class="pub">
       <div class="pub-figure"><img class="pub-thumb" src="images/papers/cdod.png" alt="Cross-Dataset Object Detection"></div>
       <div class="pub-meta">
@@ -324,7 +327,7 @@ This comes after a year long work on making movies accessible for Indian Blind a
     <article class="pub">
       <div class="pub-figure"><img class="pub-thumb" src="images/papers/andha-dhun.png" alt="ANDHA-DHUN: A First Look at Audio Descriptions in Hindi"></div>
       <div class="pub-meta">
-        <span class="venue">NCVPRIPG 2026· 2026</span>
+        <span class="venue">NCVPRIPG 2026</span>
         <h3 class="pub-title">ANDHA-DHUN: A First Look at Audio Descriptions in Hindi</h3>
         <p class="pub-authors"><span class="me">R. Chakraborty</span>, D. Kala, N. Gupta, S. Ganji, P. Balakrishna, M. Tapaswi</p>
         <div class="badges">
@@ -332,7 +335,7 @@ This comes after a year long work on making movies accessible for Indian Blind a
         </div>
       </div>
     </article>
- 
+
     <article class="pub">
       <div class="pub-figure"><img class="pub-thumb" src="images/papers/soccer.png" alt="Do We Need Large VLMs for Spotting Soccer Actions?"></div>
       <div class="pub-meta">
@@ -344,7 +347,7 @@ This comes after a year long work on making movies accessible for Indian Blind a
         </div>
       </div>
     </article>
- 
+
     <article class="pub">
       <div class="pub-figure"><img class="pub-thumb" src="images/papers/acpr2025.png" alt="A Transformer Based Handwriting Recognition System"></div>
       <div class="pub-meta">
@@ -357,7 +360,7 @@ This comes after a year long work on making movies accessible for Indian Blind a
         </div>
       </div>
     </article>
- 
+
     <article class="pub">
       <div class="pub-figure"><img class="pub-thumb" src="images/papers/icdar2025.png" alt="A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition"></div>
       <div class="pub-meta">
@@ -371,7 +374,7 @@ This comes after a year long work on making movies accessible for Indian Blind a
         </div>
       </div>
     </article>
- 
+
     <article class="pub">
       <div class="pub-figure"><img class="pub-thumb" src="images/papers/truthlens.png" alt="TruthLens: Training-Free Data Verification for Deepfake Images via VQA-Style Probing"></div>
       <div class="pub-meta">
@@ -383,8 +386,9 @@ This comes after a year long work on making movies accessible for Indian Blind a
         </div>
       </div>
     </article>
- 
+
   </section>
+
   <!-- ===== EXPERIENCE ===== -->
   <section class="panel" id="exp" role="tabpanel">
 
