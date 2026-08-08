@@ -137,6 +137,7 @@ nav.tabs{
 
 /* ---------- Publications ---------- */
 .pub{
+  position:relative;
   display:grid; grid-template-columns:220px 1fr; gap:22px;
   padding:22px; margin-bottom:16px;
   background:var(--card); border:1px solid var(--line);
@@ -144,6 +145,13 @@ nav.tabs{
   transition:transform .15s ease, border-color .2s ease;
 }
 .pub:hover{transform:translateY(-2px); border-color:var(--accent);}
+.oral-flag{
+  position:absolute; top:14px; right:14px; z-index:2; pointer-events:none;
+  font-size:11px; font-weight:700; letter-spacing:.6px; text-transform:uppercase;
+  color:#fff; background:var(--accent);
+  padding:3px 10px; border-radius:999px;
+  box-shadow:0 2px 8px rgba(40,30,15,.18);
+}
 .pub-figure{align-self:start;}
 .pub-thumb{
   width:100%; height:auto; display:block;
@@ -322,13 +330,42 @@ nav.tabs{
   <section class="panel" id="pubs" role="tabpanel">
 
     <article class="pub">
+      <div class="pub-figure"><img class="pub-thumb" src="images/papers/maviseg.png" alt="MaViSeg: Manifold Propagation and Visual Prototypes for Zero-Shot Open-Vocabulary Segmentation on Diffusion Transformers"></div>
+      <div class="pub-meta">
+        <span class="venue">Under Review · 2026</span>
+        <h3 class="pub-title">MaViSeg: Manifold Propagation and Visual Prototypes for Zero-Shot Open-Vocabulary Segmentation on Diffusion Transformers</h3>
+        <p class="pub-authors">Rajatsubhra Chakraborty*, Xujun Che*, <span class="me">Ritabrata Chakraborty</span>, Xi Niu, Depeng Xu</p>
+        <div class="badges">
+          <a class="badge" href="https://ritabrata04.github.io/maviseg" target="_blank" rel="noopener">Website</a>
+          <a class="badge" href="https://arxiv.org/abs/2608.05878" target="_blank" rel="noopener">Paper</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="pub">
       <div class="pub-figure"><img class="pub-thumb" src="images/papers/m2bind.png" alt="Vision-Language Models are Fragile Multilingual Associators"></div>
       <div class="pub-meta">
         <span class="venue">Under Review · 2026</span>
         <h3 class="pub-title">Vision-Language Models are Fragile Multilingual Associators</h3>
-        <p class="pub-authors"><span class="me">R. Chakraborty</span>, R. Chakraborty, S. Palaiahnakote, U. Pal, A. Cangelosi</p>
+        <p class="pub-authors"><span class="me">Ritabrata Chakraborty</span>, Rajatsubhra Chakraborty, Shivakumara Palaiahnakote, Umapada Pal, Angelo Cangelosi</p>
         <div class="badges">
-          <span class="badge">Preprint soon!</span>
+          <a class="badge" href="https://ritabrata04.github.io/m2bind/" target="_blank" rel="noopener">Website</a>
+          <a class="badge" href="https://openreview.net/pdf?id=AJkmF1yHVO" target="_blank" rel="noopener">Paper</a>
+          <a class="badge" href="https://github.com/Ritabrata04/m2bind.git" target="_blank" rel="noopener">Code</a>
+          <a class="badge" href="https://www.alphaxiv.org/overview/2608.vision-language-models-multilingual-binding" target="_blank" rel="noopener">Blog</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="pub">
+      <div class="pub-figure"><img class="pub-thumb" src="images/papers/mocomer-v2.png" alt="MoCoMER-V2: Mask &amp; Match for Self-Supervised Attention to Recognize Handwritten Math Expression"></div>
+      <div class="pub-meta">
+        <span class="venue">IJDAR · 2026</span>
+        <h3 class="pub-title">MoCoMER-V2: Mask &amp; Match for Self-Supervised Attention to Recognize Handwritten Math Expression</h3>
+        <p class="pub-authors">Sandip Pramanik*, Shree Mitra*, <span class="me">Ritabrata Chakraborty</span>, Nibaran Das</p>
+        <div class="badges">
+          <a class="badge" href="https://link.springer.com/article/10.1007/s10032-026-00610-9" target="_blank" rel="noopener">Paper</a>
+          <a class="badge" href="https://github.com/pramaniksandip/MoCoMER-V2" target="_blank" rel="noopener">Code</a>
         </div>
       </div>
     </article>
@@ -360,23 +397,26 @@ nav.tabs{
     </article>
   -->
     <article class="pub">
+      <span class="oral-flag">Oral</span>
       <div class="pub-figure"><img class="pub-thumb" src="images/papers/andha-dhun.png" alt="ANDHA-DHUN: A First Look at Audio Descriptions in Hindi"></div>
       <div class="pub-meta">
         <span class="venue">NCVPRIPG 2026</span>
         <h3 class="pub-title">ANDHA-DHUN: A First Look at Audio Descriptions in Hindi</h3>
-        <p class="pub-authors"><span class="me">R. Chakraborty</span>, D. Kala, N. Gupta, S. Ganji, P. Balakrishna, M. Tapaswi</p>
+        <p class="pub-authors"><span class="me">Ritabrata Chakraborty</span>, Divy Kala, Nisheeth Bhooshan Gupta, Ganji Sreeram, Pailla Balakrishna Reddy, Makarand Tapaswi</p>
         <div class="badges">
-          <span class="badge">Preprint soon!</span>
+          <a class="badge" href="https://arxiv.org/pdf/2607.06457v1" target="_blank" rel="noopener">Paper</a>
+          <a class="badge" href="https://github.com/katha-ai/AndhaDhun-HindiAD" target="_blank" rel="noopener">Code</a>
         </div>
       </div>
     </article>
 
     <article class="pub">
+      <span class="oral-flag">Oral</span>
       <div class="pub-figure"><img class="pub-thumb" src="images/papers/soccer.png" alt="Do We Need Large VLMs for Spotting Soccer Actions?"></div>
       <div class="pub-meta">
-        <span class="venue">IJCNLP-AACL 2025 SRW · Oral</span>
+        <span class="venue">IJCNLP-AACL 2025 SRW</span>
         <h3 class="pub-title">Do We Need Large VLMs for Spotting Soccer Actions?</h3>
-        <p class="pub-authors"><span class="me">R. Chakraborty</span>, R. Chakraborty, A. Dasgupta, S. Chaurasia</p>
+        <p class="pub-authors"><span class="me">Ritabrata Chakraborty</span>, Rajatsubhra Chakraborty, Avijit Dasgupta, Sandeep Chaurasia</p>
         <div class="badges">
           <a class="badge" href="https://arxiv.org/pdf/2506.17144" target="_blank" rel="noopener">Paper</a>
         </div>
@@ -384,11 +424,12 @@ nav.tabs{
     </article>
 
     <article class="pub">
+      <span class="oral-flag">Oral</span>
       <div class="pub-figure"><img class="pub-thumb" src="images/papers/acpr2025.png" alt="A Transformer Based Handwriting Recognition System"></div>
       <div class="pub-meta">
-        <span class="venue">ACPR 2025 · Oral</span>
+        <span class="venue">ACPR 2025</span>
         <h3 class="pub-title">A Transformer Based Handwriting Recognition System Jointly Using Online and Offline Features</h3>
-        <p class="pub-authors">A. Lodh*, <span class="me">R. Chakraborty</span>*, S. Palaiahnakote, U. Pal</p>
+        <p class="pub-authors">Ayush Lodh*, <span class="me">Ritabrata Chakraborty</span>*, Shivakumara Palaiahnakote, Umapada Pal</p>
         <div class="badges">
           <a class="badge" href="https://arxiv.org/abs/2506.20255" target="_blank" rel="noopener">Paper</a>
           <a class="badge" href="https://github.com/Ritabrata04/icdar2025-context-driven-str" target="_blank" rel="noopener">Code</a>
@@ -397,11 +438,12 @@ nav.tabs{
     </article>
 
     <article class="pub">
+      <span class="oral-flag">Oral</span>
       <div class="pub-figure"><img class="pub-thumb" src="images/papers/icdar2025.png" alt="A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition"></div>
       <div class="pub-meta">
-        <span class="venue">ICDAR 2025 · Oral</span>
+        <span class="venue">ICDAR 2025</span>
         <h3 class="pub-title">A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition</h3>
-        <p class="pub-authors"><span class="me">R. Chakraborty</span>, S. Palaiahnakote, U. Pal, C.-L. Liu</p>
+        <p class="pub-authors"><span class="me">Ritabrata Chakraborty</span>, Shivakumara Palaiahnakote, Umapada Pal, Cheng-Lin Liu</p>
         <div class="badges">
           <a class="badge" href="https://ritabrata04.github.io/Context-driven-STR/" target="_blank" rel="noopener">Website</a>
           <a class="badge" href="https://arxiv.org/abs/2503.15639" target="_blank" rel="noopener">Paper</a>
@@ -415,7 +457,7 @@ nav.tabs{
       <div class="pub-meta">
         <span class="venue">ICML Workshop 2025</span>
         <h3 class="pub-title">TruthLens: Training-Free Data Verification for Deepfake Images via VQA-Style Probing</h3>
-        <p class="pub-authors"><span class="me">R. Chakraborty</span>, R. Chakraborty, A. K. Rahimian</p>
+        <p class="pub-authors"><span class="me">Ritabrata Chakraborty</span>, Rajatsubhra Chakraborty, Ali Khaleghi Rahimian</p>
         <div class="badges">
           <a class="badge" href="https://openreview.net/pdf?id=Eduqrz32U7" target="_blank" rel="noopener">Paper</a>
         </div>
