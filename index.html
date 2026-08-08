@@ -5,247 +5,305 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Ritabrata Chakraborty">
 <meta name="author" content="Ritabrata Chakraborty">
-<title>Ritabrata Chakraborty | ঋতব্রত চক্রবর্তী</title>
+<title>Ritabrata Chakraborty</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 /* ============================================================
-   Palette — "Studio": cool neutral paper, graphite ink,
-   a single cobalt-indigo accent. Retune the whole site by
-   editing --accent (and its dark counterpart) only.
+   "Model's-eye" — hover the portrait to see the model's attention.
+   Type: Space Grotesk (display) / Inter (body) / JetBrains Mono (data).
+   Retune the whole page from --accent.
    ============================================================ */
 :root{
-  --paper:#f4f4f2;
-  --paper-2:#ebebe7;
-  --ink:#18191b;
-  --ink-soft:#43454a;
-  --muted:#8a8c91;
-  --line:#e4e3dd;
-  --accent:#3644c9;
-  --accent-soft:#3644c914;
-  --card:#fcfcfb;
-  --shadow:0 1px 3px rgba(20,20,25,.05);
-  --maxw:840px;
+  --paper:#f5f6f4;
+  --paper-2:#ecece9;
+  --ink:#0f1113;
+  --ink-soft:#3f4247;
+  --muted:#8a8e93;
+  --line:#e3e4de;
+  --card:#fbfcfa;
+  --accent:#3b3ae0;
+  --accent-soft:#3b3ae012;
+  --heat:#ff5a3c;
+  --maxw:1240px;
+  --mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 html[data-theme="dark"]{
-  --paper:#0e0f11;
-  --paper-2:#16171a;
-  --ink:#ececee;
-  --ink-soft:#b6b8bd;
-  --muted:#7b7d83;
-  --line:#25262a;
-  --accent:#8b97fa;
-  --accent-soft:#8b97fa1f;
-  --card:#151619;
-  --shadow:0 1px 3px rgba(0,0,0,.35);
+  --paper:#0b0c0e;
+  --paper-2:#141518;
+  --ink:#eef0f2;
+  --ink-soft:#b4b7bd;
+  --muted:#787c83;
+  --line:#23252a;
+  --card:#131418;
+  --accent:#8f8bff;
+  --accent-soft:#8f8bff1c;
+  --heat:#ff7a5c;
 }
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;}
 body{
   background:var(--paper);
   color:var(--ink);
-  font-family:"Hanken Grotesk", system-ui, sans-serif;
-  font-size:17px;
-  line-height:1.62;
+  font-family:"Inter", system-ui, sans-serif;
+  font-size:16.5px;
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
-  transition:background .35s ease, color .35s ease;
+  transition:background .4s ease, color .4s ease;
 }
+::selection{background:var(--accent); color:#fff;}
 a{color:var(--accent); text-decoration:none;}
 a:hover{text-decoration:underline; text-underline-offset:3px;}
-.wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px;}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 30px;}
 
-/* ---------- Header ---------- */
-header{padding:52px 0 8px;}
-.topbar{display:flex; justify-content:flex-end; margin-bottom:30px;}
-.toggle{
-  display:inline-flex; align-items:center; gap:8px;
-  background:var(--card); border:1px solid var(--line); color:var(--ink-soft);
-  border-radius:999px; padding:7px 14px; cursor:pointer; font:inherit; font-size:14px;
-  transition:border-color .2s, color .2s, transform .12s;
+/* ---------- Hero ---------- */
+.hero{padding:66px 0 30px;}
+.hero-inner{display:grid; grid-template-columns:300px 1fr; gap:52px; align-items:center;}
+
+.portrait{
+  position:relative; width:300px; height:300px; border-radius:14px; overflow:hidden;
+  border:1px solid var(--line); background:var(--paper-2); cursor:crosshair;
+  --mx:50%; --my:42%;
 }
-.toggle:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-1px);}
-.hero{display:flex; gap:38px; align-items:center; flex-wrap:wrap;}
-.avatar{
-  width:180px; height:180px; border-radius:12px; object-fit:cover;
-  border:1px solid var(--line); flex:0 0 auto;
+.portrait img{width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.02);}
+.portrait .heat{
+  position:absolute; inset:0; opacity:0; transition:opacity .3s ease; mix-blend-mode:hard-light;
+  background:radial-gradient(170px 170px at var(--mx) var(--my),
+    var(--heat) 0%, rgba(255,120,60,.55) 22%, transparent 62%),
+    radial-gradient(340px 340px at var(--mx) var(--my),
+    var(--accent) 0%, transparent 70%);
 }
-.intro{flex:1; min-width:260px;}
-h1{
-  font-family:"Fraunces", serif; font-weight:600; font-size:42px;
-  line-height:1.04; margin:0 0 4px; letter-spacing:-.6px;
+.portrait .seg{position:absolute; inset:0; opacity:0; transition:opacity .3s ease; pointer-events:none;}
+.portrait .seg rect{fill:none; stroke:var(--accent); stroke-width:2; stroke-dasharray:5 4;}
+.portrait .scan{
+  position:absolute; left:0; right:0; height:2px; top:0; pointer-events:none;
+  background:linear-gradient(90deg, transparent, var(--accent), transparent); opacity:0;
 }
-.native{font-family:"Fraunces", serif; font-weight:400; color:var(--muted); font-size:20px;}
-.tag{color:var(--ink-soft); margin:14px 0 0; font-size:16.5px;}
-.tag strong{color:var(--ink); font-weight:600;}
-.links{display:flex; flex-wrap:wrap; gap:8px 18px; margin-top:16px; font-size:15px;}
+.portrait .tag{
+  position:absolute; font-family:var(--mono); font-size:11px; font-weight:500;
+  color:#fff; background:var(--accent); padding:2px 7px; border-radius:5px;
+  left:12%; top:9%; opacity:0; transform:translateY(4px); transition:opacity .25s, transform .25s; white-space:nowrap;
+}
+.portrait .cap{
+  position:absolute; left:0; right:0; bottom:0; padding:9px 12px;
+  font-family:var(--mono); font-size:11px; color:var(--ink);
+  background:color-mix(in srgb, var(--paper) 78%, transparent); backdrop-filter:blur(4px);
+  border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center;
+}
+.portrait .cap .dot{width:7px; height:7px; border-radius:50%; background:var(--muted); transition:background .2s, box-shadow .2s;}
+.portrait.active .heat{opacity:.9;}
+.portrait.active .seg{opacity:1;}
+.portrait.active .tag{opacity:1; transform:none;}
+.portrait.active .cap .dot{background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft);}
+.portrait.active .scan{opacity:1; animation:scan 1.15s ease-in-out;}
+@keyframes scan{0%{top:0;} 100%{top:100%;}}
+
+.intro h1{
+  font-family:"Space Grotesk", sans-serif; font-weight:700;
+  font-size:clamp(40px, 5.6vw, 66px); line-height:.97; letter-spacing:-.03em; margin:0 0 10px;
+}
+.intro .native{font-size:20px; color:var(--muted); font-weight:400;}
+.intro .tag{color:var(--ink-soft); font-size:17px; margin:18px 0 0; max-width:54ch;}
+.intro .tag strong{color:var(--ink); font-weight:600;}
+.links{display:flex; flex-wrap:wrap; gap:8px; margin-top:22px;}
 .links a{
   display:inline-flex; align-items:center; gap:7px;
-  color:var(--ink-soft); border-bottom:1px solid var(--line); padding-bottom:2px;
+  font-family:var(--mono); font-size:12.5px; color:var(--ink-soft);
+  border:1px solid var(--line); background:var(--card); padding:7px 11px; border-radius:8px;
+  transition:border-color .15s, color .15s, transform .12s;
 }
-.links a:hover{color:var(--accent); border-color:var(--accent); text-decoration:none;}
-.ico{width:16px; height:16px; flex:0 0 auto; display:block;}
+.links a:hover{color:var(--accent); border-color:var(--accent); text-decoration:none; transform:translateY(-1px);}
+.ico{width:15px; height:15px; display:block; flex:0 0 auto;}
+.hint{font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:20px;}
+.hint b{color:var(--ink-soft); font-weight:500;}
 
-/* ---------- Tabs ---------- */
-nav.tabs{
-  display:flex; gap:4px; margin:38px 0 6px;
-  border-bottom:1px solid var(--line);
+/* ---------- Sticky tab bar ---------- */
+.tabbar{
+  position:sticky; top:0; z-index:50;
+  background:color-mix(in srgb, var(--paper) 84%, transparent);
+  backdrop-filter:saturate(1.4) blur(10px); border-bottom:1px solid var(--line);
 }
+.tabbar-inner{display:flex; align-items:center; gap:16px; height:54px;}
+.tabs{display:flex; gap:2px;}
 .tab{
-  appearance:none; background:none; border:none; cursor:pointer;
-  font:inherit; font-weight:600; font-size:16px; color:var(--muted);
-  padding:12px 16px; position:relative; transition:color .2s;
+  appearance:none; background:none; border:none; cursor:pointer; position:relative;
+  font-family:var(--mono); font-size:13px; color:var(--muted);
+  padding:8px 14px; border-radius:8px; transition:color .15s, background .15s;
 }
-.tab:hover{color:var(--ink);}
+.tab:hover{color:var(--ink); background:var(--paper-2);}
 .tab[aria-selected="true"]{color:var(--ink);}
 .tab[aria-selected="true"]::after{
-  content:""; position:absolute; left:14px; right:14px; bottom:-1px; height:2.5px;
-  background:var(--accent); border-radius:2px;
+  content:""; position:absolute; left:14px; right:14px; bottom:-1px; height:2px; background:var(--accent); border-radius:2px;
 }
-.panel{display:none; padding:30px 0 70px; animation:fade .4s ease;}
-.panel.active{display:block;}
+.ctrls{margin-left:auto; display:flex; gap:8px; align-items:center;}
+.kbd{
+  font-family:var(--mono); font-size:11.5px; color:var(--ink-soft);
+  border:1px solid var(--line); background:var(--card); border-radius:8px; padding:6px 10px;
+  cursor:pointer; transition:border-color .15s, color .15s;
+}
+.kbd:hover{border-color:var(--accent); color:var(--accent);}
+.toggle{
+  width:34px; height:34px; display:inline-grid; place-items:center;
+  background:var(--card); border:1px solid var(--line); color:var(--ink-soft);
+  border-radius:8px; cursor:pointer; font-size:15px; transition:border-color .15s, color .15s;
+}
+.toggle:hover{border-color:var(--accent); color:var(--accent);}
+
+/* ---------- Panels ---------- */
+.panel{display:none; padding:36px 0 84px;}
+.panel.active{display:block; animation:fade .35s ease;}
 @keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;}}
 
 /* ---------- News ---------- */
-.news-archive-link{
-  display:flex; justify-content:flex-start; margin:0 0 14px;
-  font-size:18px; letter-spacing:.2px;
+.news-top{display:flex; justify-content:flex-end; margin-bottom:8px;}
+.arch{font-family:var(--mono); font-size:12.5px; color:var(--muted);}
+.arch:hover{color:var(--accent); text-decoration:none;}
+.news-list{display:grid; grid-template-columns:1fr 1fr; column-gap:54px;}
+.yr{
+  grid-column:1 / -1; font-family:var(--mono); font-size:12.5px; color:var(--accent);
+  letter-spacing:.06em; margin:26px 0 4px; padding-bottom:6px; border-bottom:1px solid var(--line);
 }
-.news-archive-link a{
-  color:var(--muted); font-family:"Fraunces", serif; font-weight:600;
-}
-.news-archive-link a:hover{color:var(--accent); text-decoration:none;}
-.year{
-  display:flex; align-items:center; gap:18px;
-  margin:38px 0 4px;
-}
-.year::after{content:""; flex:1 1 auto; height:1px; background:var(--line);}
-.year span{
-  font-family:"Fraunces", serif; font-weight:600; font-size:30px;
-  line-height:1; letter-spacing:-.5px; color:var(--ink); flex:0 0 auto;
-}
-#news-list .year:first-child{margin-top:0;}
+.yr:first-of-type{margin-top:0;}
 .news-item{
-  display:grid; grid-template-columns:96px 1fr; gap:18px;
-  padding:16px 0; border-bottom:1px solid var(--line);
+  display:grid; grid-template-columns:56px 1fr; gap:16px;
+  padding:15px 0; border-bottom:1px solid var(--line); align-items:start;
 }
-.news-item:last-child{border-bottom:none;}
-.news-item:has(+ .year){border-bottom:none;}
-.news-date{
-  font-family:"Fraunces", serif; color:var(--accent);
-  font-size:15px; font-weight:600; padding-top:1px; white-space:nowrap;
-}
-.news-body{color:var(--ink-soft);}
+.news-date{font-family:var(--mono); font-size:12.5px; color:var(--muted); padding-top:2px; white-space:nowrap;}
+.news-body{color:var(--ink-soft); font-size:15px;}
 .news-body b{color:var(--ink); font-weight:600;}
 
 /* ---------- Publications ---------- */
+.pub-grid{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px;}
 .pub{
-  position:relative;
-  display:grid; grid-template-columns:220px 1fr; gap:22px;
-  padding:22px; margin-bottom:14px;
-  background:var(--card); border:1px solid var(--line);
-  border-radius:12px; box-shadow:var(--shadow);
-  transition:border-color .2s ease, box-shadow .2s ease;
+  position:relative; display:grid; grid-template-columns:150px 1fr; gap:18px; align-items:start;
+  padding:18px; border:1px solid var(--line); border-radius:12px; background:var(--card);
+  transition:border-color .2s ease;
 }
 .pub:hover{border-color:var(--accent);}
-.oral-flag{
-  position:absolute; top:16px; right:16px; z-index:2; pointer-events:none;
-  font-size:10.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
-  color:var(--accent); background:transparent;
-  border:1px solid var(--accent);
-  padding:3px 9px; border-radius:999px;
-}
-.pub-figure{align-self:start;}
+.pub-figure{position:relative;}
 .pub-thumb{
-  width:100%; height:auto; display:block;
-  border-radius:8px; border:1px solid var(--line); background:var(--paper-2);
-  cursor:zoom-in; transition:filter .15s ease;
+  width:100%; height:auto; display:block; border:1px solid var(--line); border-radius:8px;
+  background:var(--paper-2); cursor:zoom-in; transition:filter .2s ease;
 }
-.pub-thumb:hover{filter:brightness(.94);}
-.pub-meta .venue{
-  display:inline-block; font-size:11px; font-weight:700; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--accent); margin-bottom:10px;
+.pub:hover .pub-thumb{filter:saturate(1.05);}
+.oral-flag{
+  position:absolute; top:8px; right:8px;
+  font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:.08em; text-transform:uppercase;
+  color:#fff; background:var(--accent); border-radius:999px; padding:2px 8px;
 }
+.venue{font-family:var(--mono); font-size:11.5px; letter-spacing:.04em; color:var(--accent); text-transform:uppercase;}
 .pub-title{
-  font-family:"Fraunces", serif; font-weight:600; font-size:20px;
-  line-height:1.25; margin:0 0 6px; color:var(--ink);
+  font-family:"Space Grotesk", sans-serif; font-weight:600; font-size:18px; line-height:1.28;
+  margin:8px 0 6px; color:var(--ink); letter-spacing:-.01em;
 }
-.pub-authors{color:var(--ink-soft); font-size:15px; margin:0 0 12px;}
-.pub-authors .me{color:var(--ink); font-weight:700;}
-.badges{display:flex; flex-wrap:wrap; gap:8px;}
+.pub-authors{color:var(--ink-soft); font-size:14px; margin:0 0 12px;}
+.pub-authors .me{color:var(--ink); font-weight:600; border-bottom:1.5px solid var(--accent);}
+.badges{display:flex; flex-wrap:wrap; gap:7px;}
 .badge{
-  font-size:13px; font-weight:600; color:var(--ink-soft);
-  border:1px solid var(--line); border-radius:8px; padding:4px 11px;
-  transition:all .15s ease; background:var(--paper);
+  font-family:var(--mono); font-size:12px; color:var(--ink-soft);
+  border:1px solid var(--line); border-radius:7px; padding:4px 10px; background:var(--paper);
+  transition:all .15s ease;
 }
 .badge:hover{color:var(--accent); border-color:var(--accent); text-decoration:none; transform:translateY(-1px);}
 
-/* ---------- Lightbox ---------- */
-.lightbox{
-  position:fixed; inset:0; z-index:1000; display:none;
-  align-items:center; justify-content:center;
-  background:rgba(10,10,12,.9); backdrop-filter:blur(4px);
-  padding:30px; cursor:zoom-out;
-}
-.lightbox.open{display:flex;}
-.lightbox img{
-  max-width:95%; max-height:92%; border-radius:10px;
-  background:var(--paper); box-shadow:0 24px 70px rgba(0,0,0,.55);
-}
-.lb-close{
-  position:absolute; top:16px; right:24px; font-size:34px; line-height:1;
-  color:#fff; background:none; border:none; cursor:pointer;
-}
-
 /* ---------- Experience ---------- */
+.exp-grid{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px;}
 .exp{
-  padding:20px 0; border-bottom:1px solid var(--line);
+  padding:18px; border:1px solid var(--line); border-radius:12px; background:var(--card);
+  transition:border-color .2s ease;
 }
-.exp:last-child{border-bottom:none;}
-.exp-head{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:baseline;}
-.exp-role{font-family:"Fraunces", serif; font-weight:600; font-size:19px; color:var(--ink); margin:0;}
-.exp-where{color:var(--accent); font-weight:600;}
-.exp-date{color:var(--muted); font-size:14px; white-space:nowrap;}
-.exp-advisor{color:var(--muted); font-size:14.5px; margin:3px 0 8px;}
-.exp-desc{color:var(--ink-soft); font-size:15.5px; margin:0;}
+.exp:hover{border-color:var(--accent);}
+.exp-head{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:baseline;}
+.exp-role{font-family:"Space Grotesk"; font-weight:600; font-size:16px; color:var(--ink); margin:0; letter-spacing:-.01em;}
+.exp-where{color:var(--accent);}
+.exp-date{font-family:var(--mono); font-size:11.5px; color:var(--muted); white-space:nowrap;}
+.exp-advisor{color:var(--muted); font-size:13.5px; margin:4px 0 7px;}
+.exp-desc{color:var(--ink-soft); font-size:14.5px; margin:0;}
+.service{color:var(--ink-soft); font-size:15px; margin-top:20px; padding-top:18px; border-top:1px solid var(--line);}
+.service b{color:var(--ink);}
 
 .foot{
-  text-align:center; color:var(--muted); font-size:13.5px;
-  padding:26px 0 50px; border-top:1px solid var(--line);
+  font-family:var(--mono); text-align:center; color:var(--muted); font-size:12px;
+  padding:30px 0 54px; border-top:1px solid var(--line);
 }
 
-@media (max-width:620px){
-  h1{font-size:34px;}
+/* ---------- Command palette ---------- */
+.cmdk{
+  position:fixed; inset:0; z-index:100; display:none; align-items:flex-start; justify-content:center;
+  padding:13vh 20px 20px; background:color-mix(in srgb, var(--ink) 34%, transparent); backdrop-filter:blur(3px);
+}
+.cmdk.open{display:flex;}
+.cmdk-panel{
+  width:100%; max-width:520px; background:var(--card); border:1px solid var(--line);
+  border-radius:14px; box-shadow:0 24px 70px rgba(0,0,0,.28); overflow:hidden;
+}
+.cmdk-input{
+  width:100%; border:none; outline:none; background:transparent; color:var(--ink);
+  font-family:"Inter"; font-size:16px; padding:16px 18px; border-bottom:1px solid var(--line);
+}
+.cmdk-input::placeholder{color:var(--muted);}
+.cmdk-list{max-height:52vh; overflow:auto; padding:6px;}
+.cmdk-item{display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:9px; cursor:pointer;}
+.cmdk-item .ci-name{font-size:14.5px; color:var(--ink);}
+.cmdk-item .ci-kind{margin-left:auto; font-family:var(--mono); font-size:11px; color:var(--muted); text-transform:lowercase;}
+.cmdk-item .ci-ico{width:16px; color:var(--muted); display:inline-grid; place-items:center;}
+.cmdk-item.sel, .cmdk-item:hover{background:var(--accent-soft);}
+.cmdk-item.sel .ci-name{color:var(--accent);}
+.cmdk-empty{padding:20px; text-align:center; color:var(--muted); font-family:var(--mono); font-size:13px;}
+
+/* ---------- Lightbox ---------- */
+.lightbox{
+  position:fixed; inset:0; z-index:120; display:none; align-items:center; justify-content:center;
+  background:color-mix(in srgb, var(--ink) 88%, #000); backdrop-filter:blur(4px); padding:30px; cursor:zoom-out;
+}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:94%; max-height:90%; border-radius:10px; box-shadow:0 24px 70px rgba(0,0,0,.5);}
+.lb-close{position:absolute; top:14px; right:22px; font-size:32px; color:#fff; background:none; border:none; cursor:pointer;}
+
+@media (max-width:900px){
+  .pub-grid, .exp-grid{grid-template-columns:1fr;}
+  .news-list{grid-template-columns:1fr; column-gap:0;}
+}
+@media (max-width:720px){
+  .hero{padding:48px 0 26px;}
+  .hero-inner{grid-template-columns:1fr; gap:28px;}
+  .portrait{width:180px; height:180px;}
   .pub{grid-template-columns:1fr; gap:14px;}
-  .pub-thumb{max-width:300px;}
-  .news-item{grid-template-columns:82px 1fr; gap:12px;}
-  .news-date{font-size:14px;}
-  .year{gap:12px; margin-top:32px;}
-  .year span{font-size:26px;}
-  .tab{padding:11px 11px; font-size:15px;}
+  .pub-figure{max-width:300px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .panel.active{animation:none;}
+  .portrait.active .scan{animation:none; opacity:0;}
 }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <header>
-    <div class="topbar">
-      <button class="toggle" id="themeBtn" aria-label="Toggle theme">
-        <span id="themeIcon">◐</span><span id="themeLabel">Dark</span>
-      </button>
-    </div>
+  <!-- ===== Hero ===== -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="portrait" id="portrait" title="hover to see the model's attention">
+        <img src="images/wesbite_pfp.jpeg" alt="Ritabrata Chakraborty">
+        <div class="heat"></div>
+        <svg class="seg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <rect x="14" y="10" width="72" height="84" rx="1.5"/>
+        </svg>
+        <div class="scan"></div>
+        <div class="tag">person · 0.98</div>
+        <div class="cap"><span id="capText">hover to run inference</span><span class="dot"></span></div>
+      </div>
 
-    <div class="hero">
-      <img class="avatar" src="images/wesbite_pfp.jpeg" alt="Ritabrata Chakraborty">
       <div class="intro">
-        <h1>Ritabrata Chakraborty</h1>
+        <h1>Ritabrata<br>Chakraborty</h1>
         <span class="native">ঋতব্রত চক্রবর্তী</span>
         <p class="tag">
-          Hi! I am an incoming MS CS at <strong>University of Virginia (UVA)</strong>. I did my undergraduate in CS at <strong>Manipal University Jaipur.</strong> I work on understanding how machines
-          see, and how to make them see better.
+          Incoming MS CS at <strong>UVA</strong>, CS undergrad from <strong>Manipal University Jaipur</strong>.
+          I work on understanding how machines see, and how to make them see better.
         </p>
         <div class="links">
           <a href="https://scholar.google.com/citations?user=1VMtl5gAAAAJ&hl=en" target="_blank" rel="noopener">
@@ -261,383 +319,374 @@ nav.tabs{
           <a href="Resume_Ritabrata (53).pdf" target="_blank" rel="noopener">
             <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/><path d="M8 13h8M8 17h5"/></svg>CV</a>
         </div>
+        <p class="hint">press <b>⌘K</b> to get around</p>
       </div>
     </div>
-
-    <nav class="tabs" role="tablist">
-      <button class="tab" role="tab" aria-selected="true"  data-tab="news">News</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="pubs">Publications</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="exp">Experience</button>
-    </nav>
   </header>
+</div>
 
-  <!-- ===== NEWS (7 latest; full list lives in news.html) ===== -->
+<!-- ===== Sticky tab bar ===== -->
+<div class="tabbar">
+  <div class="wrap tabbar-inner">
+    <nav class="tabs" role="tablist">
+      <button class="tab" role="tab" data-tab="news" aria-selected="true">news</button>
+      <button class="tab" role="tab" data-tab="pubs" aria-selected="false">publications</button>
+      <button class="tab" role="tab" data-tab="exp"  aria-selected="false">experience</button>
+    </nav>
+    <div class="ctrls">
+      <button class="kbd" id="openK" aria-label="Open command menu"><span id="kchip">⌘K</span></button>
+      <button class="toggle" id="themeBtn" aria-label="Toggle theme"><span id="themeIcon">◐</span></button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- ===== News ===== -->
   <section class="panel active" id="news" role="tabpanel">
+    <div class="news-top"><a class="arch" href="news.html">full archive →</a></div>
+    <div class="news-list" id="news-list">
+      <div class="yr">2026</div>
 
-    <div class="news-archive-link"><a href="news.html">[archives]</a></div>
+      <div class="news-item" data-year="2026">
+        <div class="news-date">Aug</div>
+        <div class="news-body">Our latest work shows that a frozen text-to-image diffusion transformer already knows how to segment the scenes it generates, with no extra training, giving zero-shot open-vocabulary segmentation. Check out <a href="https://arxiv.org/abs/2608.05878"><b>MaViSeg</b></a>! This came out of a wonderful collaboration with the team at UNC Charlotte, supervised by <a href="https://scholar.google.com/citations?user=GIVbIEgAAAAJ&hl=en">Depeng Xu</a>.</div>
+      </div>
 
-    <!-- Auto-filled from news.html (first 7 .news-item blocks).
-         The markup below is only a fallback for when fetch is unavailable,
-         e.g. opening this file directly over file:// -->
-    <div id="news-list">
+      <div class="news-item" data-year="2026">
+        <div class="news-date">Jul</div>
+        <div class="news-body">After a year-long wait, our paper <a href="https://github.com/pramaniksandip/MoCoMER-V2">MoCoMERV2</a> is accepted <a href="https://link.springer.com/journal/10032">IJDAR!</a> This marks my first journal article, with <a href="https://scholar.google.co.in/citations?hl=en&user=vMx63B4AAAAJ">Prof Nibaran Das</a> and team.</div>
+      </div>
 
-    <div class="year"><span>2026</span></div>
+      <div class="news-item" data-year="2026">
+        <div class="news-date">Jun</div>
+        <div class="news-body">Andha-Dhun, the first ever work on Hindi Audio Descriptions, is accepted at <a href="https://ncvpripg2026.lnmiit.ac.in/">NCVPRIPG 2026!</a> This comes after a year of making movies accessible for Indian Blind and Low Vision audiences, during my thesis research with <a href="https://makarandtapaswi.github.io/">Makarand</a> and <a href="https://www.jio.com/platforms/">Jio Platforms Ltd</a>.</div>
+      </div>
 
-    <div class="news-item" data-year="2026">
-      <div class="news-date">July</div>
-      <div class="news-body">After a year-long wait, our paper MOCOMERV2 is accepted <a href="https://link.springer.com/journal/10032">IJDAR!</a>
-      This marks my first journal article, with <a href="https://scholar.google.co.in/citations?hl=en&user=vMx63B4AAAAJ&view_op=list_works&sortby=pubdate">Prof Nibaran Das</a>
-      and team. Paper coming soon!</div>
+      <div class="news-item" data-year="2026">
+        <div class="news-date">May</div>
+        <div class="news-body">Our <a href="https://openreview.net/forum?id=AJkmF1yHVO">latest work</a> shows that vision-language models struggle to keep track of which words belong to which objects once you switch languages. You can <a href="https://openreview.net/pdf?id=AJkmF1yHVO">read the paper here</a>.</div>
+      </div>
+
+      <div class="yr">2025</div>
+
+      <div class="news-item" data-year="2025">
+        <div class="news-date">Nov</div>
+        <div class="news-body">Our paper <b><a href="https://arxiv.org/abs/2506.17144">“Do We Need Large VLMs for Spotting Soccer Actions?”</a></b> accepted to the <b>IJCNLP-AACL 2025</b> Student Research Workshop as an <b>oral</b>! Part of my minor thesis @ Manipal University Jaipur. Thank you Avijit and Prof. Sandeep Chaurasia!</div>
+      </div>
+
+      <div class="news-item" data-year="2025">
+        <div class="news-date">Oct</div>
+        <div class="news-body">Started as a <b>research intern at the <a href="https://www.manchester.ac.uk/">University of Manchester</a></b> with <a href="https://research.manchester.ac.uk/en/persons/angelo.cangelosi/">Prof. Angelo Cangelosi</a>! Hoping to find ways as to how vision models can "see" better.</div>
+      </div>
+
+      <div class="news-item" data-year="2025">
+        <div class="news-date">Aug</div>
+        <div class="news-body"><b><a href="https://openreview.net/pdf?id=Eduqrz32U7">TruthLens</a></b> accepted to the <b><a href="https://icml.cc/virtual/2025/51033">ICML 2025</a></b> Workshop on Data in Generative Models.</div>
+      </div>
     </div>
-
-    <div class="news-item" data-year="2026">
-      <div class="news-date">June</div>
-      <div class="news-body">Andha-Dhun, the first ever work on Hindi Audio Descriptions, is accepted at <a href="https://ncvpripg2026.lnmiit.ac.in/">NCVPRIPG 2026!</a>
-      This comes after a year long work on making movies accessible for Indian Blind and Low Vision audiences, during my thesis research with <a href="https://makarandtapaswi.github.io/">Makarand</a>
-      and <a href="https://www.jio.com/platforms/">Jio Platforms Ltd</a>.</div>
-    </div>
-
-    <div class="news-item" data-year="2026">
-      <div class="news-date">May</div>
-      <div class="news-body">Our <a href="https://openreview.net/forum?id=AJkmF1yHVO">latest work</a> shows that vision-language models struggle to maintain associations between visual
-      inputs and textual inputs through multiple languages. Details soon...</div>
-    </div>
-
-    <div class="year"><span>2025</span></div>
-
-    <div class="news-item" data-year="2025">
-      <div class="news-date">November</div>
-      <div class="news-body">Our paper <b>“Do We Need Large VLMs for Spotting Soccer Actions?”</b> accepted to the <b>IJCNLP-AACL 2025</b> Student Research Workshop as an <b>oral presentation</b>!
-      This work was part of my minor thesis @ Manipal University Jaipur. Thank you for the collaboration Avijit and Prof. Sandeep Chaurasia!</div>
-    </div>
-
-    <div class="news-item" data-year="2025">
-      <div class="news-date">October</div>
-      <div class="news-body">Started as a <b>research intern at the University of Manchester</b> with Prof. Angelo Cangelosi! Hoping to find ways as to how vision models can "see" better.</div>
-    </div>
-
-    <div class="news-item" data-year="2025">
-      <div class="news-date">August</div>
-      <div class="news-body"><b>TruthLens</b> accepted to the <b>ICML 2025</b> Workshop on Data in Generative Models.</div>
-    </div>
-
-    <div class="news-item" data-year="2025">
-      <div class="news-date">August</div>
-      <div class="news-body">Handwriting recognition paper accepted as an <b>Oral at ACPR 2025</b>.</div>
-    </div>
-
-    </div><!-- /#news-list -->
-
   </section>
 
-   <!-- ===== PUBLICATIONS ===== -->
+  <!-- ===== Publications ===== -->
   <section class="panel" id="pubs" role="tabpanel">
+    <div class="pub-grid">
 
-    <article class="pub">
-      <div class="pub-figure"><img class="pub-thumb" src="images/papers/maviseg.png" alt="MaViSeg: Manifold Propagation and Visual Prototypes for Zero-Shot Open-Vocabulary Segmentation on Diffusion Transformers"></div>
-      <div class="pub-meta">
-        <span class="venue">Under Review · 2026</span>
-        <h3 class="pub-title">MaViSeg: Manifold Propagation and Visual Prototypes for Zero-Shot Open-Vocabulary Segmentation on Diffusion Transformers</h3>
-        <p class="pub-authors">Rajatsubhra Chakraborty*, Xujun Che*, <span class="me">Ritabrata Chakraborty</span>, Xi Niu, Depeng Xu</p>
-        <div class="badges">
-          <a class="badge" href="https://ritabrata04.github.io/maviseg" target="_blank" rel="noopener">Website</a>
-          <a class="badge" href="https://arxiv.org/abs/2608.05878" target="_blank" rel="noopener">Paper</a>
+      <article class="pub">
+        <div class="pub-figure"><img class="pub-thumb" src="images/papers/maviseg.png" alt="MaViSeg"></div>
+        <div>
+          <span class="venue">Under review · 2026</span>
+          <h3 class="pub-title">MaViSeg: Manifold Propagation and Visual Prototypes for Zero-Shot Open-Vocabulary Segmentation on Diffusion Transformers</h3>
+          <p class="pub-authors">Rajatsubhra Chakraborty*, Xujun Che*, <span class="me">Ritabrata Chakraborty</span>, Xi Niu, Depeng Xu</p>
+          <div class="badges">
+            <a class="badge" href="https://ritabrata04.github.io/maviseg" target="_blank" rel="noopener">Website</a>
+            <a class="badge" href="https://arxiv.org/abs/2608.05878" target="_blank" rel="noopener">Paper</a>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <article class="pub">
-      <div class="pub-figure"><img class="pub-thumb" src="images/papers/m2bind.png" alt="Vision-Language Models are Fragile Multilingual Associators"></div>
-      <div class="pub-meta">
-        <span class="venue">Under Review · 2026</span>
-        <h3 class="pub-title">Vision-Language Models are Fragile Multilingual Associators</h3>
-        <p class="pub-authors"><span class="me">Ritabrata Chakraborty</span>, Rajatsubhra Chakraborty, Shivakumara Palaiahnakote, Umapada Pal, Angelo Cangelosi</p>
-        <div class="badges">
-          <a class="badge" href="https://ritabrata04.github.io/m2bind/" target="_blank" rel="noopener">Website</a>
-          <a class="badge" href="https://openreview.net/pdf?id=AJkmF1yHVO" target="_blank" rel="noopener">Paper</a>
-          <a class="badge" href="https://github.com/Ritabrata04/m2bind.git" target="_blank" rel="noopener">Code</a>
-          <a class="badge" href="https://www.alphaxiv.org/overview/2608.vision-language-models-multilingual-binding" target="_blank" rel="noopener">Blog</a>
+      <article class="pub">
+        <div class="pub-figure"><img class="pub-thumb" src="images/papers/m2bind.png" alt="Vision-Language Models are Fragile Multilingual Associators"></div>
+        <div>
+          <span class="venue">Under review · 2026</span>
+          <h3 class="pub-title">Vision-Language Models are Fragile Multilingual Associators</h3>
+          <p class="pub-authors"><span class="me">Ritabrata Chakraborty</span>, Rajatsubhra Chakraborty, Shivakumara Palaiahnakote, Umapada Pal, Angelo Cangelosi</p>
+          <div class="badges">
+            <a class="badge" href="https://ritabrata04.github.io/m2bind/" target="_blank" rel="noopener">Website</a>
+            <a class="badge" href="https://openreview.net/pdf?id=AJkmF1yHVO" target="_blank" rel="noopener">Paper</a>
+            <a class="badge" href="https://github.com/Ritabrata04/m2bind.git" target="_blank" rel="noopener">Code</a>
+            <a class="badge" href="https://www.alphaxiv.org/overview/2608.vision-language-models-multilingual-binding" target="_blank" rel="noopener">Blog</a>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <article class="pub">
-      <div class="pub-figure"><img class="pub-thumb" src="images/papers/mocomer-v2.png" alt="MoCoMER-V2: Mask &amp; Match for Self-Supervised Attention to Recognize Handwritten Math Expression"></div>
-      <div class="pub-meta">
-        <span class="venue">IJDAR · 2026</span>
-        <h3 class="pub-title">MoCoMER-V2: Mask &amp; Match for Self-Supervised Attention to Recognize Handwritten Math Expression</h3>
-        <p class="pub-authors">Sandip Pramanik*, Shree Mitra*, <span class="me">Ritabrata Chakraborty</span>, Nibaran Das</p>
-        <div class="badges">
-          <a class="badge" href="https://link.springer.com/article/10.1007/s10032-026-00610-9" target="_blank" rel="noopener">Paper</a>
-          <a class="badge" href="https://github.com/pramaniksandip/MoCoMER-V2" target="_blank" rel="noopener">Code</a>
+      <article class="pub">
+        <div class="pub-figure"><img class="pub-thumb" src="images/papers/mocomer-v2.png" alt="MoCoMER-V2"></div>
+        <div>
+          <span class="venue">IJDAR · 2026</span>
+          <h3 class="pub-title">MoCoMER-V2: Mask &amp; Match for Self-Supervised Attention to Recognize Handwritten Math Expression</h3>
+          <p class="pub-authors">Sandip Pramanik*, Shree Mitra*, <span class="me">Ritabrata Chakraborty</span>, Nibaran Das</p>
+          <div class="badges">
+            <a class="badge" href="https://link.springer.com/article/10.1007/s10032-026-00610-9" target="_blank" rel="noopener">Paper</a>
+            <a class="badge" href="https://github.com/pramaniksandip/MoCoMER-V2" target="_blank" rel="noopener">Code</a>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-        <!-- <article class="pub">
-      <div class="pub-figure"><img class="pub-thumb" src="images/papers/cambench-qr.png" alt="CAMBench-QR"></div>
-      <div class="pub-meta">
-        <span class="venue">CVPR Workshop (XAI4CV) 2026</span>
-        <h3 class="pub-title">CAMBench-QR: A Structure-Aware Benchmark for Post-Hoc Explanations with QR Understanding</h3>
-        <p class="pub-authors"><span class="me">R. Chakraborty</span>, A. Dasgupta, S. Chaurasia</p>
-        <div class="badges">
-          <a class="badge" href="https://arxiv.org/abs/2509.16745" target="_blank" rel="noopener">Paper</a>
-          <a class="badge" href="https://github.com/Ritabrata04/CAMBENCH-QR.git" target="_blank" rel="noopener">Code</a>
+      <article class="pub">
+        <div class="pub-figure"><span class="oral-flag">Oral</span><img class="pub-thumb" src="images/papers/andha-dhun.png" alt="ANDHA-DHUN"></div>
+        <div>
+          <span class="venue">NCVPRIPG 2026</span>
+          <h3 class="pub-title">ANDHA-DHUN: A First Look at Audio Descriptions in Hindi</h3>
+          <p class="pub-authors"><span class="me">Ritabrata Chakraborty</span>, Divy Kala, Nisheeth Bhooshan Gupta, Ganji Sreeram, Pailla Balakrishna Reddy, Makarand Tapaswi</p>
+          <div class="badges">
+            <a class="badge" href="https://arxiv.org/pdf/2607.06457v1" target="_blank" rel="noopener">Paper</a>
+            <a class="badge" href="https://github.com/katha-ai/AndhaDhun-HindiAD" target="_blank" rel="noopener">Code</a>
+          </div>
         </div>
-      </div>
-    </article> -->
+      </article>
 
-    <!-- <article class="pub">
-      <div class="pub-figure"><img class="pub-thumb" src="images/papers/cdod.png" alt="Cross-Dataset Object Detection"></div>
-      <div class="pub-meta">
-        <span class="venue">Under Review · 2026</span>
-        <h3 class="pub-title">Towards Robust Cross-Dataset Object Detection Generalization under Domain Specificity</h3>
-        <p class="pub-authors"><span class="me">R. Chakraborty</span>*, H. Mitra*, S. Palaiahnakote, U. Pal</p>
-        <div class="badges">
-          <a class="badge" href="https://arxiv.org/abs/2601.09497" target="_blank" rel="noopener">Paper</a>
-          <a class="badge" href="https://github.com/Ritabrata04/cdod-icpr.git" target="_blank" rel="noopener">Code</a>
+      <article class="pub">
+        <div class="pub-figure"><span class="oral-flag">Oral</span><img class="pub-thumb" src="images/papers/soccer.png" alt="Do We Need Large VLMs for Spotting Soccer Actions?"></div>
+        <div>
+          <span class="venue">IJCNLP-AACL 2025 SRW</span>
+          <h3 class="pub-title">Do We Need Large VLMs for Spotting Soccer Actions?</h3>
+          <p class="pub-authors"><span class="me">Ritabrata Chakraborty</span>, Rajatsubhra Chakraborty, Avijit Dasgupta, Sandeep Chaurasia</p>
+          <div class="badges">
+            <a class="badge" href="https://arxiv.org/pdf/2506.17144" target="_blank" rel="noopener">Paper</a>
+          </div>
         </div>
-      </div>
-    </article>
-  -->
-    <article class="pub">
-      <span class="oral-flag">Oral</span>
-      <div class="pub-figure"><img class="pub-thumb" src="images/papers/andha-dhun.png" alt="ANDHA-DHUN: A First Look at Audio Descriptions in Hindi"></div>
-      <div class="pub-meta">
-        <span class="venue">NCVPRIPG 2026</span>
-        <h3 class="pub-title">ANDHA-DHUN: A First Look at Audio Descriptions in Hindi</h3>
-        <p class="pub-authors"><span class="me">Ritabrata Chakraborty</span>, Divy Kala, Nisheeth Bhooshan Gupta, Ganji Sreeram, Pailla Balakrishna Reddy, Makarand Tapaswi</p>
-        <div class="badges">
-          <a class="badge" href="https://arxiv.org/pdf/2607.06457v1" target="_blank" rel="noopener">Paper</a>
-          <a class="badge" href="https://github.com/katha-ai/AndhaDhun-HindiAD" target="_blank" rel="noopener">Code</a>
-        </div>
-      </div>
-    </article>
+      </article>
 
-    <article class="pub">
-      <span class="oral-flag">Oral</span>
-      <div class="pub-figure"><img class="pub-thumb" src="images/papers/soccer.png" alt="Do We Need Large VLMs for Spotting Soccer Actions?"></div>
-      <div class="pub-meta">
-        <span class="venue">IJCNLP-AACL 2025 SRW</span>
-        <h3 class="pub-title">Do We Need Large VLMs for Spotting Soccer Actions?</h3>
-        <p class="pub-authors"><span class="me">Ritabrata Chakraborty</span>, Rajatsubhra Chakraborty, Avijit Dasgupta, Sandeep Chaurasia</p>
-        <div class="badges">
-          <a class="badge" href="https://arxiv.org/pdf/2506.17144" target="_blank" rel="noopener">Paper</a>
+      <article class="pub">
+        <div class="pub-figure"><span class="oral-flag">Oral</span><img class="pub-thumb" src="images/papers/acpr2025.png" alt="A Transformer Based Handwriting Recognition System"></div>
+        <div>
+          <span class="venue">ACPR 2025</span>
+          <h3 class="pub-title">A Transformer Based Handwriting Recognition System Jointly Using Online and Offline Features</h3>
+          <p class="pub-authors">Ayush Lodh*, <span class="me">Ritabrata Chakraborty</span>*, Shivakumara Palaiahnakote, Umapada Pal</p>
+          <div class="badges">
+            <a class="badge" href="https://arxiv.org/abs/2506.20255" target="_blank" rel="noopener">Paper</a>
+            <a class="badge" href="https://github.com/Ritabrata04/icdar2025-context-driven-str" target="_blank" rel="noopener">Code</a>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <article class="pub">
-      <span class="oral-flag">Oral</span>
-      <div class="pub-figure"><img class="pub-thumb" src="images/papers/acpr2025.png" alt="A Transformer Based Handwriting Recognition System"></div>
-      <div class="pub-meta">
-        <span class="venue">ACPR 2025</span>
-        <h3 class="pub-title">A Transformer Based Handwriting Recognition System Jointly Using Online and Offline Features</h3>
-        <p class="pub-authors">Ayush Lodh*, <span class="me">Ritabrata Chakraborty</span>*, Shivakumara Palaiahnakote, Umapada Pal</p>
-        <div class="badges">
-          <a class="badge" href="https://arxiv.org/abs/2506.20255" target="_blank" rel="noopener">Paper</a>
-          <a class="badge" href="https://github.com/Ritabrata04/icdar2025-context-driven-str" target="_blank" rel="noopener">Code</a>
+      <article class="pub">
+        <div class="pub-figure"><span class="oral-flag">Oral</span><img class="pub-thumb" src="images/papers/icdar2025.png" alt="A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition"></div>
+        <div>
+          <span class="venue">ICDAR 2025</span>
+          <h3 class="pub-title">A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition</h3>
+          <p class="pub-authors"><span class="me">Ritabrata Chakraborty</span>, Shivakumara Palaiahnakote, Umapada Pal, Cheng-Lin Liu</p>
+          <div class="badges">
+            <a class="badge" href="https://ritabrata04.github.io/Context-driven-STR/" target="_blank" rel="noopener">Website</a>
+            <a class="badge" href="https://arxiv.org/abs/2503.15639" target="_blank" rel="noopener">Paper</a>
+            <a class="badge" href="https://github.com/Ritabrata04/icdar2025-context-driven-str" target="_blank" rel="noopener">Code</a>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <article class="pub">
-      <span class="oral-flag">Oral</span>
-      <div class="pub-figure"><img class="pub-thumb" src="images/papers/icdar2025.png" alt="A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition"></div>
-      <div class="pub-meta">
-        <span class="venue">ICDAR 2025</span>
-        <h3 class="pub-title">A Lightweight Context-Driven Training-Free Network for Scene Text Segmentation and Recognition</h3>
-        <p class="pub-authors"><span class="me">Ritabrata Chakraborty</span>, Shivakumara Palaiahnakote, Umapada Pal, Cheng-Lin Liu</p>
-        <div class="badges">
-          <a class="badge" href="https://ritabrata04.github.io/Context-driven-STR/" target="_blank" rel="noopener">Website</a>
-          <a class="badge" href="https://arxiv.org/abs/2503.15639" target="_blank" rel="noopener">Paper</a>
-          <a class="badge" href="https://github.com/Ritabrata04/icdar2025-context-driven-str" target="_blank" rel="noopener">Code</a>
+      <article class="pub">
+        <div class="pub-figure"><img class="pub-thumb" src="images/papers/truthlens.png" alt="TruthLens"></div>
+        <div>
+          <span class="venue">ICML Workshop 2025</span>
+          <h3 class="pub-title">TruthLens: Training-Free Data Verification for Deepfake Images via VQA-Style Probing</h3>
+          <p class="pub-authors"><span class="me">Ritabrata Chakraborty</span>, Rajatsubhra Chakraborty, Ali Khaleghi Rahimian</p>
+          <div class="badges">
+            <a class="badge" href="https://openreview.net/pdf?id=Eduqrz32U7" target="_blank" rel="noopener">Paper</a>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <article class="pub">
-      <div class="pub-figure"><img class="pub-thumb" src="images/papers/truthlens.png" alt="TruthLens: Training-Free Data Verification for Deepfake Images via VQA-Style Probing"></div>
-      <div class="pub-meta">
-        <span class="venue">ICML Workshop 2025</span>
-        <h3 class="pub-title">TruthLens: Training-Free Data Verification for Deepfake Images via VQA-Style Probing</h3>
-        <p class="pub-authors"><span class="me">Ritabrata Chakraborty</span>, Rajatsubhra Chakraborty, Ali Khaleghi Rahimian</p>
-        <div class="badges">
-          <a class="badge" href="https://openreview.net/pdf?id=Eduqrz32U7" target="_blank" rel="noopener">Paper</a>
-        </div>
-      </div>
-    </article>
-
+    </div>
   </section>
 
-  <!-- ===== EXPERIENCE ===== -->
+  <!-- ===== Experience ===== -->
   <section class="panel" id="exp" role="tabpanel">
+    <div class="exp-grid">
 
-    <div class="exp">
-      <div class="exp-head">
-        <p class="exp-role">Research Intern · <span class="exp-where">University of Manchester</span></p>
-        <span class="exp-date">Oct 2025 – Present</span>
+      <div class="exp">
+        <div class="exp-head"><p class="exp-role">Research Intern · <span class="exp-where">University of Manchester</span></p><span class="exp-date">Oct 2025 — now</span></div>
+        <p class="exp-advisor">with Prof. Angelo Cangelosi</p>
+        <p class="exp-desc">In-context mechanistic binding for vision-language models: multilingual concept binding and spatial grounding through a causal lens.</p>
       </div>
-      <p class="exp-advisor">with Prof. Angelo Cangelosi</p>
-      <p class="exp-desc">In-context mechanistic binding for vision-language models — studying multilingual concept binding and spatial grounding through a causal lens.</p>
-    </div>
 
-    <div class="exp">
-      <div class="exp-head">
-        <p class="exp-role">Research Intern · <span class="exp-where">ISI Kolkata &amp; University of Salford</span></p>
-        <span class="exp-date">Dec 2023 – Present</span>
+      <div class="exp">
+        <div class="exp-head"><p class="exp-role">Research Intern · <span class="exp-where">ISI Kolkata &amp; Salford</span></p><span class="exp-date">Dec 2023 — now</span></div>
+        <p class="exp-advisor">with Prof. Umapada Pal &amp; Prof. Shivakumara Palaiahnakote</p>
+        <p class="exp-desc">Scene text and handwriting recognition, efficient guided segmentation, and cross-dataset object detection benchmarks — leading to oral papers at ICDAR and ACPR 2025.</p>
       </div>
-      <p class="exp-advisor">with Prof. Umapada Pal &amp; Prof. Shivakumara Palaiahnakote</p>
-      <p class="exp-desc">Scene text and handwriting recognition, efficient guided segmentation, and cross-dataset object detection benchmarks — leading to oral papers at ICDAR and ACPR 2025.</p>
-    </div>
 
-    <div class="exp">
-      <div class="exp-head">
-        <p class="exp-role">Undergraduate Research Assistant · <span class="exp-where">IIIT Hyderabad</span></p>
-        <span class="exp-date">May 2025 – May 2026</span>
+      <div class="exp">
+        <div class="exp-head"><p class="exp-role">Undergraduate Research Assistant · <span class="exp-where">IIIT Hyderabad</span></p><span class="exp-date">May 2025 — May 2026</span></div>
+        <p class="exp-advisor">with Dr. Makarand Tapaswi · Katha-AI</p>
+        <p class="exp-desc">Audio description for Hindi film with the Reliance AI Speech team; introduced ANDHA-DHUN and studied AD translation through Skopos theory.</p>
       </div>
-      <p class="exp-advisor">with Dr. Makarand Tapaswi · Katha-AI group</p>
-      <p class="exp-desc">Audio description for Hindi film with the Reliance AI Speech team; introduced ANDHA-DHUN, a first dataset of Hindi audio descriptions, and studied AD translation through Skopos theory.</p>
-    </div>
 
-    <div class="exp">
-      <div class="exp-head">
-        <p class="exp-role">Resident Researcher · <span class="exp-where">Lossfunk, Bangalore</span></p>
-        <span class="exp-date">Jul – Aug 2025</span>
+      <div class="exp">
+        <div class="exp-head"><p class="exp-role">Resident Researcher · <span class="exp-where">Lossfunk, Bangalore</span></p><span class="exp-date">Jul — Aug 2025</span></div>
+        <p class="exp-advisor">with Paras Chopra · Project Bitvision</p>
+        <p class="exp-desc">Benchmarked 10+ open-source VLMs on QR-code understanding and built CAMBench-QR, a structure-aware benchmark for post-hoc explanations.</p>
       </div>
-      <p class="exp-advisor">with Paras Chopra · Project Bitvision</p>
-      <p class="exp-desc">Benchmarked 10+ open-source VLMs on QR-code understanding and built CAMBench-QR, a structure-aware benchmark for post-hoc explanations.</p>
-    </div>
 
-    <div class="exp">
-      <div class="exp-head">
-        <p class="exp-role">Research Fellow · <span class="exp-where">IIIT Hyderabad (CVIT)</span></p>
-        <span class="exp-date">May – Jul 2024</span>
+      <div class="exp">
+        <div class="exp-head"><p class="exp-role">Research Fellow · <span class="exp-where">IIIT Hyderabad (CVIT)</span></p><span class="exp-date">May — Jul 2024</span></div>
+        <p class="exp-advisor">with Dr. C. V. Jawahar</p>
+        <p class="exp-desc">Scene text recognition for Indic languages; built a batch-wise augmentation pipeline that cut image pre-processing time substantially.</p>
       </div>
-      <p class="exp-advisor">with Dr. C. V. Jawahar</p>
-      <p class="exp-desc">Scene text recognition for Indic languages; built a batch-wise augmentation pipeline that cut image pre-processing time substantially.</p>
-    </div>
 
-    <div class="exp">
-      <div class="exp-head">
-        <p class="exp-role">Research Intern · <span class="exp-where">Purdue University</span></p>
-        <span class="exp-date">Jan – May 2024</span>
+      <div class="exp">
+        <div class="exp-head"><p class="exp-role">Research Intern · <span class="exp-where">Purdue University</span></p><span class="exp-date">Jan — May 2024</span></div>
+        <p class="exp-advisor">with Prof. Vaneet Aggarwal</p>
+        <p class="exp-desc">Reproduced and extended POSNEGDM, a trajectory-based RL model for sepsis treatment, adding Grad-CAM explanations to improve clinical trust.</p>
       </div>
-      <p class="exp-advisor">with Prof. Vaneet Aggarwal</p>
-      <p class="exp-desc">Reproduced and extended POSNEGDM, a trajectory-based RL model for sepsis treatment, adding Grad-CAM explanations to improve clinical trust.</p>
-    </div>
 
-    <div class="exp">
-      <div class="exp-head">
-        <p class="exp-role">Undergraduate Research Assistant · <span class="exp-where">Manipal University Jaipur</span></p>
-        <span class="exp-date">May 2023 – Oct 2024</span>
+      <div class="exp">
+        <div class="exp-head"><p class="exp-role">Undergraduate Research Assistant · <span class="exp-where">Manipal University Jaipur</span></p><span class="exp-date">May 2023 — Oct 2024</span></div>
+        <p class="exp-advisor">with Dr. Sandeep Chaurasia</p>
+        <p class="exp-desc">Built MANN-MITRA, a multimodal depression-detection framework, and a cyberbullying-assessment tool adopted by MUJ counseling.</p>
       </div>
-      <p class="exp-advisor">with Dr. Sandeep Chaurasia</p>
-      <p class="exp-desc">Built MANN-MITRA, a multimodal depression-detection framework, and a tool for anonymously assessing cyberbullying cases adopted by MUJ counseling.</p>
+
     </div>
-
-    <p class="exp-desc" style="margin-top:22px;">
-      <b style="color:var(--ink);">Service.</b> Reviewer for IEEE TIP (2025) and PAKDD 2026.
-      Founder of <a href="https://vlr-muj.github.io/vlr-muj/" target="_blank" rel="noopener">VLR MUJ</a>,
-      Research Head at <a href="https://mujsigai.acm.org/" target="_blank" rel="noopener">ACM SIGAI MUJ</a>.
-    </p>
-
+    <p class="service"><b>Service.</b> Reviewer for IEEE TIP (2025) and PAKDD 2026. Founder of <a href="https://vlr-muj.github.io/vlr-muj/" target="_blank" rel="noopener">VLR MUJ</a>, Research Head at <a href="https://mujsigai.acm.org/" target="_blank" rel="noopener">ACM SIGAI MUJ</a>.</p>
   </section>
 
-  <div class="foot">© <span id="yr"></span> Ritabrata Chakraborty · Built with care</div>
+  <div class="foot">© <span id="yr"></span> Ritabrata Chakraborty · built with care</div>
+</main>
+
+<!-- ===== Command palette ===== -->
+<div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-label="Command menu">
+  <div class="cmdk-panel">
+    <input class="cmdk-input" id="cmdkInput" placeholder="Jump to a tab or open a link…" autocomplete="off" spellcheck="false">
+    <div class="cmdk-list" id="cmdkList"></div>
+  </div>
 </div>
 
 <!-- ===== Lightbox ===== -->
-<div class="lightbox" id="lightbox">
-  <button class="lb-close" aria-label="Close">×</button>
-  <img id="lightbox-img" src="" alt="">
-</div>
+<div class="lightbox" id="lightbox"><button class="lb-close" aria-label="Close">×</button><img id="lightbox-img" src="" alt=""></div>
 
 <script>
-  // ---- Theme ----
+(function(){
   var root = document.documentElement;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- Theme ---- */
   var icon = document.getElementById('themeIcon');
-  var label = document.getElementById('themeLabel');
-  function getStored(){ try{ return localStorage.getItem('theme'); }catch(e){ return null; } }
-  function store(v){ try{ localStorage.setItem('theme', v); }catch(e){} }
-  function applyTheme(t){
-    root.setAttribute('data-theme', t);
-    icon.textContent = t === 'dark' ? '◑' : '◐';
-    label.textContent = t === 'dark' ? 'Light' : 'Dark';
-  }
-  var saved = getStored();
+  function get(){ try{ return localStorage.getItem('theme'); }catch(e){ return null; } }
+  function setLS(v){ try{ localStorage.setItem('theme', v); }catch(e){} }
+  function apply(t){ root.setAttribute('data-theme', t); icon.textContent = t==='dark' ? '◑' : '◐'; }
   var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  applyTheme(saved || (prefersDark ? 'dark' : 'light'));
-  document.getElementById('themeBtn').addEventListener('click', function(){
-    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    applyTheme(next); store(next);
-  });
+  apply(get() || (prefersDark ? 'dark' : 'light'));
+  function toggleTheme(){ var n = root.getAttribute('data-theme')==='dark'?'light':'dark'; apply(n); setLS(n); }
+  document.getElementById('themeBtn').addEventListener('click', toggleTheme);
 
-  // ---- Tabs ----
-  var tabs = document.querySelectorAll('.tab');
-  var panels = document.querySelectorAll('.panel');
-  tabs.forEach(function(t){
-    t.addEventListener('click', function(){
-      tabs.forEach(function(x){ x.setAttribute('aria-selected','false'); });
-      panels.forEach(function(p){ p.classList.remove('active'); });
-      t.setAttribute('aria-selected','true');
-      document.getElementById(t.dataset.tab).classList.add('active');
-      if(history.replaceState) history.replaceState(null,'','#'+t.dataset.tab);
+  /* ---- Tabs ---- */
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  var panels = [].slice.call(document.querySelectorAll('.panel'));
+  function showTab(id){
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', t.dataset.tab===id ? 'true':'false'); });
+    panels.forEach(function(p){ p.classList.toggle('active', p.id===id); });
+    if(history.replaceState) history.replaceState(null,'','#'+id);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ showTab(t.dataset.tab); }); });
+  var h = (location.hash||'').replace('#','');
+  if(h && document.getElementById(h) && document.getElementById(h).classList.contains('panel')) showTab(h);
+
+  /* ---- Portrait: model attention overlay ---- */
+  var p = document.getElementById('portrait'), cap = document.getElementById('capText');
+  var touch = window.matchMedia && window.matchMedia('(hover: none)').matches;
+  if(p){
+    if(touch){ p.classList.add('active'); cap.textContent = 'attention · person'; }
+    else{
+      p.addEventListener('mouseenter', function(){ p.classList.add('active'); cap.textContent = 'attention · person'; });
+      p.addEventListener('mouseleave', function(){ p.classList.remove('active'); cap.textContent = 'hover to run inference'; });
+      p.addEventListener('mousemove', function(e){
+        var r = p.getBoundingClientRect();
+        p.style.setProperty('--mx', ((e.clientX - r.left)/r.width*100)+'%');
+        p.style.setProperty('--my', ((e.clientY - r.top)/r.height*100)+'%');
+      });
+    }
+  }
+
+  /* ---- Command palette ---- */
+  var actions = [
+    {name:'News', kind:'tab', run:function(){ showTab('news'); }},
+    {name:'Publications', kind:'tab', run:function(){ showTab('pubs'); }},
+    {name:'Experience', kind:'tab', run:function(){ showTab('exp'); }},
+    {name:'Google Scholar', kind:'link', run:function(){ openU('https://scholar.google.com/citations?user=1VMtl5gAAAAJ&hl=en'); }},
+    {name:'GitHub', kind:'link', run:function(){ openU('https://github.com/Ritabrata04'); }},
+    {name:'LinkedIn', kind:'link', run:function(){ openU('https://www.linkedin.com/in/ritabrata-chakraborty-69b2551b6/'); }},
+    {name:'X / Twitter', kind:'link', run:function(){ openU('https://x.com/ritabrata04'); }},
+    {name:'Email me', kind:'link', run:function(){ location.href='mailto:ritabrata04@gmail.com'; }},
+    {name:'Download CV', kind:'link', run:function(){ openU('Resume_Ritabrata (53).pdf'); }},
+    {name:'News archive', kind:'link', run:function(){ location.href='news.html'; }},
+    {name:'Toggle light / dark', kind:'action', run:function(){ toggleTheme(); }}
+  ];
+  function openU(u){ window.open(u, '_blank', 'noopener'); }
+
+  var cmdk=document.getElementById('cmdk'), input=document.getElementById('cmdkInput'),
+      list=document.getElementById('cmdkList'), sel=0, filtered=actions.slice();
+  function render(){
+    list.innerHTML='';
+    if(!filtered.length){ list.innerHTML='<div class="cmdk-empty">no matches</div>'; return; }
+    filtered.forEach(function(a,i){
+      var d=document.createElement('div'); d.className='cmdk-item'+(i===sel?' sel':'');
+      d.innerHTML='<span class="ci-ico">'+(a.kind==='tab'?'#':a.kind==='action'?'◐':'↗')+'</span><span class="ci-name">'+a.name+'</span><span class="ci-kind">'+a.kind+'</span>';
+      d.addEventListener('click', function(){ a.run(); closeK(); });
+      d.addEventListener('mousemove', function(){ sel=i; paint(); });
+      list.appendChild(d);
     });
+  }
+  function paint(){ [].forEach.call(list.children, function(c,i){ c.classList.toggle('sel', i===sel); }); }
+  function filter(){
+    var q=input.value.trim().toLowerCase();
+    filtered = actions.filter(function(a){ return a.name.toLowerCase().indexOf(q)>-1 || a.kind.indexOf(q)>-1; });
+    sel=0; render();
+  }
+  function openK(){ cmdk.classList.add('open'); input.value=''; filtered=actions.slice(); sel=0; render(); setTimeout(function(){ input.focus(); },20); }
+  function closeK(){ cmdk.classList.remove('open'); }
+  document.getElementById('openK').addEventListener('click', openK);
+  input.addEventListener('input', filter);
+  cmdk.addEventListener('click', function(e){ if(e.target===cmdk) closeK(); });
+  document.addEventListener('keydown', function(e){
+    if((e.metaKey||e.ctrlKey) && e.key.toLowerCase()==='k'){ e.preventDefault(); cmdk.classList.contains('open')?closeK():openK(); return; }
+    if(!cmdk.classList.contains('open')) return;
+    if(e.key==='Escape'){ closeK(); }
+    else if(e.key==='ArrowDown'){ e.preventDefault(); sel=(sel+1)%filtered.length; paint(); if(list.children[sel]) list.children[sel].scrollIntoView({block:'nearest'}); }
+    else if(e.key==='ArrowUp'){ e.preventDefault(); sel=(sel-1+filtered.length)%filtered.length; paint(); if(list.children[sel]) list.children[sel].scrollIntoView({block:'nearest'}); }
+    else if(e.key==='Enter'){ e.preventDefault(); if(filtered[sel]){ filtered[sel].run(); closeK(); } }
   });
-  // open tab from hash
-  var h = (location.hash || '').replace('#','');
-  if(h){ var b = document.querySelector('.tab[data-tab="'+h+'"]'); if(b) b.click(); }
+  if(!/Mac|iPhone|iPad/.test(navigator.platform)){ document.getElementById('kchip').textContent='Ctrl K'; }
 
-  // ---- Lightbox ----
-  var lb = document.getElementById('lightbox');
-  var lbImg = document.getElementById('lightbox-img');
+  /* ---- Lightbox ---- */
+  var lb=document.getElementById('lightbox'), lbi=document.getElementById('lightbox-img');
   document.querySelectorAll('.pub-thumb').forEach(function(img){
-    img.addEventListener('click', function(){
-      lbImg.src = img.src;
-      lbImg.alt = img.alt;
-      lb.classList.add('open');
-    });
+    img.addEventListener('click', function(){ lbi.src=img.src; lbi.alt=img.alt; lb.classList.add('open'); });
   });
-  function closeLb(){ lb.classList.remove('open'); lbImg.src = ''; }
-  lb.addEventListener('click', closeLb);
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLb(); });
+  lb.addEventListener('click', function(){ lb.classList.remove('open'); lbi.src=''; });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ lb.classList.remove('open'); } });
 
-  // ---- News: pull the N latest items straight from news.html ----
-  // Add a new .news-item (with data-year) to news.html and it shows up here
-  // automatically, year headers included.
-  var NEWS_COUNT = 7;
+  /* ---- News: pull latest from news.html ---- */
   (function syncNews(){
-    var list = document.getElementById('news-list');
-    if(!list || !window.fetch || !window.DOMParser) return;
+    var host=document.getElementById('news-list');
+    if(!host || !window.fetch || !window.DOMParser) return;
     fetch('news.html', {cache:'no-cache'})
-      .then(function(r){ return r.ok ? r.text() : Promise.reject(new Error(r.status)); })
+      .then(function(r){ return r.ok ? r.text() : Promise.reject(); })
       .then(function(html){
-        var doc = new DOMParser().parseFromString(html, 'text/html');
-        var items = doc.querySelectorAll('.list .news-item');
-        if(!items.length) return;                       // keep fallback markup
-        var frag = document.createDocumentFragment(), lastYear = null;
-        Array.prototype.slice.call(items, 0, NEWS_COUNT).forEach(function(n){
-          var y = n.getAttribute('data-year');
-          if(y && y !== lastYear){
-            var h = document.createElement('div');
-            h.className = 'year';
-            var s = document.createElement('span');
-            s.textContent = y;
-            h.appendChild(s);
-            frag.appendChild(h);
-            lastYear = y;
-          }
-          frag.appendChild(document.importNode(n, true));
+        var doc=new DOMParser().parseFromString(html,'text/html');
+        var items=doc.querySelectorAll('.list .news-item'); if(!items.length) return;
+        var frag=document.createDocumentFragment(), last=null;
+        Array.prototype.slice.call(items,0,8).forEach(function(n){
+          var y=n.getAttribute('data-year');
+          if(y&&y!==last){ var d=document.createElement('div'); d.className='yr'; d.textContent=y; frag.appendChild(d); last=y; }
+          var dt=n.querySelector('.news-date'); if(dt) dt.textContent=dt.textContent.trim().slice(0,3);
+          frag.appendChild(document.importNode(n,true));
         });
-        list.innerHTML = '';
-        list.appendChild(frag);
+        host.innerHTML=''; host.appendChild(frag);
       })
-      .catch(function(){ /* offline or file:// — fallback markup stays */ });
+      .catch(function(){});
   })();
 
-  // ---- Year ----
-  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
 </script>
 </body>
 </html>
