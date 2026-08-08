@@ -78,15 +78,19 @@ a:hover{text-decoration:underline; text-underline-offset:3px;}
     var(--accent) 0%, transparent 70%);
 }
 .portrait .seg{position:absolute; inset:0; opacity:0; transition:opacity .3s ease; pointer-events:none;}
-.portrait .seg rect{fill:none; stroke:var(--accent); stroke-width:2; stroke-dasharray:5 4;}
+.portrait .seg .rg{
+  fill:transparent; stroke:var(--accent); stroke-width:1.25; stroke-dasharray:4 3;
+  opacity:.42; vector-effect:non-scaling-stroke; transition:opacity .18s ease, stroke-width .18s ease;
+}
+.portrait .seg .rg.hot{opacity:1; stroke-width:2.25; fill:color-mix(in srgb, var(--accent) 16%, transparent);}
 .portrait .scan{
   position:absolute; left:0; right:0; height:2px; top:0; pointer-events:none;
   background:linear-gradient(90deg, transparent, var(--accent), transparent); opacity:0;
 }
-.portrait .tag{
-  position:absolute; font-family:var(--mono); font-size:11px; font-weight:500;
-  color:#fff; background:var(--accent); padding:2px 7px; border-radius:5px;
-  left:12%; top:9%; opacity:0; transform:translateY(4px); transition:opacity .25s, transform .25s; white-space:nowrap;
+.portrait .chip{
+  position:absolute; font-family:var(--mono); font-size:10.5px; color:#fff;
+  background:var(--accent); padding:2px 7px; border-radius:5px; pointer-events:none;
+  white-space:nowrap; opacity:0; transform:translate(-50%,-150%); transition:opacity .12s ease; z-index:3;
 }
 .portrait .cap{
   position:absolute; left:0; right:0; bottom:0; padding:9px 12px;
@@ -97,10 +101,15 @@ a:hover{text-decoration:underline; text-underline-offset:3px;}
 .portrait .cap .dot{width:7px; height:7px; border-radius:50%; background:var(--muted); transition:background .2s, box-shadow .2s;}
 .portrait.active .heat{opacity:.9;}
 .portrait.active .seg{opacity:1;}
-.portrait.active .tag{opacity:1; transform:none;}
 .portrait.active .cap .dot{background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft);}
 .portrait.active .scan{opacity:1; animation:scan 1.15s ease-in-out;}
 @keyframes scan{0%{top:0;} 100%{top:100%;}}
+
+.pcol{width:300px; display:flex; flex-direction:column; gap:10px;}
+.fmap .cells{display:flex; gap:2px; height:22px; padding:2px; border:1px solid var(--line); border-radius:6px; background:var(--card);}
+.fmap .cells i{flex:1; border-radius:2px; transition:transform .15s ease;}
+.fmap .cells i:hover{transform:scaleY(1.25);}
+.fmap .flab{display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; color:var(--muted); margin-top:5px;}
 
 .intro h1{
   font-family:"Space Grotesk", sans-serif; font-weight:700;
@@ -272,6 +281,7 @@ a:hover{text-decoration:underline; text-underline-offset:3px;}
   .hero{padding:48px 0 26px;}
   .hero-inner{grid-template-columns:1fr; gap:28px;}
   .portrait{width:180px; height:180px;}
+  .pcol{width:180px;}
   .pub{grid-template-columns:1fr; gap:14px;}
   .pub-figure{max-width:300px;}
 }
@@ -287,22 +297,35 @@ a:hover{text-decoration:underline; text-underline-offset:3px;}
   <!-- ===== Hero ===== -->
   <header class="hero">
     <div class="hero-inner">
-      <div class="portrait" id="portrait" title="hover to see the model's attention">
-        <img src="images/wesbite_pfp.jpeg" alt="Ritabrata Chakraborty">
-        <div class="heat"></div>
-        <svg class="seg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          <rect x="14" y="10" width="72" height="84" rx="1.5"/>
-        </svg>
-        <div class="scan"></div>
-        <div class="tag">person · 0.98</div>
-        <div class="cap"><span id="capText">hover to run inference</span><span class="dot"></span></div>
+      <div class="pcol">
+        <div class="portrait" id="portrait" title="hover to inspect detections">
+          <img src="images/wesbite_pfp.jpeg" alt="Ritabrata Chakraborty">
+          <div class="heat"></div>
+          <svg class="seg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <polygon class="rg" data-label="subject · 0.96" points="55.7,17.6 42.6,19.8 39.4,37.7 44.7,50.3 23.7,61.1 15.6,84.2 15.4,114.4 31.7,125 43.8,125 47.5,117 53.8,122.7 73,121.5 75.3,109.5 81.8,108.1 81.8,57.4 67.4,46.2 71.2,29.5 62.6,28.8"/>
+            <rect class="rg" data-label="researcher · 0.99" x="31.4" y="15.4" width="29.3" height="29.3" rx="1"/>
+            <rect class="rg" data-label="prescription · 0.94" x="34" y="22.5" width="26" height="12" rx="1"/>
+            <rect class="rg" data-label="flora · 0.88" x="63" y="0" width="37" height="56" rx="1"/>
+            <rect class="rg" data-label="manifesto · 0.82" x="32" y="68" width="46" height="30" rx="1"/>
+          </svg>
+          <div class="scan"></div>
+          <div class="chip" id="chip"></div>
+          <div class="cap"><span id="capText">hover to run inference</span><span class="dot"></span></div>
+        </div>
+        <div class="fmap" aria-hidden="true">
+          <div class="cells">
+            <i style="background:#393528"></i><i style="background:#3e3a2b"></i><i style="background:#4f4636"></i><i style="background:#625546"></i><i style="background:#59473c"></i><i style="background:#68554a"></i><i style="background:#63554e"></i><i style="background:#564743"></i><i style="background:#554640"></i><i style="background:#4d433c"></i><i style="background:#423b35"></i><i style="background:#38342d"></i><i style="background:#312d25"></i><i style="background:#2e2e23"></i><i style="background:#1e2216"></i><i style="background:#151a10"></i>
+          </div>
+          <div class="flab"><span>feature map</span><span>pooled · 1×16</span></div>
+        </div>
       </div>
 
       <div class="intro">
         <h1>Ritabrata<br>Chakraborty</h1>
         <span class="native">ঋতব্রত চক্রবর্তী</span>
         <p class="tag">
-          Incoming MS CS at <strong>UVA</strong>, CS undergrad from <strong>Manipal University Jaipur</strong>.
+          Hi! I am a researcher at the <strong>University of Manchester</strong> and <strong>ISI Kolkata</strong>.
+          I did my undergraduate in CS at <strong>Manipal University Jaipur</strong>.
           I work on understanding how machines see, and how to make them see better.
         </p>
         <div class="links">
@@ -590,18 +613,33 @@ a:hover{text-decoration:underline; text-underline-offset:3px;}
   var h = (location.hash||'').replace('#','');
   if(h && document.getElementById(h) && document.getElementById(h).classList.contains('panel')) showTab(h);
 
-  /* ---- Portrait: model attention overlay ---- */
+  /* ---- Portrait: real detections from the photo ---- */
   var p = document.getElementById('portrait'), cap = document.getElementById('capText');
   var touch = window.matchMedia && window.matchMedia('(hover: none)').matches;
   if(p){
-    if(touch){ p.classList.add('active'); cap.textContent = 'attention · person'; }
+    var svg = p.querySelector('.seg'), chip = document.getElementById('chip');
+    var regions = [].slice.call(svg.querySelectorAll('.rg'));
+    var pt = svg.createSVGPoint ? svg.createSVGPoint() : null;
+    function hit(nx,ny){
+      if(!pt) return null; pt.x=nx; pt.y=ny;
+      for(var i=regions.length-1;i>=0;i--){ try{ if(regions[i].isPointInFill(pt)) return regions[i]; }catch(e){} }
+      return null;
+    }
+    if(touch){ p.classList.add('active'); cap.textContent='5 regions detected'; }
     else{
-      p.addEventListener('mouseenter', function(){ p.classList.add('active'); cap.textContent = 'attention · person'; });
-      p.addEventListener('mouseleave', function(){ p.classList.remove('active'); cap.textContent = 'hover to run inference'; });
+      p.addEventListener('mouseenter', function(){ p.classList.add('active'); cap.textContent='move to inspect'; });
+      p.addEventListener('mouseleave', function(){
+        p.classList.remove('active'); cap.textContent='hover to run inference';
+        chip.style.opacity=0; regions.forEach(function(r){ r.classList.remove('hot'); });
+      });
       p.addEventListener('mousemove', function(e){
-        var r = p.getBoundingClientRect();
-        p.style.setProperty('--mx', ((e.clientX - r.left)/r.width*100)+'%');
-        p.style.setProperty('--my', ((e.clientY - r.top)/r.height*100)+'%');
+        var r=p.getBoundingClientRect(), lx=e.clientX-r.left, ly=e.clientY-r.top;
+        var nx=lx/r.width*100, ny=ly/r.height*100;
+        p.style.setProperty('--mx', nx+'%'); p.style.setProperty('--my', ny+'%');
+        var hitR=hit(nx,ny);
+        regions.forEach(function(rg){ rg.classList.toggle('hot', rg===hitR); });
+        if(hitR){ chip.textContent=hitR.dataset.label; chip.style.left=lx+'px'; chip.style.top=ly+'px'; chip.style.opacity=1; }
+        else{ chip.style.opacity=0; }
       });
     }
   }
