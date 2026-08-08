@@ -12,30 +12,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* Palette — "Studio": matches index.html. Retune via --accent only. */
 :root{
-  --paper:#f6f2ea;
-  --paper-2:#efe9de;
-  --ink:#1d1a16;
-  --ink-soft:#4a443b;
-  --muted:#857b6c;
-  --line:#ddd4c5;
-  --accent:#b5471f;
-  --accent-soft:#b5471f1a;
-  --card:#fffdf8;
-  --shadow:0 1px 2px rgba(40,30,15,.05), 0 10px 30px rgba(40,30,15,.06);
+  --paper:#f4f4f2;
+  --paper-2:#ebebe7;
+  --ink:#18191b;
+  --ink-soft:#43454a;
+  --muted:#8a8c91;
+  --line:#e4e3dd;
+  --accent:#3644c9;
+  --accent-soft:#3644c914;
+  --card:#fcfcfb;
+  --shadow:0 1px 3px rgba(20,20,25,.05);
   --maxw:840px;
 }
 html[data-theme="dark"]{
-  --paper:#14130f;
-  --paper-2:#1b1915;
-  --ink:#ece7dd;
-  --ink-soft:#bdb6a8;
-  --muted:#8a8273;
-  --line:#2c2922;
-  --accent:#e07a4a;
-  --accent-soft:#e07a4a1f;
-  --card:#1c1a15;
-  --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 34px rgba(0,0,0,.34);
+  --paper:#0e0f11;
+  --paper-2:#16171a;
+  --ink:#ececee;
+  --ink-soft:#b6b8bd;
+  --muted:#7b7d83;
+  --line:#25262a;
+  --accent:#8b97fa;
+  --accent-soft:#8b97fa1f;
+  --card:#151619;
+  --shadow:0 1px 3px rgba(0,0,0,.35);
 }
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;}
@@ -44,7 +45,7 @@ body{
   color:var(--ink);
   font-family:"Hanken Grotesk", system-ui, sans-serif;
   font-size:17px;
-  line-height:1.6;
+  line-height:1.62;
   -webkit-font-smoothing:antialiased;
   transition:background .35s ease, color .35s ease;
 }
@@ -197,7 +198,7 @@ h1{
 
     <div class="news-item" data-year="2025">
       <div class="news-date">May</div>
-      <div class="news-body">Joined <b>CVIT</b> @ <b>IIIT Hyderabad</b> as a research intern! I will be working with Prof. Makarand Tapaswi along with Jio Platforms Ltd. on generating accessible
+      <div class="news-body">Joined <b><a href="https://cvit.iiit.ac.in/">CVIT</a></b> @ <b><a href="https://www.iiit.ac.in/">IIIT Hyderabad</a></b> as a research intern! I will be working with <a href="https://makarandtapaswi.github.io/">Prof. Makarand Tapaswi</a> along with <a href="https://www.jio.com/platforms/">Jio Platforms Ltd.</a> on generating accessible
       audio descriptions for Indian movies.</div>
     </div>
 
@@ -205,7 +206,7 @@ h1{
 
     <div class="news-item" data-year="2024">
       <div class="news-date">May</div>
-      <div class="news-body">Awarded the <b>IAS–NASI–INSA Summer Research Fellowship</b> (≈200 students nationwide).</div>
+      <div class="news-body">Awarded the <b><a href="https://webjapps.ias.ac.in/SEP/SummerFellowships.jsp">IAS–NASI–INSA Summer Research Fellowship</a></b> (≈200 students nationwide).</div>
     </div>
 
   </section>
